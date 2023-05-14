@@ -1,15 +1,9 @@
 function biggestElement(array) {
-    let biggestNum = array[0][0];
-
-    for(let i = 0; i < array.length; i++) {
-        for(let j = 0; j < array[i].length; j++) {
-            if(array[i][j] > biggestNum) {
-                biggestNum = array[i][j];
-            }
-        }
+    let res = [];
+    for(let el of array) {
+        res.push(Math.max(...el));
     }
-
-    return biggestNum;
+    return Math.max(...res);
 }
 
 console.log(biggestElement([[20, 50, 10],
