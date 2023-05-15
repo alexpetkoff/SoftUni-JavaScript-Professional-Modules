@@ -37,7 +37,7 @@ function ticTacToe(input) {
         }
 
         let isEqualDiagonalOne = (gameBoard[0][0] === gameBoard[1][1] && gameBoard[0][0] === gameBoard[2][2] && gameBoard[0][0] != false) ? true : false;
-        let isEqualDiagonalTwo = (gameBoard[0][2] === gameBoard[1][1] && gameBoard[2][0] === gameBoard[2][2] && gameBoard[0][2] != false) ? true : false;
+        let isEqualDiagonalTwo = (gameBoard[0][2] === gameBoard[1][1] && gameBoard[0][2] === gameBoard[2][0] && gameBoard[0][2] != false) ? true : false;
         let isEqualColumnOne = (gameBoard[0][0] === gameBoard[1][0] && gameBoard[0][0] === gameBoard[2][0] && gameBoard[0][0] != false) ? true : false;
         let isEqualColumnTwo = (gameBoard[0][2] === gameBoard[1][2] && gameBoard[0][2] === gameBoard[2][2] && gameBoard[0][2] != false) ? true : false;
         let isEqualColumnThree = (gameBoard[0][1] === gameBoard[1][1] && gameBoard[0][1] === gameBoard[2][1] && gameBoard[0][1] != false) ? true : false;
