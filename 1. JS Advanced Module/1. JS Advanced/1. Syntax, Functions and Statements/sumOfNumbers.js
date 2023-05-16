@@ -11,4 +11,4 @@ function sumOfNumbers(x, y) {
     console.log(result)
 }
 
-sumOfNumbers('1', '5');
+sumOfNumbers('-8', '20');
