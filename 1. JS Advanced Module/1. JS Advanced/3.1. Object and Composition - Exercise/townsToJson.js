@@ -7,7 +7,7 @@ function townsToJSON(array) {
     let longitude = firstRow[3].trim();
 
     for (let i = 0; i < array.length; i++) {
-        let row = array[i].split('|')
+        let row = array[i].split('|');
         let currentTown = row[1].trim();
         let currentLat = +row[2].trim();
         let currentLong = +row[3].trim();
