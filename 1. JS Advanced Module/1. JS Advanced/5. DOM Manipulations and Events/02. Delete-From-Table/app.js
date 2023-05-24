@@ -18,5 +18,4 @@ function deleteByEmail() {
     } else {
         resultDiv.textContent = 'Not found.'
     }
-
 }
