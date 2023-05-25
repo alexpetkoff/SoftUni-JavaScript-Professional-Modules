@@ -13,6 +13,5 @@ function addItem() {
     a.addEventListener('click', function(event) {
         let link = event.target;
         link.parentElement.remove();
-    })
-  
+    });
 }
