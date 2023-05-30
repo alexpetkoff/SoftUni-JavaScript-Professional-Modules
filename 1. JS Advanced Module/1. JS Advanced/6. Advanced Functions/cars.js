@@ -15,7 +15,7 @@ function cars(commands) {
             for(let key in listCars[name]) {
                 output.push(`${key}:${listCars[name][key]}`)
             }
-            console.log(output.join(','))
+            console.log(output.join(','));
         }
     };
 
@@ -23,7 +23,7 @@ function cars(commands) {
         let array = cmd.split(' ');
         let [command, name, k, v] = [...array];
         if(command === 'create') {
-            array.length > 2 ? functionality.inherit(name, v) : functionality.create(name);
+            k != undefined ? functionality.inherit(name, v) : functionality.create(name);
         } else {
             command === 'set' ? functionality.set(name, k, v) : functionality.print(name);
         }
