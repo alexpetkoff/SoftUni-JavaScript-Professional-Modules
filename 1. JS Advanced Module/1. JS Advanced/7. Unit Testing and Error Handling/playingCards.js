@@ -2,11 +2,12 @@ function playingCards(face, suit) {
     const faces = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
     const suits = {'S': '\u2660', 'H': '\u2665', 'D': '\u2666', 'C': '\u2663'};
     
-    if (faces.indexOf(face) === -1) {
-        throw new Error('Invalid Card: ');
+    if(!suits.hasOwnProperty(suit)) {
+        throw new Error('Error');
     }
-    if(suits[suit] == undefined) {
-        throw new Error('Invalid suit');
+
+    if (faces.indexOf(face) === -1) {
+        throw new Error('Error');
     } 
 
     const result = {face, suit : suits[suit], toString() {
@@ -17,4 +18,4 @@ function playingCards(face, suit) {
   
 }
 
-console.log(playingCards('1', 'C').toString());
+console.log(playingCards('A', 'C').toString());

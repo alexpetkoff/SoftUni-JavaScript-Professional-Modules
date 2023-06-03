@@ -1,0 +1,18 @@
+{
+  "name": "7.-unit-testing-and-error-handling",
+  "version": "1.0.0",
+  "description": "first-time-mocha-and-chai",
+  "main": "deckOfCards.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mocha",
+    "chai"
+  ],
+  "author": "Aleks Petkov",
+  "license": "MIT",
+  "dependencies": {
+    "chai": "^4.3.7"
+  }
+}

@@ -1,3 +1,5 @@
+module.exports = { subSum }; 
+
 function subSum(array, start, end) {
 
     if(!Array.isArray(array)) {
