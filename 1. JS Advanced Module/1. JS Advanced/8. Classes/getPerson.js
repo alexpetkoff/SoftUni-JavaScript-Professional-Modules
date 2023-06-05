@@ -17,8 +17,9 @@ function getPerson() {
     const person2 = new Person('SoftUni');
     const person3 = new Person('Stephan', 'Johnson', 25,);
     const person4 = new Person('Gabriel', 'Peterson', 24, 'g.p@gmail.com');
+    const arrayResult = [person1, person2, person3, person4];
 
-    return [person1.toString(), person2.toString(), person3.toString(), person4.toString()];
+    return arrayResult;
 
 }
 
