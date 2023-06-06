@@ -9,7 +9,7 @@ class Circle {
     }
 
     set diameter(value) {
-        return this.radius = value / 2;
+        this.radius = value / 2;
     }
 
     get area() {
