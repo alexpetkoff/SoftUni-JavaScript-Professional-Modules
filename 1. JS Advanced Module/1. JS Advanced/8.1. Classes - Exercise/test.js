@@ -1,7 +1,5 @@
-num = '1';
+let test = ['Stanimir', 'Stan', 'Qvor', 'Qvora'];
 
-if(isNaN(num)) {
-    console.log('ahhh')
-} else {
-    console.log(num)
-}
+test.sort((a,b) => a.localeCompare(b))
+
+console.log(test)
