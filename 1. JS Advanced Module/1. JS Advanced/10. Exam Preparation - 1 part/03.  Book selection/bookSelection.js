@@ -1,4 +1,5 @@
 const bookSelection = {
+
   isGenreSuitable(genre, age) {
     if (age <= 12 && (genre === "Thriller" || genre === "Horror")) {
       return `Books with ${genre} genre are not suitable for kids at ${age} age`;
@@ -6,6 +7,7 @@ const bookSelection = {
       return `Those books are suitable`;
     }
   },
+
   isItAffordable(price, budget) {
     if (typeof price !== "number" || typeof budget !== "number") {
       throw new Error("Invalid input");
@@ -19,6 +21,7 @@ const bookSelection = {
       return `Book bought. You have ${result}$ left`;
     }
   },
+  
   suitableTitles(array, wantedGenre) {
     let resultArr = [];
 
