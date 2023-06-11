@@ -100,8 +100,7 @@ describe("Tests of bookSelection object:", function () {
 
         it("if books is not an array and genre is not a string", function () {
             let books = 12;
-            let genre = 123
-            
+            let genre = 123; 
             expect(() => bookSelection.suitableTitles(books, genre)).to.throw("Invalid input");
         });
         
