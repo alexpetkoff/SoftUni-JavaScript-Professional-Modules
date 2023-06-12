@@ -54,7 +54,6 @@ const carService = {
 
 // Testing using Mocha and Chai;
 
-
 describe("Tests carService object...", function () {
 
     describe("Test isItExpensive(issue) func...", function () {
