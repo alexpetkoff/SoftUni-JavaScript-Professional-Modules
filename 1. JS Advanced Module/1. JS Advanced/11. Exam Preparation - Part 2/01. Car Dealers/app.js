@@ -19,9 +19,7 @@ function solve() {
 
     let tbody = document.getElementById('table-body');
     let tr = document.createElement('tr');
-    tr.classList.add('row')
-
-
+    tr.classList.add('row');
 
     if(make.value != '' && model.value != '' && originalCost.value != '' &&
        sellingPrice.value != '' && prodYear.value != '' && fuelType.value != '' && (Number(originalCost.value) <= Number(sellingPrice.value))) {
