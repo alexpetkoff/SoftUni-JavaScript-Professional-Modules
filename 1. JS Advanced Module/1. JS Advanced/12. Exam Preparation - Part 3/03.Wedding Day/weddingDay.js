@@ -1,4 +1,5 @@
 const weddingDay = {
+  
     pickVenue(capacity,pricePerGuest,location) {
         if (typeof capacity !== 'number' || typeof pricePerGuest !== 'number' || typeof location !== 'string' || location === '') {
             throw new Error("Invalid Information!")
