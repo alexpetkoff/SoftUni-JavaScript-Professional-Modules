@@ -15,10 +15,6 @@ function solution() {
   let continueBtn = document.getElementById('continueBTN');
   continueBtn.addEventListener('click', continueFunc);
 
-  let div = document.getElementById('block');
-  console.log(div.children)
-
-
   function submitInfo() {
 
     if (fullName.value === '' || email.value === '') {
