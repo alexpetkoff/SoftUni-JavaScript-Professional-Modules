@@ -43,7 +43,7 @@ function solution() {
         sendBtn.addEventListener('click', (e) => {
             let currentLi = e.target.parentElement;
             let ul = sentGiftsSection.getElementsByTagName('ul')[0];
-            ul.appendChild(currentLi)
+            ul.appendChild(currentLi);
 
             sendBtn.remove();
             discardBtn.remove();
@@ -53,7 +53,7 @@ function solution() {
         discardBtn.addEventListener('click', (e) => {
             let currentLi = e.target.parentElement;
             let ul = discardedSection.getElementsByTagName('ul')[0];
-            ul.appendChild(currentLi)
+            ul.appendChild(currentLi);
 
             sendBtn.remove();
             discardBtn.remove();
