@@ -79,19 +79,102 @@ class ChristmasMovies {
         }
     }
 }
-let christmas = new ChristmasMovies();
 
-console.log(christmas.buyMovie('Last Christmas', ['Madison Ingoldsby', 'Emma Thompson', 'Boris Isakovic', 'Madison Ingoldsby']));
-console.log(christmas.buyMovie('Home Alone', ['Macaulay Culkin', 'Joe Pesci', 'Daniel Stern']));
-console.log(christmas.buyMovie('Home Alone 2', ['Macaulay Culkin']));
-console.log(christmas.buyMovie('The Grinch', ['Benedict Cumberbatch', 'Rashida Jones']));
-christmas.watchMovie('The Grinch');
-console.log(christmas.discardMovie('The Grinch'));
-christmas.watchMovie('Home Alone');
-christmas.watchMovie('Home Alone');
-christmas.watchMovie('Home Alone');
-christmas.watchMovie('Last Christmas');
-christmas.watchMovie('Last Christmas');
-console.log(christmas.favouriteMovie());
-console.log(christmas.mostStarredActor());
-// module.exports = ChristmasMovies;
+///// UNIT TESTING USING MOCHA AND CHAI //////
+const expect = require('chai').expect;
+
+describe("Tests ChristmasMovies class:", function () {
+
+    let christmas;
+
+    beforeEach(function () {
+        christmas = new ChristmasMovies();
+    });
+
+    describe("constructor tests:", function () {
+
+        it('should initialize properties correctly...', () => {
+            expect(christmas.movieCollection).to.deep.equal([]);
+            expect(christmas.watched).to.deep.equal({});
+            expect(christmas.actors).to.deep.equal([]);
+        });
+
+    });
+
+    describe("buyMovie tests:", function () {
+
+        it('If you dont have the movie in your collection, you should add it..and if only unique actors are added..', () => {
+
+            let movieName = 'Die Hard 4';
+            let actors = ['Bruce Willis', 'Bruce Willis']
+
+            expect(christmas.buyMovie(movieName, actors)).to.equal(`You just got ${movieName} to your collection in which Bruce Willis are taking part!`);
+            expect(() => christmas.buyMovie(movieName, actors)).to.throw(`You already own ${movieName} in your collection!`);
+
+        });
+
+    });
+
+    describe("discardMovie(movieName)", function () {
+
+        it('should throw error if the movie is not in the collection', () => {
+            expect(() => christmas.discardMovie('Sex and the City :D :D :D')).to.throw(`Sex and the City :D :D :D is not at your collection!`);
+        });
+
+        it('should throw error if movie is not watched', () => {
+            christmas.buyMovie('Die Hard', ['Bruce Willis']);
+            expect(() => christmas.discardMovie('Die Hard')).to.throw(`Die Hard is not watched!`);
+        });
+
+        it('should correctly discard movie', () => {
+            christmas.buyMovie('Die Hard', ['Bruce Willis']);
+            christmas.watchMovie('Die Hard');
+            expect(christmas.discardMovie('Die Hard')).to.equal(`You just threw away Die Hard!`);
+        });
+
+    });
+
+    describe("favouriteMovie tests", function () {
+
+        it('should throw error if nothing is watched', () => {
+            expect(() => christmas.favouriteMovie()).to.throw('You have not watched a movie yet this year!');
+        });
+
+        it('should return the most watched movie + counter', () => {
+
+            christmas.buyMovie('Die Hard', ['Bruce Willis']);
+            christmas.watchMovie('Die Hard');
+            christmas.buyMovie('Two Girls One Cup', ['Girl One', 'Girl Two']);
+            christmas.watchMovie('Two Girls One Cup');
+            christmas.watchMovie('Two Girls One Cup');
+
+            expect(christmas.favouriteMovie()).to.equal(`Your favourite movie is Two Girls One Cup and you have watched it 2 times!`);
+        });
+
+    });
+
+    describe("watchMovie(movieName) tests:", function () {
+
+        it('throw error if movie is not bought', () => {
+            expect(() => christmas.watchMovie('How I Met Your Mother')).to.throw('No such movie in your collection!');
+        });
+
+    });
+
+    describe("mostStarredActor tests..", function () {
+
+        it('should throw error if nothing was watched', () => {
+            expect(() => christmas.mostStarredActor()).to.throw('You have not watched a movie yet this year!');
+        });
+
+        it('should return the most starred actor and the movies count', () => {
+            christmas.buyMovie('Mama ti i zadacha', ['Typa i gadna']);
+            christmas.buyMovie('Mama ti i zadacha 2', ['Typa i gadna']);
+            christmas.buyMovie('Die Hard', ['Bruce Willis']);
+
+            expect(christmas.mostStarredActor()).to.equal(`The most starred actor is Typa i gadna and starred in 2 movies!`);
+        });
+
+    });
+
+});
