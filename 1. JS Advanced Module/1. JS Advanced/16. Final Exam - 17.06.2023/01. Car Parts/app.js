@@ -117,7 +117,6 @@ function solve() {
                                 li.remove();
                                 nextBtn.disabled = false;
                         });
-
                 });
         }
 
