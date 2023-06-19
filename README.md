@@ -16,4 +16,4 @@ aswell as all the Certificates.
 </ul>
 
 <h2>Certificates:</h2>
-![174233](https://github.com/alexpetkoff/SoftUni-JavaScript-Professional-Modules/assets/132137247/171bdee4-cb1c-46f4-8be5-4488664dcc95)
+<img src="https://github.com/alexpetkoff/SoftUni-JavaScript-Professional-Modules/assets/132137247/171bdee4-cb1c-46f4-8be5-4488664dcc95"/>
