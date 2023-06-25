@@ -1,9 +1,9 @@
 function solve() {
 
     let id = 'depot';
-    let departBtn = document.getElementById('depart');
-    let arriveBtn = document.getElementById('arrive');
-    let span = document.querySelector('.info');
+    const departBtn = document.getElementById('depart');
+    const arriveBtn = document.getElementById('arrive');
+    const span = document.querySelector('.info');
 
     async function depart() {
 
@@ -12,8 +12,8 @@ function solve() {
             const response = await fetch(url);
             const data = await response.json();
             
-            let name = data.name;
-            let next = data.next;
+            const name = data.name;
+            const next = data.next;
             id = next;
             span.textContent = `Next stop ${name}`;
 
