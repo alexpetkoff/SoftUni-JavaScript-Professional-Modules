@@ -14,9 +14,9 @@ function lockedProfile() {
                 const { _id, username, email, age } = user;
                 const [radioLock, radioUnlock, _username, _email, _age] = Array.from(inputs);
                 
-                _username.value = username;
-                _email.value = email;
-                _age.value = age;
+                _username.setAttribute('value', username);
+                _email.setAttribute('value', email);
+                _age.setAttribute('value', age);
                 radioLock.setAttribute('name', `${username}Lock`);
                 radioUnlock.setAttribute('name', `${username}Lock`);
 
@@ -25,13 +25,10 @@ function lockedProfile() {
                 button.addEventListener('click', showHide)
                 main.appendChild(currentUserProfile);
             });
-
         });
-
 }
 
 function showHide(event) {
-
     const button = event.target;
     const profile = button.parentElement;
     const currentRadioLock = profile.children[2];
