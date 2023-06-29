@@ -17,28 +17,66 @@ async function getRecipeById(id) {
 async function appendRecipes() {
 
     const recipes = await loadRecipes();
-    console.log(Object.values(recipes));
     const main = document.querySelector('main');
     main.innerHTML = '';
 
     Object.values(recipes).forEach(recipe => {
-        const article = createRecipe('article', { className: 'preview', onClick: viewContent });
+        const article2 = createRecipe('article', { className: 'preview', onClick: toggleCard });
         const div = createRecipe('div', { className: 'title' });
         const h2 = createRecipe('h2', {}, recipe.name);
         const divSmall = createRecipe('div', { className: 'small' });
         const img = createRecipe('img', { src: recipe.img });
 
         div.appendChild(h2);
-        article.appendChild(div);
+        article2.appendChild(div);
         divSmall.appendChild(img);
-        article.appendChild(divSmall);
-        main.appendChild(article);
+        article2.appendChild(divSmall);
+        main.appendChild(article2);
+
+
+        async function toggleCard() {
+            const fullRecipe = await getRecipeById(recipe._id);
+            
+            article2.replaceWith(viewContent(fullRecipe));
+        }
     });
 
 }
 
-async function viewContent(event) {
-    console.log('ima event');
+function viewContent(fullRecipe) {
+   
+    const article = createRecipe('article', {});
+    const h2 = createRecipe('h2', {}, fullRecipe.name);
+    article.appendChild(h2);
+    const divBand = createRecipe('div', {className: 'band'});
+    const divThumb = createRecipe('div', {className: 'thumb'});
+
+    const img = createRecipe('img', {src: fullRecipe.img});
+    divThumb.appendChild(img);
+    divBand.appendChild(divThumb);
+    const divIngr = createRecipe('div', {className: 'ingredients'});
+
+    const h3 = createRecipe('h3', {}, 'Ingredients:');
+    const ul = createRecipe('ul', {});
+    fullRecipe.ingredients.forEach(i => {
+        const li = document.createElement('li');
+        li.textContent = i;
+        ul.appendChild(li);
+    });
+    divIngr.appendChild(h3);
+    divIngr.appendChild(ul);
+    divBand.appendChild(divIngr);
+    article.appendChild(divBand);
+    const divDesc = createRecipe('div', { className: 'description'});
+    const h3Prep = createRecipe('h3', {}, 'Preparation:');
+    divDesc.appendChild(h3Prep);
+    fullRecipe.steps.forEach(s => {
+        const p = createRecipe('p', {}, s);
+        divDesc.appendChild(p);
+    });
+    article.appendChild(divDesc);
+
+    return article;
 }
 
 window.addEventListener('load', async () => {
