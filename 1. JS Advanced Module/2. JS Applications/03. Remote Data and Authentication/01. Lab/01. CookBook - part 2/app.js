@@ -3,7 +3,7 @@ async function loadRecipes() {
     const response = await fetch('http://localhost:3030/jsonstore/cookbook/recipes');
     const recipes = await response.json();
 
-    return recipes;
+    return Object.values(recipes);
 }
 
 async function getRecipeById(id) {
@@ -14,76 +14,51 @@ async function getRecipeById(id) {
     return recipe;
 }
 
-async function appendRecipes() {
+function showRecipes(recipes) {
 
-    const recipes = await loadRecipes();
-    const main = document.querySelector('main');
-    main.innerHTML = '';
+    const result =
+        createRecipe('article', { className: 'preview', onClick: toggleCard },
+            createRecipe('div', { className: 'title' },
+                createRecipe('h2', {}, recipes.name)),
+            createRecipe('div', { className: 'small' },
+                createRecipe('img', { src: recipes.img })),);
 
-    Object.values(recipes).forEach(recipe => {
-        const article2 = createRecipe('article', { className: 'preview', onClick: toggleCard });
-        const div = createRecipe('div', { className: 'title' });
-        const h2 = createRecipe('h2', {}, recipe.name);
-        const divSmall = createRecipe('div', { className: 'small' });
-        const img = createRecipe('img', { src: recipe.img });
+    return result;
 
-        div.appendChild(h2);
-        article2.appendChild(div);
-        divSmall.appendChild(img);
-        article2.appendChild(divSmall);
-        main.appendChild(article2);
-
-
-        async function toggleCard() {
-            const fullRecipe = await getRecipeById(recipe._id);
-            
-            article2.replaceWith(viewContent(fullRecipe));
-        }
-    });
-
+    async function toggleCard(e) {
+        const fullRecipe = await getRecipeById(recipes._id);
+        result.replaceWith(showRecipesInfo(fullRecipe));
+    }
 }
 
-function viewContent(fullRecipe) {
-   
-    const article = createRecipe('article', {});
-    const h2 = createRecipe('h2', {}, fullRecipe.name);
-    article.appendChild(h2);
-    const divBand = createRecipe('div', {className: 'band'});
-    const divThumb = createRecipe('div', {className: 'thumb'});
+function showRecipesInfo(recipe) {
 
-    const img = createRecipe('img', {src: fullRecipe.img});
-    divThumb.appendChild(img);
-    divBand.appendChild(divThumb);
-    const divIngr = createRecipe('div', {className: 'ingredients'});
+    const result = createRecipe('article', {},
+        createRecipe('h2', {}, recipe.name),
+        createRecipe('div', { className: 'band' },
+            createRecipe('div', { className: 'thumb' },
+                createRecipe('img', { src: recipe.img })),
+            createRecipe('div', { className: 'ingredients' },
+                createRecipe('h3', {}, 'Ingredients:'),
+                createRecipe('ul', {}, recipe.ingredients.map(i => createRecipe('li', {}, i))))),
+        createRecipe('div', { className: 'description' }, createRecipe('h3', {}, 'Preparation:'),
+            recipe.steps.map(s => createRecipe('p', {}, s))));
 
-    const h3 = createRecipe('h3', {}, 'Ingredients:');
-    const ul = createRecipe('ul', {});
-    fullRecipe.ingredients.forEach(i => {
-        const li = document.createElement('li');
-        li.textContent = i;
-        ul.appendChild(li);
-    });
-    divIngr.appendChild(h3);
-    divIngr.appendChild(ul);
-    divBand.appendChild(divIngr);
-    article.appendChild(divBand);
-    const divDesc = createRecipe('div', { className: 'description'});
-    const h3Prep = createRecipe('h3', {}, 'Preparation:');
-    divDesc.appendChild(h3Prep);
-    fullRecipe.steps.forEach(s => {
-        const p = createRecipe('p', {}, s);
-        divDesc.appendChild(p);
-    });
-    article.appendChild(divDesc);
+    return result;
 
-    return article;
 }
 
 window.addEventListener('load', async () => {
 
-    appendRecipes();
+    const main = document.querySelector('main');
+    const recipes = await loadRecipes();
+
+    const cards = recipes.map(x => showRecipes(x));
+    main.innerHTML = '';
+    cards.forEach(c => main.appendChild(c));
 
 });
+
 
 function createRecipe(type, attributes, ...content) {
 
@@ -95,10 +70,17 @@ function createRecipe(type, attributes, ...content) {
             element[key] = value;
     });
 
-    content.forEach(line => {
-        element.textContent = line;
+    content = content.reduce((a, c) => a.concat(Array.isArray(c) ? c : [c]), []);
+
+    content.forEach(e => {
+
+        if (typeof e === 'string' || typeof e === 'number') {
+            const node = document.createTextNode(e);
+            element.appendChild(node);
+        } else {
+            element.appendChild(e);
+        }
+
     });
-
     return element;
-
 }
