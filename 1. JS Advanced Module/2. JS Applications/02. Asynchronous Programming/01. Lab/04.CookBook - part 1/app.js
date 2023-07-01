@@ -1,79 +1,86 @@
 async function loadRecipes() {
-    let url = 'http://localhost:3030/jsonstore/cookbook/recipes';
 
-    await fetch(url).then(response => {
-        return response.json();
-    }).then(result => {
+    const response = await fetch('http://localhost:3030/jsonstore/cookbook/recipes');
+    const recipes = await response.json();
 
-        let arrayRes = Object.values(result);
-        let main = document.querySelector('main');
-        main.innerHTML = '';
-        for (let line of arrayRes) {
-            let name = line.name;
-            let src = line.img;
+    return Object.values(recipes);
+}
 
-            main.innerHTML +=
-                `<article class="preview">
-                    <div class="title">
-                        <h2>${name}</h2>
-                    </div>
-                    <div class="small">
-                        <img src="${src}">
-                    </div>
-                </article>`;
-        }
+async function getRecipeById(id) {
 
-        let articles = document.querySelectorAll('.preview');
-        Array.from(articles).forEach(article => {
-            article.addEventListener('click', loadContent);
-        });
+    const response = await fetch('http://localhost:3030/jsonstore/cookbook/details/' + id);
+    const recipe = await response.json();
 
+    return recipe;
+}
+
+function showRecipes(recipes) {
+
+    const result =
+        createRecipe('article', { className: 'preview', onClick: toggleCard },
+            createRecipe('div', { className: 'title' },
+                createRecipe('h2', {}, recipes.name)),
+            createRecipe('div', { className: 'small' },
+                createRecipe('img', { src: recipes.img })),);
+
+    return result;
+
+    async function toggleCard(e) {
+        const fullRecipe = await getRecipeById(recipes._id);
+        result.replaceWith(showRecipesInfo(fullRecipe));
+    }
+}
+
+function showRecipesInfo(recipe) {
+
+    const result = createRecipe('article', {},
+        createRecipe('h2', {}, recipe.name),
+        createRecipe('div', { className: 'band' },
+            createRecipe('div', { className: 'thumb' },
+                createRecipe('img', { src: recipe.img })),
+            createRecipe('div', { className: 'ingredients' },
+                createRecipe('h3', {}, 'Ingredients:'),
+                createRecipe('ul', {}, recipe.ingredients.map(i => createRecipe('li', {}, i))))),
+        createRecipe('div', { className: 'description' }, createRecipe('h3', {}, 'Preparation:'),
+            recipe.steps.map(s => createRecipe('p', {}, s))));
+
+    return result;
+
+}
+
+window.addEventListener('load', async () => {
+
+    const main = document.querySelector('main');
+    const recipes = await loadRecipes();
+
+    const cards = recipes.map(x => showRecipes(x));
+    main.innerHTML = '';
+    cards.forEach(c => main.appendChild(c));
+
+});
+
+
+function createRecipe(type, attributes, ...content) {
+
+    const element = document.createElement(type);
+
+    Object.entries(attributes).forEach(([key, value]) => {
+        key.substring(0, 2) === 'on' ?
+            element.addEventListener(key.substring(2).toLowerCase(), value) :
+            element[key] = value;
     });
 
+    content = content.reduce((a, c) => a.concat(Array.isArray(c) ? c : [c]), []);
+
+    content.forEach(e => {
+
+        if (typeof e === 'string' || typeof e === 'number') {
+            const node = document.createTextNode(e);
+            element.appendChild(node);
+        } else {
+            element.appendChild(e);
+        }
+
+    });
+    return element;
 }
-
-async function loadContent(e) {
-    let article = e.target;
-    let h2 = e.target.querySelector('.title').children[0].textContent;
-    let id = '0' + h2.substring(6).trim();
-    let url = `http://localhost:3030/jsonstore/cookbook/details/${id}`;
-
-    await fetch(url).then(response => {
-        return response.json();
-    }).then(data => {
-        let name = data.name;
-        let ingredients = data.ingredients;
-        let steps = data.steps;
-        let ingredientsRes = [];
-        ingredients.forEach(line => {
-            ingredientsRes.push(`<li>${line}</li>`);
-        });
-        let stepsRes = [];
-        steps.forEach(line => {
-            stepsRes.push(`<p>${line}</p>`)
-        })
-        let newContent = 
-            `
-                <h2>${name}</h2>
-                    <div class="band">
-                        <div class="thumb">
-                            <img src="${data.img}">
-                    </div>
-                    <div class="ingredients">
-                        <h3>Ingredients:</h3>
-                        <ul>
-                    ${ingredientsRes.join('\n')}
-                        </ul>
-                    </div>
-                    </div>
-                <div class="description">
-                    ${stepsRes.join('\n')}
-                </div>`;
-        let newArticle = document.createElement('article')
-        newArticle.innerHTML = newContent;
-        article.replaceWith(newArticle)
-    })
-
-}
-
-loadRecipes();
