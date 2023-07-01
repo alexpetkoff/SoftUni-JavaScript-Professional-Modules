@@ -26,7 +26,6 @@ async function renderStudents() {
 async function addStudent(event) {
 
     event.preventDefault();
-
     const data = new FormData(form);
 
     await fetch('http://localhost:3030/jsonstore/collections/students', {
