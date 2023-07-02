@@ -1,5 +1,7 @@
 const form = document.querySelector('form');
 form.addEventListener('submit', registerUser);
+const div = document.getElementById('user');
+div.style.display = 'none';
 
 async function registerUser(event) {
     event.preventDefault();
@@ -8,7 +10,6 @@ async function registerUser(event) {
     const {email, password, rePass} = Object.fromEntries(dataForm.entries());
 
     try {
-
         if(email == '' || password == '' || rePass == '' || password != rePass) {
             throw new Error('Passwords don\'t match / Empty fields');
         }
@@ -28,7 +29,12 @@ async function registerUser(event) {
         }
 
         const data = await response.json();
-        sessionStorage.setItem('authToken', data.accessToken);
+        const userData = {
+            id: data._id,
+            email: data.email,
+            token: data.accessToken,
+        }
+        sessionStorage.setItem('userData', JSON.stringify(userData));
         window.location = './index.html';
 
     } catch(error) {
