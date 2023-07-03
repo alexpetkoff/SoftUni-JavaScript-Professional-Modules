@@ -28,6 +28,11 @@ async function logout(e) {
                 }
         });
 
+        if(res.ok == false) {
+            const error = await res.json();
+            throw error;
+        }
+
         sessionStorage.clear();
         window.location = 'index.html'
 
@@ -98,7 +103,8 @@ window.addEventListener('load', async () => {
 
 });
 
-
+// template for creating recipe view;
+//type = string ; attributes = {}, any
 function createRecipe(type, attributes, ...content) {
 
     const element = document.createElement(type);

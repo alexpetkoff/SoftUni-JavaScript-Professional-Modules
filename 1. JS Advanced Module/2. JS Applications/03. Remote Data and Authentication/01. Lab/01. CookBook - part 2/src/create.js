@@ -7,11 +7,7 @@ async function createRecipe(e) {
     try {
         const userData = JSON.parse(sessionStorage.userData);
         const formData = new FormData(e.target);
-        
-        let name = formData.get('name');
-        let img = formData.get('img');
-        let ingredients = formData.get('ingredients');
-        let steps = formData.get('steps');
+        let {name, img, ingredients, steps} = Object.fromEntries(formData.entries());
 
         if(name == '' || img == '' || ingredients == '' || steps == '') {
             throw new Error('Please, fill all fields!');
@@ -34,6 +30,11 @@ async function createRecipe(e) {
             })
         });
        
+        if(res.ok === false) {
+            const error = await res.json();
+            throw error;
+        }
+
         window.location = 'index.html';
 
     } 
