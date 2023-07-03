@@ -14,6 +14,13 @@ aswell as all the Certificates.
         <li>JS Applications</li>
     </ul>
 </ul>
+<ul>
+    <li>JS Web Module:</li>
+    <ul>
+        <li>JS Advanced</li>
+        <li>JS Applications</li>
+    </ul>
+</ul>
 
 <h2>Certificates:</h2>
 <img height=600px width=400px src="https://github.com/alexpetkoff/SoftUni-JavaScript-Professional-Modules/assets/132137247/171bdee4-cb1c-46f4-8be5-4488664dcc95"/>
