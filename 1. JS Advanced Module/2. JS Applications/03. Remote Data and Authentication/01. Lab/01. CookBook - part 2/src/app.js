@@ -1,6 +1,45 @@
+const divUser = document.getElementById('user');
+const divGuest = document.getElementById('guest');
+
+window.addEventListener('DOMContentLoaded', () => {
+
+    if (sessionStorage.userData != null) {
+        divUser.style.display = 'inline';
+        divGuest.style.display = 'none';
+    } else {
+        divUser.style.display = 'none';
+        divGuest.style.display = 'inline';
+    }
+
+});
+
+//LOGOUT functionality
+const logoutBTN = document.getElementById('logoutBtn');
+logoutBTN.addEventListener('click', logout);
+
+async function logout(e) {
+    const userData = JSON.parse(sessionStorage.userData);
+    try {
+        const res = await fetch('http://localhost:3030/users/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-Authorization': userData.token
+                }
+        });
+
+        sessionStorage.clear();
+        window.location = 'index.html'
+
+    } catch (error) {
+        alert(error.message);
+    }
+
+}
+
 async function loadRecipes() {
 
-    const response = await fetch('http://localhost:3030/jsonstore/cookbook/recipes');
+    const response = await fetch('http://localhost:3030/data/recipes?select=_id%2Cname%2Cimg');
     const recipes = await response.json();
 
     return Object.values(recipes);
@@ -8,7 +47,7 @@ async function loadRecipes() {
 
 async function getRecipeById(id) {
 
-    const response = await fetch('http://localhost:3030/jsonstore/cookbook/details/' + id);
+    const response = await fetch('http://localhost:3030/data/recipes/' + id);
     const recipe = await response.json();
 
     return recipe;
