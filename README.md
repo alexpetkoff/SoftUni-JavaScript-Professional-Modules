@@ -17,8 +17,8 @@ aswell as all the Certificates.
 <ul>
     <li>JS Web Module:</li>
     <ul>
-        <li>JS Advanced</li>
-        <li>JS Applications</li>
+        <li>JS Back-End</li>
+        <li>React Framework</li>
     </ul>
 </ul>
 
