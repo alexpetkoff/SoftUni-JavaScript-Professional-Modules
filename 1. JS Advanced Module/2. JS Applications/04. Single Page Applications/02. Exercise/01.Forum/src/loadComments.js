@@ -3,6 +3,7 @@ export async function loadComments(e) {
     const container = document.querySelector('.container');
     Array.from(container.children).forEach(el => el.style.display = 'none');
     document.querySelector('.theme-content').style.display = 'block';
+
     try {
         const id = e.target.className
         const response = await fetch('http://localhost:3030/jsonstore/collections/myboard/posts/' + id);
@@ -17,8 +18,11 @@ export async function loadComments(e) {
         document.querySelector('.theme-name').children[0].textContent = topicName;
 
         const comment = document.querySelector('.comment');
+        comment.innerHTML = '';
         const header = document.createElement('div');
         header.className = 'header';
+        header.innerHTML = '';
+
         header.innerHTML =
             `<img src="./static/profile.png" alt="avatar">
                 <p><span>${username}</span> posted on <time>2020-10-10 12:08:28</time></p>
@@ -65,16 +69,17 @@ export async function loadComments(e) {
 
 async function renderComments(id) {
 
-
     const response = await fetch('http://localhost:3030/jsonstore/collections/myboard/comments');
     const data = await response.json();
     const divComment = document.querySelector('.comment');
+    const div = document.createElement('div');
+    div.id = 'user-comment';
+    div.innerHTML = '';
+
     Object.values(data).forEach(comment => {
 
         if (comment.postID === id) {
 
-            const div = document.createElement('div');
-            div.id = 'user-comment';
             div.innerHTML = `
             <div class="topic-name-wrapper">
                 <div class="topic-name">
@@ -89,5 +94,3 @@ async function renderComments(id) {
     })
 
 }
-
-// const res = await fetch('http://localhost:3030/jsonstore/collections/myboard/comments');
