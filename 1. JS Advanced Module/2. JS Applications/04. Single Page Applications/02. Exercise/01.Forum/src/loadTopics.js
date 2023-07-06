@@ -9,14 +9,14 @@ export async function loadTopics() {
 
     Object.values(data).forEach(element => {
 
-        let {_id, postText, topicName, username} = element;
+        let {_id, content, title, username} = element;
         
         topicTitle.innerHTML += `
         <div class="topic-container">
             <div class="topic-name-wrapper">
                 <div class="topic-name">
                     <a href="#" class="normal">
-                        <h2 class="${_id}">${topicName}</h2>
+                        <h2 id="${_id}">${title}</h2>
                     </a>
                     <div class="columns">
                         <div>

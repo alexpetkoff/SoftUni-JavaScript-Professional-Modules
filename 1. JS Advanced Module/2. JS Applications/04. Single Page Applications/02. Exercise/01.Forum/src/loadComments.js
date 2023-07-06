@@ -5,7 +5,8 @@ export async function loadComments(e) {
     document.querySelector('.theme-content').style.display = 'block';
 
     try {
-        const id = e.target.className
+        const id = e.target.id;
+        
         const response = await fetch('http://localhost:3030/jsonstore/collections/myboard/posts/' + id);
 
         if (response.ok == false) {
@@ -13,20 +14,20 @@ export async function loadComments(e) {
         }
 
         const data = await response.json();
-        let { _id, postText, topicName, username } = data;
+        console.log('----', data)
+        let {title, username, content, _id} = data
 
-        document.querySelector('.theme-name').children[0].textContent = topicName;
+        document.querySelector('.theme-name').children[0].textContent = title;
 
         const comment = document.querySelector('.comment');
         comment.innerHTML = '';
         const header = document.createElement('div');
         header.className = 'header';
-        header.innerHTML = '';
 
         header.innerHTML =
             `<img src="./static/profile.png" alt="avatar">
                 <p><span>${username}</span> posted on <time>2020-10-10 12:08:28</time></p>
-            <p class="post-content">${postText}</p>`;
+            <p class="post-content">${content}</p>`;
         comment.appendChild(header);
 
         const form = document.querySelector('.answer').children[0];
@@ -72,13 +73,13 @@ async function renderComments(id) {
     const response = await fetch('http://localhost:3030/jsonstore/collections/myboard/comments');
     const data = await response.json();
     const divComment = document.querySelector('.comment');
-    const div = document.createElement('div');
-    div.id = 'user-comment';
-    div.innerHTML = '';
+    // div.innerHTML = '';
 
     Object.values(data).forEach(comment => {
-
+        console.log(comment)
         if (comment.postID === id) {
+            const div = document.createElement('div');
+            div.className = 'user-comment';
 
             div.innerHTML = `
             <div class="topic-name-wrapper">
@@ -92,5 +93,5 @@ async function renderComments(id) {
             divComment.appendChild(div);
         }
     })
-
+    return;
 }
