@@ -28,11 +28,12 @@ async function request(method, url, data) {
         }
 
         return response.json();
+        
     } catch (error) {
 
         alert(error.message);
         throw error;
-        
+
     }
 
 }
