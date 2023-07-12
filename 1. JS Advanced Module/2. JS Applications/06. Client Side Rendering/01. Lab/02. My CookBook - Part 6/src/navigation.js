@@ -23,7 +23,7 @@ export function createNav(main, navbar) {
             }
         });
     }
-
+    //goTo function
     async function goTo(name, ...params) {
         main.innerHTML = '';
         const result = await views[name](...params);
