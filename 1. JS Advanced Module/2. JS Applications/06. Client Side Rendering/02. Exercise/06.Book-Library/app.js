@@ -1,1 +1,4 @@
-console.log('My requests...')
+import { renderAllBooks } from "./templates.js";
+
+window.addEventListener('load', renderAllBooks);
+
