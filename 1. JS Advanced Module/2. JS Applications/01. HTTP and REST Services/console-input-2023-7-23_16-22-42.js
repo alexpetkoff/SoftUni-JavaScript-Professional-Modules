@@ -1,0 +1,1 @@
+sessionStorage.setItem('userData', JSON.stringify({peter@abv.bg, 123456}))
