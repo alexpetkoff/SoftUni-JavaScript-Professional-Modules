@@ -12,10 +12,10 @@ async function api(method, url, data) {
         options.body = JSON.stringify(data);
     }
 
-    const userData = JSON.parse(localStorage.getItem('userData')); // get userData from localStorage...
+    const userData = JSON.parse(sessionStorage.getItem('userData')); // get userData from localStorage...
 
     if(userData) { //if userData != null -> create headers prop in options with X-Auth...
-        options.headers['X-Authorization'] = userData.token;
+        options.headers['X-Authorization'] = userData.accessToken;
     }
 
     try {
