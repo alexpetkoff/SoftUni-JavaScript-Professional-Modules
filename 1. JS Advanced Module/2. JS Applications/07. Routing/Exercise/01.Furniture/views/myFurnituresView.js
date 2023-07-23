@@ -38,7 +38,3 @@ export async function myFurnituresView()  {
     }
     
 }
-
-
-
-///data/catalog?where=_ownerId%3D%22{userId}%22
