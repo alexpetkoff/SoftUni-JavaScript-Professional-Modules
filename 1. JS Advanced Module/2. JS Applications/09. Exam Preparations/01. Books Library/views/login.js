@@ -1,5 +1,6 @@
 import { html, render } from '../node_modules/lit-html/lit-html.js';
 import { login } from '../src/api.js';
+import { updateUserNav } from '../src/app.js';
 
 let loginTemplate = (onSubmit) => html`
         <section id="login-page" class="login">
@@ -40,7 +41,7 @@ export function loginPage(ctx) {
         }
 
         await login(email, password);
-        ctx.updateUserNav();
+        updateUserNav();
         ctx.page.redirect('/');
     }
 }
