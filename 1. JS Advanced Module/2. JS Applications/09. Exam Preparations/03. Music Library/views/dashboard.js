@@ -28,5 +28,4 @@ const dashboardTemplate = (data) => html`
 export async function dashboardPage(ctx) {
     const result = await getAllItems();
     ctx.render(dashboardTemplate(result));
-    console.log(result)
 }

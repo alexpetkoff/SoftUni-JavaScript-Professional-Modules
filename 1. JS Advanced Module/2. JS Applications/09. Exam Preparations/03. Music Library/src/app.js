@@ -1,6 +1,10 @@
 import {html, render} from '../node_modules/lit-html/lit-html.js';
 import page from '../node_modules/page/page.mjs';
+import { createPage } from '../views/create.js';
 import { dashboardPage } from '../views/dashboard.js';
+import { deletePage } from '../views/delete.js';
+import { detailsPage } from '../views/details.js';
+import { editPage } from '../views/edit.js';
 import { homePage } from '../views/home.js';
 import { loginPage } from '../views/login.js';
 import { registerPage } from '../views/register.js';
@@ -12,7 +16,7 @@ let root = document.querySelector('main');
 function decorateContext(ctx, next) {
     ctx.render = (content) => render(content, root);
     ctx.updateUserNav = updateUserNav
-
+    ctx.user = getUserData();
     next();
 }
 
@@ -39,9 +43,10 @@ page('/', homePage);
 page('/login', loginPage);
 page('/register', registerPage);
 page('/dashboard', dashboardPage);
-
-
-
+page('/details/:id', detailsPage);
+page('/edit/:id', editPage);
+page('/delete/:id', deletePage);
+page('/add-album', createPage);
 
 updateUserNav();
 page.start();
