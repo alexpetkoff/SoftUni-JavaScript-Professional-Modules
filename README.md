@@ -23,4 +23,7 @@ aswell as all the Certificates.
 </ul>
 
 <h2>Certificates:</h2>
-<div><img height=600px width=400px src="https://github.com/alexpetkoff/SoftUni-JavaScript-Professional-Modules/assets/132137247/171bdee4-cb1c-46f4-8be5-4488664dcc95"/></div>
+<div>
+    <img height=600px width=400px src="https://github.com/alexpetkoff/SoftUni-JavaScript-Professional-Modules/assets/132137247/171bdee4-cb1c-46f4-8be5-4488664dcc95"/>
+    <img height=600px width=400px src="https://github.com/alexpetkoff/SoftUni-JavaScript-Professional-Modules/assets/132137247/47a90a09-2e1e-4263-a28d-e42d98f64f83"/>
+</div>
