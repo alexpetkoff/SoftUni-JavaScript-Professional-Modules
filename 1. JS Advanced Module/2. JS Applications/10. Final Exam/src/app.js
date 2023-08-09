@@ -15,7 +15,7 @@ let root = document.querySelector('main');
 
 function decorateContext(ctx, next) {
     ctx.render = (content) => render(content, root);
-    ctx.updateUserNav = updateUserNav
+    ctx.updateUserNav = updateUserNav;
     ctx.user = getUserData();
     next();
 }
@@ -46,9 +46,6 @@ page('/create', createPage);
 page('/details/:id', detailsPage);
 page('/delete/:id', deletePage);
 page('/edit/:id', editPage);
-
-
-
 
 updateUserNav();
 page.start();
