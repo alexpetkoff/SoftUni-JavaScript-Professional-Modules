@@ -3,6 +3,7 @@ import { getUser } from '../api/data.js';
 
 export function homeView() {
     const main = document.querySelector('main');
+    
     const template = html`
     <section id="home">
         <article class="hero layout">

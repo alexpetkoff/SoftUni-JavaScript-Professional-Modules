@@ -22,7 +22,6 @@ page('/register', registerView);
 page('/my-teams', myTeamsView);
 page('/create', createTeamView);
 page('/details/:id', detailsView);
-
 page.start();
 
 export async function logout(e)  {

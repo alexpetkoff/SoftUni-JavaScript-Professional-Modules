@@ -2,11 +2,6 @@ import { post } from '../api/api.js';
 import page from '../../node_modules/page/page.mjs';
 import { loginView } from '../views/loginView.js';
 
-export function getUser() { //get User from sessionStorage
-    const userData = JSON.parse(localStorage.getItem('userData'));
-    return userData;
-}
-
 export function updateNav() { //update Navigation
     const userNav = document.querySelectorAll('.action.user');
     const guestNav = document.querySelectorAll('.action.guest');
@@ -18,6 +13,11 @@ export function updateNav() { //update Navigation
         Array.from(userNav).map(el => el.style.display = 'none');
         Array.from(guestNav).map(el => el.style.display = 'inline-block');
     }
+}
+
+export function getUser() { //get User from sessionStorage
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    return userData;
 }
 
 export async function loginUser(event) {
