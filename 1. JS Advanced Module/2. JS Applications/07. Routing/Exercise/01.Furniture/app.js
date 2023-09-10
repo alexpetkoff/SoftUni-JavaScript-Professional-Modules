@@ -15,15 +15,6 @@ updateNav();
 
 document.getElementById('logoutBtn').addEventListener('click', logoutView);
 
-page('/', catalogView);
-page('/create', createView);
-page('/login', loginView);
-page('/register', registerView);
-page('/edit/:id', editView);
-page('/details/:id', detailsView);
-page('/my-furniture', myFurnituresView);
-page.start();
-
 export function updateNav() {
     const userData = sessionStorage.getItem('userData');
     const userNav = document.getElementById('user');
@@ -37,3 +28,12 @@ export function updateNav() {
         guestNav.style.display = 'inline-block';
     }
 }
+
+page('/', catalogView);
+page('/create', createView);
+page('/login', loginView);
+page('/register', registerView);
+page('/edit/:id', editView);
+page('/details/:id', detailsView);
+page('/my-furniture', myFurnituresView);
+page.start();
