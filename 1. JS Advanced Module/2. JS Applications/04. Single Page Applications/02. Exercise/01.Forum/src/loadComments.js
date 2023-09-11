@@ -1,8 +1,9 @@
 export async function loadComments(e) {
 
     const container = document.querySelector('.container');
-    Array.from(container.children).forEach(el => el.style.display = 'none');
     document.querySelector('.theme-content').style.display = 'block';
+    Array.from(container.children).forEach(el => el.style.display = 'none');
+
 
     try {
         const id = e.target.id;
