@@ -14,18 +14,18 @@ import { getUserData } from './utils.js';
 
 let root = document.querySelector('main');
 
+document.getElementById('logoutBtn').addEventListener('click', (e) => {
+    logout();
+    updateUserNav();
+    page.redirect('/dashboard');
+});
+
 function decorateContext(ctx, next) {
     ctx.render = (content) => render(content, root);
     ctx.updateUserNav = updateUserNav
 
     next();
 }
-
-document.getElementById('logoutBtn').addEventListener('click', (e) => {
-    logout();
-    updateUserNav();
-    page.redirect('/dashboard');
-});
 
 export function updateUserNav() {
     let userData = getUserData();
