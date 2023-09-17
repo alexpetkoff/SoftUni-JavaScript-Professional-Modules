@@ -10,14 +10,14 @@
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2), 0 3px 3px 0 rgba(0, 0, 0, 0.24);
 }
 
-#img-wrapper {
-  max-width: 35%;
-}
-
 #img-wrapper img {
   width: 100%;
   min-height: 300px;
   display: block;
+}
+
+#img-wrapper {
+  max-width: 35%;
 }
 
 #details-title {
@@ -32,16 +32,16 @@
   width: 65%;
 }
 
+#info-wrapper > p > span {
+  font-weight: lighter;
+}
+
 #info-wrapper > p {
   width: 90%;
   margin: 30px auto;
   height: auto;
   text-align: center;
   font-weight: bold;
-}
-
-#info-wrapper > p > span {
-  font-weight: lighter;
 }
 
 h4 {
