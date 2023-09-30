@@ -1,3 +1,4 @@
+module.exports = `
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap');
 
 * {
@@ -220,3 +221,4 @@ body > form > label:nth-child(3) {
     background-color: lightskyblue;
     margin-bottom: 1.5rem;
 }
+`;
