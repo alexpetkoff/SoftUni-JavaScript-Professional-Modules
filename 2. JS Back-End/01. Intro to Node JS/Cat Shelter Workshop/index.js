@@ -8,18 +8,19 @@ const server = http.createServer(async (req,res) => {
     
     const url = req.url;
 
-    if(url == '/') {
+    if(url == '/') { //homePage rendering
         res.writeHead(200, {
             'Content-Type': 'text/html',
         });
         res.write(homePage);
     }
 
-    if(url == '/content/styles/site.css') {
+    if(url == '/content/styles/site.css') { //CSS styles rendering
+        res.writeHead(200, {
+            'Content-Type': 'text/css',
+        });
         res.write(styles);
     }
-
-
 
     res.end();
 });
