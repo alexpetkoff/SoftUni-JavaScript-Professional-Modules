@@ -2,6 +2,10 @@ const http = require('http');
 const homePage = require('./views/home/index.js');
 const styles = require('./content/styles/site.js');
 const addBreed = require('./views/addBreed.js');
+const url = require('url');
+const fs = require('fs');
+const path = require('path');
+const cats = require('../data/cats');
 
 const port = 5500;
 
