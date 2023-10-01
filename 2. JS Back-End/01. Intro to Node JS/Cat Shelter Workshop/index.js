@@ -1,6 +1,7 @@
 const http = require('http');
 const homePage = require('./views/home/index.js');
 const styles = require('./content/styles/site.js');
+const addBreed = require('./views/addBreed.js');
 
 const port = 5500;
 
@@ -20,6 +21,13 @@ const server = http.createServer(async (req,res) => {
             'Content-Type': 'text/css',
         });
         res.write(styles);
+    }
+
+    if(url == '/cats/add-breed') { //addBreed page
+        res.writeHead(200, {
+            'Content-Type': 'text/html',
+        });
+        res.write(addBreed);
     }
 
     res.end();
