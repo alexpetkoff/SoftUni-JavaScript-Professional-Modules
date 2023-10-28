@@ -149,7 +149,6 @@ export default function Home() {
          </div>
 
 
-
          <section className="service_section layout_padding">
             <div className="service_container">
                <div className="container ">
@@ -233,8 +232,6 @@ export default function Home() {
          </section>
 
 
-
-
          <section className="about_section layout_padding">
             <div className="container  ">
                <div className="heading_container heading_center">
@@ -273,7 +270,6 @@ export default function Home() {
                </div>
             </div>
          </section>
-
 
 
          <section className="why_section layout_padding">
@@ -494,7 +490,6 @@ export default function Home() {
          </section>
 
 
-
          <section className="client_section layout_padding">
             <div className="container">
                <div className="heading_container heading_center psudo_white_primary mb_45">
@@ -596,8 +591,6 @@ export default function Home() {
                </div>
             </div>
          </section>
-
-
 
 
          <section className="info_section layout_padding2">
