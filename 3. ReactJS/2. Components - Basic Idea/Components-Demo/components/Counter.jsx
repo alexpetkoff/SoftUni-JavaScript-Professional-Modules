@@ -20,9 +20,10 @@ export default function Counter(props) {
         <div>
             <h2>This is my counter:</h2>
 
-            { counter < 0
-                ? <p>Invalid Counter! Press Clear.</p>
-                : <p>{counter}</p>
+            {
+                counter < 0
+                    ? <p>Invalid Counter! Press Clear.</p>
+                    : <p>{counter}</p>
             }
 
             <button onClick={onIncrement}>Add</button>
