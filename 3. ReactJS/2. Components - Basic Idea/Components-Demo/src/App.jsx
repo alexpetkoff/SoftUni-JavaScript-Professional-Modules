@@ -7,11 +7,11 @@ function App() {
 
   return (
     <>
-        <Timer />
-    <div>
-      <MovieList movies={movies} heading='My Top Movie List'/>
-    </div>
-    
+      <Timer timer={0} />
+      <div>
+        <MovieList movies={movies} heading='My Top Movie List' />
+      </div>
+
     </>
 
 
