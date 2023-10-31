@@ -27,8 +27,8 @@ export default function Counter(props) {
             }
 
             <button onClick={onIncrement}>Add</button>
-            <button onClick={onDecrement}>Substract</button>
-            <button onClick={onClear}>Clear</button>
+            <button disabled={counter <= 0} onClick={onDecrement}>Substract</button>
+            <button disabled={counter == 0} onClick={onClear}>Clear</button>
 
         </div>
     );
