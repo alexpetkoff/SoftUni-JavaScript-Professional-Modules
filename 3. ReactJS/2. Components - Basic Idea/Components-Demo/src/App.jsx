@@ -8,6 +8,7 @@ import './App.css'
 function App() {
 
   return (
+    
     <>
       <Counter count={0} />
       <Timer count={0} />
@@ -16,7 +17,6 @@ function App() {
       </div>
 
     </>
-
 
   )
 }
