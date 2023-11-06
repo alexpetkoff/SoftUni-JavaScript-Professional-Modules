@@ -1,13 +1,16 @@
 import Movie from "./Movie";
 
 function MovieList(props) {
+
+    let database = props.movies.map((movie) => 
+        <Movie key={movie.title} data={movie}/>
+    );
+
     return (
         <div>
             <h1>{props.heading}</h1>
             <ul>
-                <Movie data={props.movies[0]}/>
-                <Movie data={props.movies[1]}/>
-                <Movie data={props.movies[2]}/>
+                {database}
             </ul>
         </div>
     )
