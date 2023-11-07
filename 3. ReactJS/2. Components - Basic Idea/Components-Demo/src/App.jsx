@@ -16,7 +16,7 @@ function App() {
         <MovieList movies={movies} heading='My Top Movie List' />
       </div>
       <div>
-        <Starwars />
+        <Starwars heading='Star Wars characters:'/>
       </div>
     </>
 

@@ -17,7 +17,7 @@ export default function Starwars(props) {
 
     return (
         <>
-            <h1>StarWars characters: </h1>
+            <h1>{props.heading}</h1>
             <ul>
                 {chars}
             </ul>
