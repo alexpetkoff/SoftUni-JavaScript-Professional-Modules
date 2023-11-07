@@ -3,7 +3,7 @@ export default function ToDoItem({id, text, isCompleted, changeStatusHandler}) {
     function changeStatus() {
         changeStatusHandler(id);
     }
-
+    
     if (isCompleted) {
         return (
             <tr className="todo is-completed">
