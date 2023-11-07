@@ -13,7 +13,7 @@ export default function Starwars(props) {
             .catch((err) => console.error(err));
     }, []);
 
-    let chars = characters.map((c) => <li key={c.name}>{c.name}</li>)
+    let chars = characters.map((c) => <li key={c.url}>{c.name}</li>)
 
     return (
         <>
