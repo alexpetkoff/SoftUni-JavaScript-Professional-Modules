@@ -10,7 +10,6 @@ export default function Timer(props) {
         }, 1000);
     }, [count]);
    
-
     return (
         <div>
             Time spend on the page: {count}!
