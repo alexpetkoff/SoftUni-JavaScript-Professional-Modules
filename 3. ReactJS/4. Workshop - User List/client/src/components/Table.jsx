@@ -1,6 +1,22 @@
+import { useState, useEffect } from "react";
 import TableRow from "./TableRow";
+import * as userAPI from '../api/userAPI';
 
 const Table = () => {
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const data = await userAPI.getAll();
+            setUsers(Object.values(data));
+        };
+
+        fetchData();
+
+    }, []);
+
+
     return (
         <div className="table-wrapper">
             {/*       <!-- Overlap components  -->
@@ -130,10 +146,17 @@ const Table = () => {
                 </thead>
                 <tbody>
                     {/* <!-- Table row component -->*/}
-                    <TableRow
-
-                    />
+                    {
+                        users.map(user =>
+                        (<TableRow
+                            key={user._id}
+                            {...user}
+                        />)
+                        )
+                    }
                 </tbody>
+                <button className="btn-add btn">Add new user</button>
+
             </table>
         </div>
     );
