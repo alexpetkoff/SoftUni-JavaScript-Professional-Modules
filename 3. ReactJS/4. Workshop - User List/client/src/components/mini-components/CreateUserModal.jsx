@@ -1,4 +1,4 @@
-export const CreateUserModal = ({onClose}) => {
+export const CreateUserModal = ({onClose, onSubmit}) => {
 
     return (
         <div className="overlay">
@@ -16,7 +16,7 @@ export const CreateUserModal = ({onClose}) => {
                             </svg>
                         </button>
                     </header>
-                    <form>
+                    <form onSubmit={onSubmit}>
                         <div className="form-row">
                             <div className="form-group">
                                 <label htmlFor="firstName">First name</label>

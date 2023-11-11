@@ -21,6 +21,19 @@ const Table = () => {
         setShowCreate(false)
     }
 
+    const createUserFormHandler = async (e) => {
+
+        e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(e.target));
+        
+        const result = await userAPI.create(data);
+
+        setShowCreate(false);
+
+        return result;
+    }
+
     return (
         <div className="table-wrapper">
             {/*       <!-- Overlap components  -->
@@ -161,7 +174,7 @@ const Table = () => {
                 </tbody>
             </table>
             <button onClick={createUserHandler} className="btn-add btn" >Add new user</button>
-            {showCreate && <CreateUserModal onClose={hideUserModal}/>}
+            {showCreate && <CreateUserModal onSubmit={createUserFormHandler} onClose={hideUserModal}/>}
         </div>
     );
 }
