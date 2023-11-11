@@ -1,6 +1,6 @@
 import changeFormatDate from '../utils/dateUtils';
 
-const TableRow = ({_id, firstName, lastName, email, phoneNumber, imageUrl, createdAt}) => {
+const TableRow = ({_id, firstName, lastName, email, phoneNumber, imageUrl, createdAt, showHideInfoHandler, showEditModal}) => {
 
     return (
         <tr>
@@ -15,7 +15,7 @@ const TableRow = ({_id, firstName, lastName, email, phoneNumber, imageUrl, creat
             <td>{changeFormatDate(createdAt)}</td>
 
             <td className="actions">
-                <button className="btn edit-btn" title="Edit">
+                <button onClick={() => showEditModal(_id)} className="btn edit-btn" title="Edit">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen-to-square"
                         className="svg-inline--fa fa-pen-to-square" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 532 512">
@@ -32,7 +32,7 @@ const TableRow = ({_id, firstName, lastName, email, phoneNumber, imageUrl, creat
                         </path>
                     </svg>
                 </button>
-                <button className="btn info-btn" title="Info">
+                <button onClick={ () => showHideInfoHandler(_id)} className="btn info-btn" title="Info">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="info"
                         className="svg-inline--fa fa-info" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="-150 0 512 612">

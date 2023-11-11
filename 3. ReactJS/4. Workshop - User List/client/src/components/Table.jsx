@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
 import { CreateUserModal } from "./mini-components/CreateUserModal";
+import { InfoUserModal } from "./mini-components/InfoUserModal";
+import { EditUserModal } from "./mini-components/EditUserModal";
+
 import TableRow from "./TableRow";
 import * as userAPI from '../api/userAPI';
 
 const Table = () => {
-
     const [users, setUsers] = useState([]);
     const [showCreate, setShowCreate] = useState(false);
+    const [showInfo, setShowInfo] = useState(false);
+    const [selectedUser, setSelectedUser] = useState(null);
+    const [showEdit, setShowEdit] = useState(false);
 
     useEffect(() => {
         userAPI.getAll()
@@ -22,16 +27,25 @@ const Table = () => {
     }
 
     const createUserFormHandler = async (e) => {
-
         e.preventDefault();
 
         const data = Object.fromEntries(new FormData(e.target));
-        
         const result = await userAPI.create(data);
 
+        setUsers(state => [...state, result]);
         setShowCreate(false);
+    }
 
-        return result;
+    const showHideInfoHandler = (id) => {
+
+        setShowInfo(!showInfo);
+        setSelectedUser(id);
+        
+    }
+
+    const showEditModal = (id) => {
+        setShowEdit(!showEdit);
+        setSelectedUser(id);
     }
 
     return (
@@ -168,6 +182,8 @@ const Table = () => {
                         (<TableRow
                             key={user._id}
                             {...user}
+                            showHideInfoHandler={showHideInfoHandler}
+                            showEditModal={showEditModal}
                         />)
                         )
                     }
@@ -175,6 +191,8 @@ const Table = () => {
             </table>
             <button onClick={createUserHandler} className="btn-add btn" >Add new user</button>
             {showCreate && <CreateUserModal onSubmit={createUserFormHandler} onClose={hideUserModal}/>}
+            {showInfo && <InfoUserModal id={selectedUser} onClick={showHideInfoHandler}/>}
+            {showEdit && <EditUserModal id={selectedUser} showEditModal={showEditModal}/>}
         </div>
     );
 }

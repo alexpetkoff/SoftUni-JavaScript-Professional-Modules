@@ -11,6 +11,12 @@ export const getAll = async () => {
     }
 }
 
+export const getOne = async (id) => {
+    const req = await fetch(baseURL + '/' + id);
+    const data = await req.json();
+    return data;
+}
+
 export const create = async (data) => {
     const body = {
         firstName: data.firstName,
