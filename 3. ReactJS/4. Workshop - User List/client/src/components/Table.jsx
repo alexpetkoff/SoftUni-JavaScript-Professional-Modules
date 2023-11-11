@@ -1,21 +1,25 @@
 import { useState, useEffect } from "react";
+import { CreateUserModal } from "./mini-components/CreateUserModal";
 import TableRow from "./TableRow";
 import * as userAPI from '../api/userAPI';
 
 const Table = () => {
 
     const [users, setUsers] = useState([]);
+    const [showCreate, setShowCreate] = useState(false);
 
     useEffect(() => {
-        const fetchData = async () => {
-            const data = await userAPI.getAll();
-            setUsers(Object.values(data));
-        };
-
-        fetchData();
-
+        userAPI.getAll()
+            .then(result => setUsers(result));
     }, []);
 
+    const createUserHandler = () => {
+        setShowCreate(true);
+    }
+
+    const hideUserModal = () => {
+        setShowCreate(false)
+    }
 
     return (
         <div className="table-wrapper">
@@ -155,9 +159,9 @@ const Table = () => {
                         )
                     }
                 </tbody>
-                <button className="btn-add btn">Add new user</button>
-
             </table>
+            <button onClick={createUserHandler} className="btn-add btn" >Add new user</button>
+            {showCreate && <CreateUserModal onClose={hideUserModal}/>}
         </div>
     );
 }
