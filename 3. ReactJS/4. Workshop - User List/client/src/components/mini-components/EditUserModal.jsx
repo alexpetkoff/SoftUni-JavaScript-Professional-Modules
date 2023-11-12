@@ -9,7 +9,14 @@ export const EditUserModal = ({showEditModal, id}) => {
         userAPI.getOne(id).then(
             result => setUser(result)
         )
-    }, [])
+    }, []);
+
+    const saveEditUser = (e) => {
+        // e.preventDefault();
+
+        const data = Object.fromEntries(new FormData(e.target));
+        console.log(data);
+    }
 
     return (
         <div className="overlay">
@@ -27,7 +34,7 @@ export const EditUserModal = ({showEditModal, id}) => {
                             </svg>
                         </button>
                     </header>
-                    <form>
+                    <form onSubmit={saveEditUser}>
                         <div className="form-row">
                             <div className="form-group">
                                 <label htmlFor="firstName">First name</label>
