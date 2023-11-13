@@ -2,13 +2,14 @@ import { useState, useEffect } from "react";
 import { CreateUserModal } from "./mini-components/CreateUserModal";
 import { InfoUserModal } from "./mini-components/InfoUserModal";
 import { EditUserModal } from "./mini-components/EditUserModal";
-
+import { LoadingAnim } from "./mini-components/LoadingAnim";
 import TableRow from "./TableRow";
 import * as userAPI from '../api/userAPI';
 import { DeleteUserModal } from "./mini-components/DeleteUserModal";
 
 const Table = () => {
     const [users, setUsers] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
     const [showCreate, setShowCreate] = useState(false);
     const [showInfo, setShowInfo] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
@@ -16,8 +17,12 @@ const Table = () => {
     const [showDelete, setShowDelete] = useState(false);
 
     useEffect(() => {
+        setIsLoading(true);
+
         userAPI.getAll()
-            .then(result => setUsers(result));
+            .then(result => setUsers(result))
+            .catch(err => console.error(err))
+            .finally(() => setIsLoading(false))
     }, []);
 
     const createUserHandler = () => {
@@ -211,6 +216,7 @@ const Table = () => {
             {showInfo && <InfoUserModal id={selectedUser} onClick={showHideInfoHandler}/>}
             {showEdit && <EditUserModal id={selectedUser} showEditModal={showEditModal}/>}
             {showDelete && <DeleteUserModal id={selectedUser} onClick={showDeleteModal} onDelete={deleteUser}/>}
+            {isLoading && <LoadingAnim />}
         </div>
     );
 }
