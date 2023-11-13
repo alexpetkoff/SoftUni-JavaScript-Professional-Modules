@@ -50,6 +50,7 @@ export const create = async (data) => {
 
 export const edit = async (data) => {
     const body = {
+        _id: data._id,
         firstName: data.firstName,
         lastName: data.lastName,
         email: data.email,
@@ -58,14 +59,14 @@ export const edit = async (data) => {
         createdAt: new Date().toISOString(), 
         updatedAt: new Date().toISOString(),
         address: {
-            country: data.country,
-            city: data.city,
-            street: data.street,
-            streetNumber: data.streetNumber,
+            country: data.address.country,
+            city: data.address.city,
+            street: data.address.street,
+            streetNumber: data.address.streetNumber,
         },
     };
-
-    const req = await fetch(baseURL + `${data._id}`, {
+    console.log(data);
+    const req = await fetch(baseURL + `/${data._id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -76,4 +77,13 @@ export const edit = async (data) => {
     const res = await req.json();
 
     return res;
+}
+
+export const remove = async (id) => {
+    const req = await fetch(baseURL + `/${id}`, {
+        method: 'DELETE'
+    })
+    const result = await req.json();
+
+    return result;
 }

@@ -1,6 +1,6 @@
 import changeFormatDate from '../utils/dateUtils';
 
-const TableRow = ({_id, firstName, lastName, email, phoneNumber, imageUrl, createdAt, showHideInfoHandler, showEditModal}) => {
+const TableRow = ({_id, firstName, lastName, email, phoneNumber, imageUrl, createdAt, showHideInfoHandler, showEditModal, showDeleteModal}) => {
 
     return (
         <tr>
@@ -24,7 +24,7 @@ const TableRow = ({_id, firstName, lastName, email, phoneNumber, imageUrl, creat
                         </path>
                     </svg>
                 </button>
-                <button className="btn delete-btn" title="Delete">
+                <button onClick={() => showDeleteModal(_id)} className="btn delete-btn" title="Delete">
                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="trash"
                         className="svg-inline--fa fa-trash" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 498 512">
                         <path fill="currentColor"

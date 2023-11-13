@@ -5,6 +5,7 @@ import { EditUserModal } from "./mini-components/EditUserModal";
 
 import TableRow from "./TableRow";
 import * as userAPI from '../api/userAPI';
+import { DeleteUserModal } from "./mini-components/DeleteUserModal";
 
 const Table = () => {
     const [users, setUsers] = useState([]);
@@ -12,6 +13,7 @@ const Table = () => {
     const [showInfo, setShowInfo] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
     const [showEdit, setShowEdit] = useState(false);
+    const [showDelete, setShowDelete] = useState(false);
 
     useEffect(() => {
         userAPI.getAll()
@@ -47,6 +49,20 @@ const Table = () => {
         setShowEdit(!showEdit);
         setSelectedUser(id);
     }
+
+    const showDeleteModal = (id) => {
+        setShowDelete(!showDelete);
+        setSelectedUser(id);
+    }
+
+    const deleteUser = async (id) => {
+        const res = await userAPI.remove(id);
+        
+        setShowDelete(!showDelete);
+        setUsers(state => state.filter(user => user._id !== id));
+    }
+
+
 
     return (
         <div className="table-wrapper">
@@ -184,6 +200,7 @@ const Table = () => {
                             {...user}
                             showHideInfoHandler={showHideInfoHandler}
                             showEditModal={showEditModal}
+                            showDeleteModal={showDeleteModal}
                         />)
                         )
                     }
@@ -193,6 +210,7 @@ const Table = () => {
             {showCreate && <CreateUserModal onSubmit={createUserFormHandler} onClose={hideUserModal}/>}
             {showInfo && <InfoUserModal id={selectedUser} onClick={showHideInfoHandler}/>}
             {showEdit && <EditUserModal id={selectedUser} showEditModal={showEditModal}/>}
+            {showDelete && <DeleteUserModal id={selectedUser} onClick={showDeleteModal} onDelete={deleteUser}/>}
         </div>
     );
 }

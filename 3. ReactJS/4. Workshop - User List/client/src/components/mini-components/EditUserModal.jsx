@@ -1,21 +1,58 @@
 import * as userAPI from '../../api/userAPI';
 import { useState, useEffect } from 'react';
 
-export const EditUserModal = ({showEditModal, id}) => {
+export const EditUserModal = ({ showEditModal, id }) => {
 
-    const [user, setUser] = useState({ address: {} });
+    const [user, setUser] = useState({
+        _id: id,
+        firstName: '',
+        lastName: '',
+        email: '',
+        imageUrl: '',
+        phoneNumber: '',
+        createdAt: '',
+        updatedAt: '',
+        address: {
+            country: '',
+            city: '',
+            street: '',
+            streetNumber: '',
+        },
+    });
 
     useEffect(() => {
         userAPI.getOne(id).then(
             result => setUser(result)
-        )
+        );
     }, []);
 
-    const saveEditUser = (e) => {
-        // e.preventDefault();
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+      
+        setUser((user) => {
+          
+          if (name.includes('.')) {
+            const [outerKey, innerKey] = name.split('.');
+            return {
+              ...user,
+              [outerKey]: {
+                ...user[outerKey],
+                [innerKey]: value,
+              },
+            };
+          }
 
-        const data = Object.fromEntries(new FormData(e.target));
-        console.log(data);
+          return {
+            ...user,
+            [name]: value,
+          };
+        });
+      };
+
+    const saveEditUser = async (e) => {
+        e.preventDefault();
+        const res = await userAPI.edit(user);
+        showEditModal();
     }
 
     return (
@@ -40,14 +77,14 @@ export const EditUserModal = ({showEditModal, id}) => {
                                 <label htmlFor="firstName">First name</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-user"></i></span>
-                                    <input id="firstName" name="firstName" type="text" value={user.firstName} />
+                                    <input onChange={handleChange} id="firstName" name="firstName" type="text" value={user.firstName} />
                                 </div>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="lastName">Last name</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-user"></i></span>
-                                    <input id="lastName" name="lastName" type="text" value={user.lastName}/>
+                                    <input onChange={handleChange} id="lastName" name="lastName" type="text" value={user.lastName} />
                                 </div>
                             </div>
                         </div>
@@ -57,14 +94,14 @@ export const EditUserModal = ({showEditModal, id}) => {
                                 <label htmlFor="email">Email</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-envelope"></i></span>
-                                    <input id="email" name="email" type="text" value={user.email}/>
+                                    <input onChange={handleChange} id="email" name="email" type="text" value={user.email} />
                                 </div>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="phoneNumber">Phone number</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-phone"></i></span>
-                                    <input id="phoneNumber" name="phoneNumber" type="text" value={user.phoneNumber}/>
+                                    <input onChange={handleChange} id="phoneNumber" name="phoneNumber" type="text" value={user.phoneNumber} />
                                 </div>
                             </div>
                         </div>
@@ -73,7 +110,7 @@ export const EditUserModal = ({showEditModal, id}) => {
                             <label htmlFor="imageUrl">Image Url</label>
                             <div className="input-wrapper">
                                 <span><i className="fa-solid fa-image"></i></span>
-                                <input id="imageUrl" name="imageUrl" type="text" value={user.imageUrl}/>
+                                <input onChange={handleChange} id="imageUrl" name="imageUrl" type="text" value={user.imageUrl} />
                             </div>
                         </div>
 
@@ -82,14 +119,14 @@ export const EditUserModal = ({showEditModal, id}) => {
                                 <label htmlFor="country">Country</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-map"></i></span>
-                                    <input id="country" name="country" type="text" value={user.address.country}/>
+                                    <input onChange={handleChange} id="country" name="address.country" type="text" value={user.address.country} />
                                 </div>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="city">City</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-city"></i></span>
-                                    <input id="city" name="city" type="text" value={user.address.city}/>
+                                    <input onChange={handleChange} id="city" name="address.city" type="text" value={user.address.city} />
                                 </div>
                             </div>
                         </div>
@@ -99,14 +136,14 @@ export const EditUserModal = ({showEditModal, id}) => {
                                 <label htmlFor="street">Street</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-map"></i></span>
-                                    <input id="street" name="street" type="text" value={user.address.street}/>
+                                    <input onChange={handleChange} id="street" name="address.street" type="text" value={user.address.street} />
                                 </div>
                             </div>
                             <div className="form-group">
                                 <label htmlFor="streetNumber">Street number</label>
                                 <div className="input-wrapper">
                                     <span><i className="fa-solid fa-house-chimney"></i></span>
-                                    <input id="streetNumber" name="streetNumber" type="text" value={user.address.streetNumber}/>
+                                    <input onChange={handleChange} id="streetNumber" name="address.streetNumber" type="text" value={user.address.streetNumber} />
                                 </div>
                             </div>
                         </div>
