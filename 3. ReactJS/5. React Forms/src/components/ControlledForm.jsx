@@ -12,7 +12,7 @@ export const ControlledForm = () => {
         setUser({
             ...user,
             [e.target.name]: e.target.value
-        });       
+        });
     }
 
     const onResetForm = () => {
