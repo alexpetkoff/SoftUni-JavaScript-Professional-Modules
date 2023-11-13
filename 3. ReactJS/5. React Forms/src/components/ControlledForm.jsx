@@ -5,6 +5,7 @@ export const ControlledForm = () => {
     const [user, setUser] = useState({
         username: '',
         password: '',
+        gender: 'female'
     });
 
     const onFormChange = (e) =>{
@@ -17,13 +18,14 @@ export const ControlledForm = () => {
     const onResetForm = () => {
         setUser({
             username: '',
-            password: ''
+            password: '',
+            gender: 'female'
         });
     }
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-        console.log(user);
+        onResetForm();
     }
 
     return (
@@ -39,6 +41,13 @@ export const ControlledForm = () => {
                 <div>
                     <label htmlFor="password">Password:</label>
                     <input onChange={onFormChange} value={user.password} type="password" name="password" id="passwordControlled" />
+                </div>
+                <div>
+                    <label htmlFor="gender">Gender:</label>
+                    <select onChange={onFormChange} name="gender" id="gender">
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                    </select>
                 </div>
                 <div>
                     <input type="submit" value="Register" />
