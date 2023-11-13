@@ -5,20 +5,24 @@ export const ControlledForm = () => {
     const [user, setUser] = useState({
         username: '',
         password: '',
-    })
+    });
 
     const onFormChange = (e) =>{
         setUser({
             ...user,
             [e.target.name]: e.target.value
-        });
+        });       
+    }
 
-        
+    const onResetForm = () => {
+        setUser({
+            username: '',
+            password: ''
+        });
     }
 
     const onSubmitForm = (e) => {
         e.preventDefault();
-
         console.log(user);
     }
 
@@ -38,6 +42,7 @@ export const ControlledForm = () => {
                 </div>
                 <div>
                     <input type="submit" value="Register" />
+                    <button onClick={onResetForm} value="Reset">Reset</button>
                 </div>
             </form>
         </>
