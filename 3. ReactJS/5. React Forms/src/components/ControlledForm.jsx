@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 export const ControlledForm = () => {
-    
-    const INITIAL_STATE = {
+
+    const INITIAL_STATE_USER = {
         username: '',
         password: '',
         gender: 'female',
@@ -15,7 +15,7 @@ export const ControlledForm = () => {
         age: ''
     }
 
-    const [user, setUser] = useState(INITIAL_STATE);
+    const [user, setUser] = useState(INITIAL_STATE_USER);
     const [errors, setErrors] = useState(INITIAL_STATE_ERRORS);
 
     const onFormChange = (e) => {
@@ -26,7 +26,7 @@ export const ControlledForm = () => {
     }
 
     const onResetForm = () => {
-        setUser(INITIAL_STATE);
+        setUser(INITIAL_STATE_USER);
         setErrors(INITIAL_STATE_ERRORS)
     }
 
