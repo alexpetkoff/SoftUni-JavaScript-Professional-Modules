@@ -1,14 +1,21 @@
 import { useState } from "react";
 
 export const ControlledForm = () => {
-
-    const [user, setUser] = useState({
+    const INITIAL_STATE = {
         username: '',
         password: '',
-        gender: 'female'
+        gender: 'female',
+        age: ''
+    }
+
+    const [user, setUser] = useState(INITIAL_STATE);
+    const [errors, setErrors] = useState({
+        username: '',
+        password: '',
+        age: ''
     });
 
-    const onFormChange = (e) =>{
+    const onFormChange = (e) => {
         setUser({
             ...user,
             [e.target.name]: e.target.value
@@ -16,17 +23,29 @@ export const ControlledForm = () => {
     }
 
     const onResetForm = () => {
-        setUser({
-            username: '',
-            password: '',
-            gender: 'female'
-        });
+        setUser(INITIAL_STATE);
     }
 
     const onSubmitForm = (e) => {
         e.preventDefault();
         onResetForm();
     }
+
+    const checkErrors = (e) => {
+        const { name, value } = e.target;
+        validateField(name, value);
+    }
+
+    const validateField = (fieldName, value) => {
+        if (!value) {
+            setErrors((prevErrors) => ({
+                ...prevErrors,
+                [fieldName]: 'This field is required.',
+            }));
+        } else {
+            setErrors((prevErrors) => ({ ...prevErrors, [fieldName]: '' }));
+        }
+    };
 
     return (
         <>
@@ -36,21 +55,36 @@ export const ControlledForm = () => {
             <form onSubmit={onSubmitForm}>
                 <div>
                     <label htmlFor="username">Username:</label>
-                    <input onChange={onFormChange} value={user.username} type="text" name="username" id="usernameControlled" />
+                    <input onBlur={checkErrors} onChange={onFormChange} value={user.username} type="text" name="username" id="usernameControlled" />
                 </div>
+                {errors.username !== '' && (<b style={{ color: 'red' }}>{errors.username}</b>)}
                 <div>
                     <label htmlFor="password">Password:</label>
-                    <input onChange={onFormChange} value={user.password} type="password" name="password" id="passwordControlled" />
+                    <input onBlur={checkErrors} onChange={onFormChange} value={user.password} type="password" name="password" id="passwordControlled" />
                 </div>
+                {errors.password !== '' && (<b style={{ color: 'red' }}>{errors.password}</b>)}
                 <div>
                     <label htmlFor="gender">Gender:</label>
-                    <select onChange={onFormChange} name="gender" id="gender">
+                    <select onChange={onFormChange} name="gender" id="gender" value={user.gender}>
                         <option value="female">Female</option>
                         <option value="male">Male</option>
+                        <option value="other">Other</option>
                     </select>
                 </div>
                 <div>
-                    <input type="submit" value="Register" />
+                    <label htmlFor="age">Age</label>
+                    <input
+                        type="number"
+                        id="age"
+                        name="age"
+                        value={user.age}
+                        onChange={onFormChange}
+                        onBlur={checkErrors}
+                    />
+                </div>
+                {errors.age !== '' && (<b style={{ color: 'red' }}>{errors.age}</b>)}
+                <div>
+                    <button type="submit" value="Register" >Register</button>
                     <button onClick={onResetForm} value="Reset">Reset</button>
                 </div>
             </form>
