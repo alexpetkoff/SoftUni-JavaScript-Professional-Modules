@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 export const ControlledForm = () => {
+    
     const INITIAL_STATE = {
         username: '',
         password: '',
@@ -8,12 +9,14 @@ export const ControlledForm = () => {
         age: ''
     }
 
-    const [user, setUser] = useState(INITIAL_STATE);
-    const [errors, setErrors] = useState({
+    const INITIAL_STATE_ERRORS = {
         username: '',
         password: '',
         age: ''
-    });
+    }
+
+    const [user, setUser] = useState(INITIAL_STATE);
+    const [errors, setErrors] = useState(INITIAL_STATE_ERRORS);
 
     const onFormChange = (e) => {
         setUser({
@@ -24,6 +27,7 @@ export const ControlledForm = () => {
 
     const onResetForm = () => {
         setUser(INITIAL_STATE);
+        setErrors(INITIAL_STATE_ERRORS)
     }
 
     const onSubmitForm = (e) => {
