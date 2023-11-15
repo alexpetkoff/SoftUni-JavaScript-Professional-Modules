@@ -1,9 +1,9 @@
 import { Routes, Route } from 'react-router-dom';
 import Navigation from './Navigation';
 
-import { Home } from './components/Home'
-import { About } from './components/About'
-import { Catalog } from './components/Catalog'
+import { Home } from './components/Home';
+import { About } from './components/About';
+import { Catalog } from './components/Catalog';
 
 function App() {
 
@@ -16,7 +16,7 @@ function App() {
 				<Route path="/catalog" element={<Catalog />} />
 			</Routes>
 
-			<footer>All rights reserver &copy;</footer>
+			<footer>All rights reserved &copy;</footer>
 		</>
 	)
 }
