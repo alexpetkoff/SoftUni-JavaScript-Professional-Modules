@@ -1,5 +1,6 @@
 import styles from './Navbar.module.css';
 import logo from '../../assets/logo.png';
+import cart from '../../assets/cart-icon.png';
 
 export default function Navbar() {
     return (
@@ -9,7 +10,7 @@ export default function Navbar() {
                 <p>Apple Store</p>
             </div>
             <ul className={styles['nav-menu']}>
-                <li>Home</li>
+                <li>Home <hr /></li>
                 <li>iPhone</li>
                 <li>Macbook</li>
                 <li>Mac</li>
@@ -17,7 +18,7 @@ export default function Navbar() {
             </ul>
             <div className={styles['nav-cart-login']}>
                 <button>Login</button>
-                <img src="" alt="shopping-cart"/>
+                <img src={cart} alt="shopping-cart"/>
             </div>
         </div>
     );
