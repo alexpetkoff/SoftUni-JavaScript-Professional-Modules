@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;
     padding: 6px;
-    box-shadow: 0 1px 3px -2px black;
+    box-shadow: 0 2px 3px -1px black;
     height: 65px;
 }
 
@@ -58,7 +58,7 @@
 
 .nav-cart-login button {
     width: 80px;
-    height: 30px;
+    height: 40px;
     outline: none;
     border: 1px solid black;
     border-radius: 75px;

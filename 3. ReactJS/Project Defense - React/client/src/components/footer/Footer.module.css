@@ -1,0 +1,32 @@
+.footer {
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    box-shadow: 0 -2px 3px black;
+}
+
+.buttonUp {
+    position: fixed;
+    top: 50%; /* Adjust the top position as needed */
+    right: 5px;
+    background-color: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 2%;
+    padding: 12px;
+    cursor: pointer;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-40%);
+}
+
+.arrow-icon::before {
+    content: '\2191'; /* Unicode arrow character for up arrow */
+    font-size: 30px;
+}
