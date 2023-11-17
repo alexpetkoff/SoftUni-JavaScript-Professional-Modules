@@ -1,0 +1,30 @@
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    padding: 6px;
+    box-shadow: 0 1px 3px -2px black;
+}
+
+.nav-logo {
+    display: flex;
+    align-items:  center;
+    gap: 10px
+}
+
+.nav-logo img {
+    width: 50px;
+}
+
+.nav-logo p {
+    color: #171717;
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.nav-menu { 
+    display: flex; 
+    align-items: center;
+    list-style: none;
+    gap: 50px;
+    color: #626262
+}
