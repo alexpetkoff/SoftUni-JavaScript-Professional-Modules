@@ -6,7 +6,7 @@ export default function Navbar() {
     return (
         <div className={styles.navbar}>
             <div className={styles['nav-logo']}>
-                <img src={logo} alt="" />
+                <img src={logo} alt="apple-icon" />
                 <p>Apple Store</p>
             </div>
             <ul className={styles['nav-menu']}>
@@ -19,6 +19,7 @@ export default function Navbar() {
             <div className={styles['nav-cart-login']}>
                 <button>Login</button>
                 <img src={cart} alt="shopping-cart"/>
+                <div className={styles['cart-count']}>0</div>
             </div>
         </div>
     );
