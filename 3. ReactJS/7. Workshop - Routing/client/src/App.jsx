@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom';
 
 import Header from '../src/components/header/Header';
 import Home from '../src/components/home/Home';
@@ -6,6 +6,7 @@ import Login from '../src/components/login/Login';
 import Register from '../src/components/register/Register';
 import CreateGame from './components/create-game/CreateGame';
 import Catalog from './components/catalog/Catalog';
+
 function App() {
 
   return (
