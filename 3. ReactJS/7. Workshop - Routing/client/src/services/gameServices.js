@@ -14,7 +14,7 @@ export const getAll = async () => {
 }
 
 export const createGame = async (data) => {
-    const request = await fetch(URL + '/data/games', {
+    const request = await fetch(URL + '/games', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
