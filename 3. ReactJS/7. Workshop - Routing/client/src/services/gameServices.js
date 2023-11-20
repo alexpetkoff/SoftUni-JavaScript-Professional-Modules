@@ -13,6 +13,15 @@ export const getAll = async () => {
     return response;
 }
 
+export const getOne = async (id) => {
+    const request = await fetch(URL + `/games/${id}`, {
+        method: 'GET'
+    });
+    const response = await request.json();
+
+    return response;
+}
+
 export const createGame = async (data) => {
     const request = await fetch(URL + '/games', {
         method: 'POST',
