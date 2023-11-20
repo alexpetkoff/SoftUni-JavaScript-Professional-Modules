@@ -14,12 +14,10 @@ export default function Catalog() {
 
         getData();
     }, [])
-    console.log(games)
+    
     return (
         <section id="catalog-page">
             <h1>All Games</h1>
-
-            {/* Display div: with information about every game (if any) */}
 
             {games.map((game) => {
                 return (
