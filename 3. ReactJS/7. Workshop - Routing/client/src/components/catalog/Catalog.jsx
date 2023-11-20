@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import getAll from '../../services/gameServices.js';
+import { getAll } from '../../services/gameServices.js';
 
 export default function Catalog() {
 
@@ -9,13 +9,12 @@ export default function Catalog() {
     useEffect(() => {
         async function getData() {
             const data = await getAll();
-            setGames(games => Object.values(data));
+            setGames(Object.values(data));
         }
 
         getData();
-
     }, [])
-
+    console.log(games)
     return (
         <section id="catalog-page">
             <h1>All Games</h1>
