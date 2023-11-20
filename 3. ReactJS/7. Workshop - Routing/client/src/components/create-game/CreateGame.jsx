@@ -3,14 +3,17 @@ import { createGame } from '../../services/gameServices';
 import { useNavigate } from "react-router-dom";
 
 export default function CreateGame() {
-    const redirect = useNavigate('/');
-    const [game, setGame] = useState({
+
+    const BASE_GAME_TEMPLATE = {
         title: '',
         category: '',
         maxLevel: '',
         imageUrl: '',
         summary: ''
-    })
+    }
+
+    const redirect = useNavigate();
+    const [game, setGame] = useState(BASE_GAME_TEMPLATE)
 
     const onChangeHandler = (e) => {
         setGame({...game, [e.target.name]: e.target.value});
@@ -20,8 +23,8 @@ export default function CreateGame() {
         e.preventDefault();
 
         const result = await createGame(game);
-        console.log(result);
-        redirect('/');
+        setGame(BASE_GAME_TEMPLATE);
+        redirect('/games');
     }
 
     return (
