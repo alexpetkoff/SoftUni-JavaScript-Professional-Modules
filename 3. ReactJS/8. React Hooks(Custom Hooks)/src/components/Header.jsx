@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import useForm from '../hooks/useForm';
+
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -7,10 +9,20 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
 export default function Header() {
+    const {formValues, onChangeHandler} = useForm({
+        text: ''
+    });
+
     const [showHide, setShowHide] = useState(false);
 
     const showModal = () => {
         setShowHide(!showHide);
+    };
+
+    const submitTodo = (e) => {
+        e.preventDefault();
+
+        console.log(formValues);
     };
 
     return (
@@ -32,22 +44,21 @@ export default function Header() {
                     </Modal.Header>
 
                     <Modal.Body>
-                        <Form.Label htmlFor="inputPassword5">Todo text:</Form.Label>
-                        <Form.Control
-                            as="textarea"
-                            rows={3}
-                            id="text"
-                            aria-describedby="text"
-                        />
-                        <Form.Text id="passwordHelpBlock" muted>
-                            Enter new Todo above!
-                        </Form.Text>
+                        <Form onSubmit={submitTodo}>
+                            <Form.Label htmlFor="inputPassword5">Todo text:</Form.Label>
+                            <Form.Control
+                                onChange={onChangeHandler}
+                                type='text'
+                                name='text'
+                                as="textarea"
+                                rows={3}
+                                id="text"
+                                aria-describedby="text"
+                            />
+                            <Button style={{ margin: "5px auto" }} type="submit" variant="primary">Save changes</Button>
+                        </Form>
                     </Modal.Body>
 
-                    <Modal.Footer>
-                        <Button variant="secondary" onClick={showModal}>Close</Button>
-                        <Button variant="primary">Save changes</Button>
-                    </Modal.Footer>
                 </Modal.Dialog>
             </Modal>
         </>
