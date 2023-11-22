@@ -15,8 +15,6 @@ function TodoList() {
             });
     }, []);
 
-    console.log(todos);
-
     return (
         <ListGroup style={{ margin: "10px auto", width: "20%" }} >
             <h1>ToDo List:</h1>
