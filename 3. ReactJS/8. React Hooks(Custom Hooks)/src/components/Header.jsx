@@ -10,7 +10,8 @@ import Form from 'react-bootstrap/Form';
 
 export default function Header() {
     const {formValues, onChangeHandler} = useForm({
-        text: ''
+        text: '',
+        isComplete: false
     });
 
     const [showHide, setShowHide] = useState(false);
