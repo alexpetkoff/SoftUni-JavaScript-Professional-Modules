@@ -19,10 +19,17 @@ export default function Header() {
         setShowHide(!showHide);
     };
 
-    const submitTodo = (e) => {
+    const submitTodo = async (e) => {
         e.preventDefault();
 
-        console.log(formValues);
+        await fetch('http://localhost:3030/jsonstore/todos', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(formValues)
+        });
+        showModal();
     };
 
     return (
