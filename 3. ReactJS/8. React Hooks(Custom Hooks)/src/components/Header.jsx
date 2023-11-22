@@ -31,6 +31,7 @@ export default function Header() {
             body: JSON.stringify(formValues)
         });
         showModal();
+        console.log(formValues)
     };
 
     return (
