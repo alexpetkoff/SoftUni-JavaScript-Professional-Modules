@@ -15,8 +15,10 @@ function TodoList() {
             });
     }, []);
 
+    console.log(todos);
+
     return (
-        <ListGroup style={{ margin: "10px auto", width: "20%" }} variant="flush">
+        <ListGroup style={{ margin: "10px auto", width: "20%" }} >
             <h1>ToDo List:</h1>
             {todos.map(todo => <TodoItem key={todo._id} {...todo}/>)}
         </ListGroup>
