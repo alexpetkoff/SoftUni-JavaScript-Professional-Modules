@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { userLogin } from './services/userServices';
 import Header from '../src/components/header/Header';
@@ -13,12 +13,12 @@ import AuthContext from './contexts/authContext';
 function App() {
 
   const [auth, setAuth] = useState({});
+  const navigate = useNavigate();
 
   const loginSubmitHandler = async (values) => {
-    
     const result = await userLogin(values);
-
-    console.log(Object.values(result));
+    setAuth(result);
+    navigate('/');
   }
 
   return (
