@@ -9,8 +9,8 @@ const LOGIN_FORM_KEYS = {
 }
 
 export default function Login() {
-    const loginSubmitHandler = useContext(AuthContext);
-    
+    const {loginSubmitHandler} = useContext(AuthContext);
+
     const {values, onChange, onSubmit} = useForm(loginSubmitHandler, {
         [LOGIN_FORM_KEYS.Email]: '',
         [LOGIN_FORM_KEYS.Password]: ''

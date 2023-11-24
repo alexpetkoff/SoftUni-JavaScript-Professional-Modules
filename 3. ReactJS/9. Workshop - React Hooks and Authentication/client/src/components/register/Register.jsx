@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { userRegister } from "../../services/userServices";
 
 export default function Register() {
-
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({
         email: '',
         password: '',
@@ -15,7 +15,7 @@ export default function Register() {
         
         const {email, password} = formData;
         const response = await userRegister({email, password});
-
+        navigate('/login');
     }
 
     const onChangeHandler = (e) => {

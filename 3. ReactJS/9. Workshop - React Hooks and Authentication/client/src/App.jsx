@@ -23,7 +23,7 @@ function App() {
 
   return (
 
-    <AuthContext.Provider value={loginSubmitHandler}>
+    <AuthContext.Provider value={{loginSubmitHandler, auth}}>
       <div id="box">
         <Header />
 
