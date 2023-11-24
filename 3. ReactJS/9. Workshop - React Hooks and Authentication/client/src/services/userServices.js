@@ -1,6 +1,6 @@
 const URL = 'http://localhost:3030/';
 
-const userRegister = async (data) => {
+export const userRegister = async (data) => {
     const request = await fetch(URL + 'users/register', {
         method: 'POST',
         headers: {
@@ -14,5 +14,16 @@ const userRegister = async (data) => {
     return response;
 }
 
+export const userLogin = async (data) => {
+    const request = await fetch(URL + 'users/login', {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
 
-export default userRegister;
+    const response = await request.json();
+
+    return response;
+}

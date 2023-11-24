@@ -1,6 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
-
+import { userLogin } from './services/userServices';
 import Header from '../src/components/header/Header';
 import Home from '../src/components/home/Home';
 import Login from '../src/components/login/Login';
@@ -14,8 +14,11 @@ function App() {
 
   const [auth, setAuth] = useState({});
 
-  const loginSubmitHandler = (values) => {
-    console.log(values);
+  const loginSubmitHandler = async (values) => {
+    
+    const result = await userLogin(values);
+
+    console.log(Object.values(result));
   }
 
   return (

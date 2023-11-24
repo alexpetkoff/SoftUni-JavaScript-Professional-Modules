@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from 'react-router-dom';
-import userRegister from "../../services/userServices";
+import { userRegister } from "../../services/userServices";
 
 export default function Register() {
 
@@ -16,7 +16,6 @@ export default function Register() {
         const {email, password} = formData;
         const response = await userRegister({email, password});
 
-        console.log(response);
     }
 
     const onChangeHandler = (e) => {
