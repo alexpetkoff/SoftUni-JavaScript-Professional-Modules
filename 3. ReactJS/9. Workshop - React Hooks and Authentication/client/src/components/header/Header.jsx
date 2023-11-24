@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
 
 export default function Header() {
-    const {auth} = useContext(AuthContext);
+    const {auth, logoutHandler} = useContext(AuthContext);
 
     return (
         <header>
@@ -14,7 +14,8 @@ export default function Header() {
                     auth.accessToken && (
                         <div id="user">
                             <Link to="/games/create">Create Game</Link>
-                            <Link to="/logout">Logout</Link>
+                            <Link onClick={logoutHandler} to="#">Logout</Link>
+                            <span>| {auth.email}</span>
                         </div>
                     )
                 }

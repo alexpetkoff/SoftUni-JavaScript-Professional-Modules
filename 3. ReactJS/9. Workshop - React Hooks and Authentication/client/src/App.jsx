@@ -1,6 +1,8 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { userLogin } from './services/userServices';
+import { userLogout } from './services/userServices';
+
 import Header from '../src/components/header/Header';
 import Home from '../src/components/home/Home';
 import Login from '../src/components/login/Login';
@@ -21,9 +23,15 @@ function App() {
     navigate('/');
   }
 
+  const logoutHandler = async () => {
+    await userLogout(auth.accessToken);
+    setAuth({});
+    navigate('/');
+  }
+
   return (
 
-    <AuthContext.Provider value={{loginSubmitHandler, auth}}>
+    <AuthContext.Provider value={{loginSubmitHandler, auth, setAuth, logoutHandler}}>
       <div id="box">
         <Header />
 
