@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { createGame } from '../../services/gameServices';
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../../contexts/authContext";
 
 export default function CreateGame() {
-
+    const {auth} = useContext(AuthContext);
     const BASE_GAME_TEMPLATE = {
         title: '',
         category: '',
@@ -22,7 +23,7 @@ export default function CreateGame() {
     const onSubmitHandler = async (e) => {
         e.preventDefault();
 
-        const result = await createGame(game);
+        const result = await createGame(game, auth.accessToken);
         setGame(BASE_GAME_TEMPLATE);
         redirect('/games');
     }

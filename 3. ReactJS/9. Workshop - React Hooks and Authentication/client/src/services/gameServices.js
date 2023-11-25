@@ -1,4 +1,4 @@
-const URL = 'http://localhost:3030/jsonstore';
+const URL = 'http://localhost:3030/data';
 
 export const getAll = async () => {
     const request = await fetch(URL + '/games?sortBy=_createdOn%20desc', {
@@ -22,11 +22,12 @@ export const getOne = async (id) => {
     return response;
 }
 
-export const createGame = async (data) => {
+export const createGame = async (data, token) => {
     const request = await fetch(URL + '/games', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'X-Authorization': {token}
         },
         body: JSON.stringify(data)
     });
