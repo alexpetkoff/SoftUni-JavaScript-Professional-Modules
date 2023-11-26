@@ -11,7 +11,6 @@ export default function Catalog() {
             const data = await getAll();
             setGames(Object.values(data));
         }
-
         getData();
     }, [])
     
@@ -32,7 +31,6 @@ export default function Catalog() {
                 );
             })}
 
-            {/* Display paragraph: If there are no games */}
             {/* <h3 className="no-articles">No articles yet</h3> */}
         </section>
     );

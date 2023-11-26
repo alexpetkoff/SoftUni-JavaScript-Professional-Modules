@@ -1,7 +1,7 @@
 const URL = 'http://localhost:3030/data';
 
 export const getAll = async () => {
-    const request = await fetch(URL + '/games?sortBy=_createdOn%20desc', {
+    const request = await fetch(URL + '/games' , {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'
@@ -26,8 +26,7 @@ export const createGame = async (data, token) => {
     const request = await fetch(URL + '/games', {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'X-Authorization': {token}
+            'X-Authorization': token
         },
         body: JSON.stringify(data)
     });

@@ -14,7 +14,7 @@ export default function CreateGame() {
     }
 
     const redirect = useNavigate();
-    const [game, setGame] = useState(BASE_GAME_TEMPLATE)
+    const [game, setGame] = useState(BASE_GAME_TEMPLATE);
 
     const onChangeHandler = (e) => {
         setGame({...game, [e.target.name]: e.target.value});
