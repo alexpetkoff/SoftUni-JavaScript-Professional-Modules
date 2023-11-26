@@ -1,7 +1,6 @@
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import { userLogin } from './services/userServices';
-import { userLogout } from './services/userServices';
+
+import { AuthProvider } from './contexts/authContext';
 
 import Header from '../src/components/header/Header';
 import Home from '../src/components/home/Home';
@@ -10,28 +9,12 @@ import Register from '../src/components/register/Register';
 import CreateGame from './components/create-game/CreateGame';
 import Catalog from './components/catalog/Catalog';
 import GameDetails from './components/game-details/GameDetails';
-import AuthContext from './contexts/authContext';
 
 function App() {
 
-  const [auth, setAuth] = useState({});
-  const navigate = useNavigate();
-
-  const loginSubmitHandler = async (values) => {
-    const result = await userLogin(values);
-    setAuth(result);
-    navigate('/');
-  }
-
-  const logoutHandler = async () => {
-    await userLogout(auth.accessToken);
-    setAuth({});
-    navigate('/');
-  }
-
   return (
 
-    <AuthContext.Provider value={{loginSubmitHandler, auth, setAuth, logoutHandler}}>
+    <AuthProvider>
       <div id="box">
         <Header />
 
@@ -45,7 +28,7 @@ function App() {
         </Routes>
 
       </div>
-    </AuthContext.Provider>
+    </AuthProvider>
   )
 }
 
