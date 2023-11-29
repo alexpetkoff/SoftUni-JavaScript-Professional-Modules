@@ -34,7 +34,7 @@
     font-weight: 400;
 }
 
-.nav-menu li { 
+.nav-menu li Link{ 
     display: flex;
     flex-direction: column;
     align-items: center;

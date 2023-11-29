@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Navbar.module.css';
 import logo from '../../assets/logo.png';
 import cart from '../../assets/cart-icon.png';
@@ -15,15 +16,19 @@ export default function Navbar() {
                 <p>Apple Store</p>
             </div>
             <ul className={styles['nav-menu']}>
-                <li onClick={() => setClicked('home')}>Home {clicked === 'home' ? <hr /> : <></>}</li>
-                <li onClick={() => setClicked('iphone')}>iPhone {clicked === 'iphone' ? <hr /> : <></>}</li>
-                <li onClick={() => setClicked('macbook')}>Macbook {clicked === 'macbook' ? <hr /> : <></>}</li>
-                <li onClick={() => setClicked('mac')}>Mac {clicked === 'mac' ? <hr /> : <></>}</li>
-                <li onClick={() => setClicked('macstudio')}>Mac Studio {clicked === 'macstudio' ? <hr /> : <></>}</li>
+                <li onClick={() => setClicked('home')}><Link style={{textDecoration: 'none'}} to='/'>Home</Link> {clicked === 'home' ? <hr /> : <></>}</li>
+                <li onClick={() => setClicked('iphone')}><Link style={{textDecoration: 'none'}} to="/iphone">iPhone</Link> {clicked === 'iphone' ? <hr /> : <></>}</li>
+                <li onClick={() => setClicked('macbook')}><Link style={{textDecoration: 'none'}} to="/macbook">Macbook</Link> {clicked === 'macbook' ? <hr /> : <></>}</li>
+                <li onClick={() => setClicked('mac')}><Link style={{textDecoration: 'none'}} to="/mac">Mac</Link> {clicked === 'mac' ? <hr /> : <></>}</li>
+                <li onClick={() => setClicked('macstudio')}><Link style={{textDecoration: 'none'}} to="/macStudio">Mac Studio</Link> {clicked === 'macstudio' ? <hr /> : <></>}</li>
             </ul>
             <div className={styles['nav-cart-login']}>
-                <button>Login</button>
-                <img src={cart} alt="shopping-cart" />
+                <Link style={{textDecoration: 'none'}} to="/login">
+                    <button>Login</button>
+                </Link>
+                <Link style={{textDecoration: 'none'}} to="/cart">
+                    <img src={cart} alt="shopping-cart" />
+                </Link>
                 <div className={styles['cart-count']}>0</div>
             </div>
         </div>
