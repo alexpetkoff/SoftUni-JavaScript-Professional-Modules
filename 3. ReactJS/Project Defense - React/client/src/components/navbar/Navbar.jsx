@@ -10,7 +10,7 @@ export default function Navbar() {
     const [clicked, setClicked] = useState('home');
 
     return (
-        <div className={styles.navbar}>
+        <div className={styles['navbar']}>
             <div className={styles['nav-logo']}>
                 <img src={logo} alt="apple-icon" />
                 <p>Apple Store</p>
