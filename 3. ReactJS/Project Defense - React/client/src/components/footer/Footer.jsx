@@ -35,7 +35,7 @@ export default function Footer() {
                 <span className={styles['arrow-icon']}></span>
             </button>)}
             <p>&copy; 2023 Apple Store. All rights reserved.</p>
-            <p>Created by: Alexander Petkov</p>
+            <p>Created by: Alexander Petkov for SoftUni Project Defense</p>
         </footer>
     );
 }
