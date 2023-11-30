@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import './Popular.css';
 import Item from "../item/Item";
 
@@ -24,8 +24,6 @@ export default function Popular() {
 
         req();
     }, []);
-
-    console.log(popularProducts);
 
     return (
         <div className="popular">

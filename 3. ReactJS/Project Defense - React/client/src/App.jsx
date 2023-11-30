@@ -10,27 +10,28 @@ import Mac from "./components/mac/Mac";
 import MacStudio from './components/macStudio/MacStudio';
 import Cart from './components/cart/Cart';
 import Login from './components/login/Login';
+import { ProductsProvider } from './contexts/ProductsContext';
 
 function App() {
 
   return (
     <BrowserRouter>
-      <div className="app-container">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/iphone" element={<Iphone />} />
-          <Route path="/macbook" element={<Macbook />} />
-          <Route path="/mac" element={<Mac />} />
-          <Route path="/macStudio" element={<MacStudio />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </div>
-      <Footer />
+      <ProductsProvider>
+        <div className="app-container">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/iphone" element={<Iphone />} />
+            <Route path="/macbook" element={<Macbook />} />
+            <Route path="/mac" element={<Mac />} />
+            <Route path="/macStudio" element={<MacStudio />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
+        <Footer />
+      </ProductsProvider>
     </BrowserRouter>
-
-
   )
 }
 

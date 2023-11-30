@@ -2,7 +2,6 @@ import './Item.css';
 
 function Item({props}) {
 
-    console.log(props)
     return (
         <div className="item">
             <img src={props.imageUrl} alt=""/>
