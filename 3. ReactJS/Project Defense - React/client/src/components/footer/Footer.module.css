@@ -3,15 +3,15 @@
     color: #000000;
     text-align: center;
     padding: 10px;
-    position: fixed;
-    bottom: 0px;
+    position:fixed;
+    bottom: 0;
     width: 100%;
     box-shadow: 0 -2px 3px black;
 }
 
 .buttonUp {
     position: fixed;
-    top: 50%; /* Adjust the top position as needed */
+    top: 50%;
     right: 5px;
     background-color: #000000;
     color: #ffffff;
@@ -27,6 +27,6 @@
 }
 
 .arrow-icon::before {
-    content: '\2191'; /* Unicode arrow character for up arrow */
+    content: '\2191';
     font-size: 30px;
 }

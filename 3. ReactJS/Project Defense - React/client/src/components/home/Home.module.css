@@ -29,7 +29,7 @@
     font-weight: 700;
 }
 
-.home-hand-icon {
+.home-text {
     display: flex;
     align-items: center;
     gap: 20px;
@@ -39,7 +39,7 @@
     width: 105px;
 }
 
-.home-latest-btn {
+.home-shop-btn {
     display: flex;
     justify-content: center;
     align-items: center;
