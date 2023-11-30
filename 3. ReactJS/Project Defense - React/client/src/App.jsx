@@ -15,20 +15,22 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/iphone" element={<Iphone />} />
-        <Route path="/macbook" element={<Macbook />} />
-        <Route path="/mac" element={<Mac />} />
-        <Route path="/macStudio" element={<MacStudio />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
+      <div className="app-container">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/iphone" element={<Iphone />} />
+          <Route path="/macbook" element={<Macbook />} />
+          <Route path="/mac" element={<Mac />} />
+          <Route path="/macStudio" element={<MacStudio />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
+      </div>
       <Footer />
     </BrowserRouter>
-    
+
+
   )
 }
 

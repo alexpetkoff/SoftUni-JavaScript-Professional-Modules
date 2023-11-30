@@ -1,0 +1,49 @@
+.item {
+    width: 300px; /* Adjusted width */
+    margin-top: 10px;
+    margin-left: 5px;
+    border: 2px solid #ccc;
+    padding: 10px;
+    box-sizing: border-box; /* Include padding and border in the total width */
+}
+
+.item img {
+    width: 100%; /* Make the image fill the container */
+    height: 200px; /* Set the height as needed */
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+}
+
+.item p {
+    margin: 6px 0px;
+}
+
+.item-prices {
+    display: flex;
+    gap: 20px;
+}
+
+.item-price {
+    color: #373737;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.item:hover {
+    transform: scale(1.05);
+    transition: 0.6s;
+}
+
+.detail-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 140px;
+    height: 50px;
+    border-radius: 75px;
+    margin-top: 5px;
+    background: red;
+    color: white;
+    font-size: 15px;
+    font-weight: 300;
+}

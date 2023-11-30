@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 *{
   margin: 0;
@@ -12,4 +12,30 @@ body {
 
 h1, h2, h3, button {
   font-family: 'Poppins', sans-serif;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+* {
+  margin: 0;
+  box-sizing: border-box; /* Include padding and border in the total width/height */
 }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+h1, h2, h3, button {
+  font-family: 'Poppins', sans-serif;
+}
+
+.app-container {
+  flex: 1;
+}
+
+/* Add any additional styles for your components or layout as needed */
