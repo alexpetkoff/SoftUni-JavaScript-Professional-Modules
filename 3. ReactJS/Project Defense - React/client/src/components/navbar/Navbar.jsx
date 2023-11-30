@@ -24,7 +24,7 @@ export default function Navbar() {
             </ul>
             <div className={styles['nav-cart-login']}>
                 <Link to="/login">
-                    <button>Login</button>
+                    <button onClick={() => setClicked('none')}>Register</button>
                 </Link>
                 <Link to="/cart">
                     <img src={cart} alt="shopping-cart" />
