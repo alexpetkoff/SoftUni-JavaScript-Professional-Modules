@@ -12,7 +12,7 @@ function Item({props}) {
                     $1200
                 </div>
             </div>
-            <button className="detail-btn">DETAILS</button>
+            {/* <button className="detail-btn">DETAILS</button> */}
         </div>
     );
 }
