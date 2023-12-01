@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from "react";
 
-const ProductsContext = createContext();
+const ProductsContext = createContext(null);
 
 ProductsContext.displayName = 'ProductsContext';
 
