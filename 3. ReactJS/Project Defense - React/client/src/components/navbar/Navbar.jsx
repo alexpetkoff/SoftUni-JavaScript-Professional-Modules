@@ -5,7 +5,7 @@ import cart from '../../assets/cart-icon.png';
 
 import { useState } from 'react';
 
-export default function Navbar() {
+function Navbar() {
 
     const [clicked, setClicked] = useState('home');
 
@@ -24,6 +24,9 @@ export default function Navbar() {
             </ul>
             <div className={styles['nav-cart-login']}>
                 <Link to="/login">
+                    <button onClick={() => setClicked('none')}>Login</button>
+                </Link>
+                <Link to="/register">
                     <button onClick={() => setClicked('none')}>Register</button>
                 </Link>
                 <Link to="/cart">
@@ -34,3 +37,5 @@ export default function Navbar() {
         </div>
     );
 }
+
+export default Navbar;

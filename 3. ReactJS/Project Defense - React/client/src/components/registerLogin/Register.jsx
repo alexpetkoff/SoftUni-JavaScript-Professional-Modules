@@ -1,6 +1,6 @@
-import './Login.css';
+import './Register.css';
 
-function Login() {
+function Register() {
     return(
         <div className='loginsignup'>
             <div className="loginsignup-container">
@@ -21,4 +21,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default Register;

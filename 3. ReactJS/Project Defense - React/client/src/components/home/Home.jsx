@@ -4,7 +4,6 @@ import Popular from '../popular/Popular';
 
 function Home() {
     return (
-
         <>
             <div className={styles.home}>
                 <div className={styles['home-left']}>

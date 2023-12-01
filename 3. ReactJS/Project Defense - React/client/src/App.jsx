@@ -9,8 +9,9 @@ import Macbook from "./components/macbook/Macbook";
 import Mac from "./components/mac/Mac";
 import MacStudio from './components/macStudio/MacStudio';
 import Cart from './components/cart/Cart';
-import Login from './components/login/Login';
 import { ProductsProvider } from './contexts/ProductsContext';
+import Register from './components/registerLogin/Register';
+import Login from './components/registerLogin/Login';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/mac" element={<Mac />} />
             <Route path="/macStudio" element={<MacStudio />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
           </Routes>
         </div>
