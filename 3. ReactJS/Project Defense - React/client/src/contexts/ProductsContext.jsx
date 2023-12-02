@@ -19,6 +19,8 @@ const ProductsProvider = ({ children }) => {
         .catch(error => console.error('Error fetching data:', error));
     }, []);
 
+    
+
     return(
         <ProductsContext.Provider value={products}>
             {children}
