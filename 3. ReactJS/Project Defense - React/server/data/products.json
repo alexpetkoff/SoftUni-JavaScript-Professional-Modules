@@ -1,0 +1,52 @@
+{
+    "3564027f-adcd-4425-b2c0-1253d2386c0c": {
+        "title": "Macbook Air 13inch",
+        "category": "macbook",
+        "bought": "5",
+        "imageUrl": "https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mba15-spacegray.jpg",
+        "processor": "M3/12cores cpu/10cores gpu",
+        "ram": "8gb",
+        "hdd": "256gb",
+        "_id": "3564027f-adcd-4425-b2c0-1253d2386c0c"
+    },
+    "c64db398-91cd-487c-b900-86058c0422f8": {
+        "title": "Macbook Air 13inch",
+        "category": "macbook",
+        "bought": "6",
+        "imageUrl": "https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mba15-spacegray.jpg",
+        "processor": "M3/12cores cpu/10cores gpu",
+        "ram": "8gb",
+        "hdd": "256gb",
+        "_id": "c64db398-91cd-487c-b900-86058c0422f8"
+    },
+    "daf55cd4-9aa1-4b7a-82a9-fbdb74aaa84b": {
+        "title": "Macbook Air 13inch",
+        "category": "macbook",
+        "bought": "20",
+        "imageUrl": "https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mba15-spacegray.jpg",
+        "processor": "M3/12cores cpu/10cores gpu",
+        "ram": "8gb",
+        "hdd": "256gb",
+        "_id": "daf55cd4-9aa1-4b7a-82a9-fbdb74aaa84b"
+    },
+    "18bfdb21-333b-42bd-a32c-c114263f2569": {
+        "title": "Macbook Air 13inch",
+        "category": "macbook",
+        "bought": "1",
+        "imageUrl": "https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mba15-spacegray.jpg",
+        "processor": "M3/12cores cpu/10cores gpu",
+        "ram": "8gb",
+        "hdd": "256gb",
+        "_id": "18bfdb21-333b-42bd-a32c-c114263f2569"
+    },
+    "11bfdb22-322b-42bd-a32c-c114263f3534": {
+        "title": "Macbook Air 13inch",
+        "category": "macbook",
+        "bought": "1",
+        "imageUrl": "https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mba15-spacegray.jpg",
+        "processor": "M3/12cores cpu/10cores gpu",
+        "ram": "8gb",
+        "hdd": "256gb",
+        "_id": "11bfdb22-322b-42bd-a32c-c114263f3534"
+    }
+}

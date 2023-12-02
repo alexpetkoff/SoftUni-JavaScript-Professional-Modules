@@ -5,9 +5,8 @@ import Item from '../item/Item';
 import './ProductCategory.css';
 
 function ProductCategory(props) {
-
     const products = useContext(ProductsContext);
-    
+
     return(
         <div className="shop-category">
             <h1>Shop the newest {props.category}s!</h1>
@@ -25,9 +24,6 @@ function ProductCategory(props) {
                         return <Item key={item._id} props={item}/>
                     }
                 })}
-            </div>
-            <div className="shopcategory-loadmore">
-                Expore More
             </div>
         </div>
     )
