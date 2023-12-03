@@ -7,7 +7,7 @@ import Reviews from '../reviews/reviews';
 function ProductDetails(props) {
 
     const { id } = useParams();
-    const { updateCartCount, products } = useContext(ProductsContext);
+    const { addToCart, products } = useContext(ProductsContext);
 
     const product = products.find((e) => e._id === id);
 
@@ -28,7 +28,7 @@ function ProductDetails(props) {
                         <p>Description:</p>
                         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt labore aperiam maxime repudiandae corporis autem magnam sint error, at eos ipsam quis commodi cum quae natus, possimus saepe magni nihil voluptatem tenetur! Ipsa accusantium omnis, voluptates quos ab similique ut facilis maiores harum nemo debitis soluta doloribus error consequuntur. Minus.</p>
                     </div>
-                    <button onClick={updateCartCount}>ADD TO CART</button>
+                    <button onClick={() => addToCart(id)}>ADD TO CART</button>
                 </div>
             </div>
             <Reviews />

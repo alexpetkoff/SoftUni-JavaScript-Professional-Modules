@@ -7,6 +7,7 @@ ProductsContext.displayName = 'ProductsContext';
 const ProductsProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [cartCount, setCartCount] = useState(0);
+    const [cart, setCart] = useState([]);
 
     useEffect(() => {
         fetch('http://localhost:3030/data/products', {
@@ -15,17 +16,27 @@ const ProductsProvider = ({ children }) => {
                 'content-type': 'application/json'
             }
         })
-        .then(response => response.json())
-        .then(data => setProducts(data))
-        .catch(error => console.error('Error fetching data:', error));
+            .then(response => response.json())
+            .then(data => setProducts(data))
+            .catch(error => console.error('Error fetching data:', error));
     }, []);
 
-    const updateCartCount = () => {
-        setCartCount((prevCount) => prevCount + 1);
-    }
+    const addToCart = (productId) => {
+        const productToAdd = products.find((product) => product._id === productId);
 
-    return(
-        <ProductsContext.Provider value={{products, cartCount, updateCartCount}}>
+        if (productToAdd) {
+            setCart((prevCart) => [...prevCart, productToAdd]);
+            setCartCount((prevCount) => prevCount + 1);
+        }
+    };
+
+    const removeFromCart = (productId) => {
+        setCart((prevCart) => prevCart.filter((item) => item._id !== productId));
+        setCartCount((prevCount) => prevCount - 1);
+    };
+
+    return (
+        <ProductsContext.Provider value={{ products, cartCount, addToCart, removeFromCart, cart }}>
             {children}
         </ProductsContext.Provider>
     );
