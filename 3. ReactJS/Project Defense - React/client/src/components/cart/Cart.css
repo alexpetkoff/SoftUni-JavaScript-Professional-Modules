@@ -43,3 +43,35 @@
     background: rgb(226, 69, 69);
     cursor: pointer;
 }
+
+.cartitems-down {
+    display: flex;
+    align-items: center;
+    width: 300px;
+    margin: 100px 0px;
+}
+
+.cartitems-total {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 200px;
+    gap: 40px;
+}
+
+.cartitems-total-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px;
+}
+
+.cartitems-total button {
+    width: 260px;
+    height: 58px;
+    outline: none;
+    border: none;
+    background: #ff5a5a;
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+}

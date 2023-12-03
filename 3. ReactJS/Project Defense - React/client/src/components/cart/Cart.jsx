@@ -4,7 +4,7 @@ import { ProductsContext } from "../../contexts/ProductsContext";
 
 export default function Cart() {
 
-    const { products, cart, removeFromCart } = useContext(ProductsContext);
+    const { getTotalAmount, products, cart, removeFromCart } = useContext(ProductsContext);
     console.log(cart);
 
     return (
@@ -19,22 +19,46 @@ export default function Cart() {
             </div>
             <hr />
             {
-                cart.map((e, index) => {
-                    {
-                        return (<div key={index}>
-                            <div className="cartitems-format cart-items-format-main">
-                                <img src={e.imageUrl} alt="" className="carticon-product-icon" />
-                                <p>{e.title}</p>
-                                <p>${e.price}</p>
-                                <button className="cartitems-quantity">{e.quantity}</button>
-                                <p>${e.price*e.quantity}</p>
-                                <button className="removeitem" onClick={() => { removeFromCart(e._id) }}>X</button>
-                            </div>
-                            <hr />
-                        </div>)
-                    }
-                })
+                cart.length == 0
+                    ? <h1 className="no-content">No Items added in your cart!</h1>
+                    : cart.map((e, index) => {
+                        {
+                            return (<div key={index}>
+                                <div className="cartitems-format cart-items-format-main">
+                                    <img src={e.imageUrl} alt="" className="carticon-product-icon" />
+                                    <p>{e.title}</p>
+                                    <p>${e.price}</p>
+                                    <button className="cartitems-quantity">{e.quantity}</button>
+                                    <p>${e.price * e.quantity}</p>
+                                    <button className="removeitem" onClick={() => { removeFromCart(e._id) }}>X</button>
+                                </div>
+                                <hr />
+                            </div>)
+                        }
+                    })
             }
+            <div className="cartitems-down">
+                <div className="cartitems-total">
+                    <h1>Cart Totals:</h1>
+                    <div>
+                        <div className="cartitems-total-item">
+                            <p>Subtotal</p>
+                            <p>${getTotalAmount()}</p>
+                        </div>
+                        <hr />
+                        <div className="cartitems-total-item">
+                            <p>Shipping Fee</p>
+                            <p>Free</p>
+                        </div>
+                        <hr />
+                        <div className="cartitems-total-item">
+                            <h3>Total</h3>
+                            <h3>${getTotalAmount()}</h3>
+                        </div>
+                    </div>
+                    <button>CHECKOUT</button>
+                </div>
+            </div>
         </div>
     );
 }
