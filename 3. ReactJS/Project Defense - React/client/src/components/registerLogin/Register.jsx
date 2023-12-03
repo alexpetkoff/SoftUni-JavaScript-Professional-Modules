@@ -5,8 +5,8 @@ import { useContext } from 'react';
 import AuthContext from '../../contexts/AuthContext';
 
 function Register() {
-    const {auth, registerSubmitHandler } = useContext(AuthContext);
-    console.log(auth)
+    const { registerSubmitHandler } = useContext(AuthContext);
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -33,10 +33,6 @@ function Register() {
                     <input onChange={onChangeHandler} type="email" name="email" placeholder="Your Email..."/>
                     <input onChange={onChangeHandler} type="password" name="password" placeholder="Your Password..."/>
                 </div>
-                {/* <div className="loginsignup-agree">
-                    <input type="checkbox" name='' id='' />
-                    <p>By continuing, I agree to the terms of use & privacy policy.</p>
-                </div> */}
                 <input className="btn-submit" type="submit" value="Register" />
                 <p className="loginsignup-login">Already have an account? <Link to="/login"><span>Login</span></Link></p>
             </form>

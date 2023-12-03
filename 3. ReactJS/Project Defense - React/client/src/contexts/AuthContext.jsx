@@ -15,14 +15,14 @@ export const AuthProvider = ({ children }) => {
         const result = await userRegister(values);
         setAuth(result);
         localStorage.setItem('token', result.accessToken);
-        navigate(-1)
+        navigate('/')
     }
 
     const loginSubmitHandler = async (values) => {
         const result = await userLogin(values);
         setAuth(result);
         localStorage.setItem('token', result.accessToken);
-        navigate(-1);
+        navigate('/');
     }
 
     const logoutHandler = async () => {

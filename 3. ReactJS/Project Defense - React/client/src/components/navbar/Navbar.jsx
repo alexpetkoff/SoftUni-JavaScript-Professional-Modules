@@ -3,11 +3,14 @@ import styles from './Navbar.module.css';
 import logo from '../../assets/logo.png';
 import cart from '../../assets/cart-icon.png';
 
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import AuthContext from '../../contexts/AuthContext';
 
 function Navbar() {
 
     const [clicked, setClicked] = useState('home');
+    const { auth, logoutHandler } = useContext(AuthContext);
+    console.log(auth);
 
     return (
         <div className={styles['navbar']}>
@@ -23,16 +26,28 @@ function Navbar() {
                 <li onClick={() => setClicked('macstudio')}><Link className={styles['link']} to="/macStudio">Mac Studio</Link> {clicked === 'macstudio' && <hr />}</li>
             </ul>
             <div className={styles['nav-cart-login']}>
-                <Link to="/login">
-                    <button onClick={() => setClicked('none')}>Login</button>
-                </Link>
-                <Link to="/register">
-                    <button onClick={() => setClicked('none')}>Register</button>
-                </Link>
-                <Link to="/cart">
-                    <img src={cart} alt="shopping-cart" />
-                </Link>
-                <div className={styles['cart-count']}>0</div>
+                {
+                    !auth.accessToken ? (
+                        <>
+                            <Link to="/login">
+                                <button onClick={() => setClicked('none')}>Login</button>
+                            </Link>
+                            <Link to="/register">
+                                <button onClick={() => setClicked('none')}>Register</button>
+                            </Link>
+                        </>
+                    ) : (
+                        <>
+                            <Link to="/cart">
+                                <img src={cart} alt="shopping-cart" />
+                            </Link>
+                            <div className={styles['cart-count']}>0</div>
+                            <Link to="">
+                                <button onClick={logoutHandler}>Logout</button>
+                            </Link>
+                        </>
+                    )
+                }
             </div>
         </div>
     );
