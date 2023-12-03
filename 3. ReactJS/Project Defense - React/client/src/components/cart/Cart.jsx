@@ -5,7 +5,6 @@ import { ProductsContext } from "../../contexts/ProductsContext";
 export default function Cart() {
 
     const { getTotalAmount, products, cart, removeFromCart } = useContext(ProductsContext);
-    console.log(cart);
 
     return (
         <div className="cartitems">
