@@ -1,5 +1,5 @@
 .cartitems {
-    height: 90vh;
+    height: 80vh;
     margin: 100px 170px;
 }
 
@@ -18,4 +18,28 @@
     color: #454545;
     font-size: 18px;
     font-weight: 600;
+}
+
+.cartitems-format {
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.carticon-product-icon {
+    height: 62px;
+}
+
+.cartitems-quantity {
+    width: 60px;
+    height: 50px;
+    border: 2px solid #ebebeb;
+    background: white;
+}
+
+.removeitem {
+    width: 60px;
+    height: 50px;
+    border: 2px solid #ebebeb;
+    background: rgb(226, 69, 69);
+    cursor: pointer;
 }

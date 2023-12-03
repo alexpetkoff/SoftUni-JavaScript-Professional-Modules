@@ -1342,6 +1342,7 @@
         products: {
             "3564027f-adcd-4425-b2c0-1253d2386c0c": {
                 "title": "Macbook Air 13inch",
+                "price": 1200,
                 "category": "iPhone",
                 "bought": 5,
                 "imageUrl": "https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mba15-spacegray.jpg",
@@ -1352,6 +1353,7 @@
             },
             "c64db398-91cd-487c-b900-86058c0422f8": {
                 "title": "Macbook Air 13inch",
+                "price": 1200,
                 "category": "iPhone",
                 "bought": 6,
                 "imageUrl": "https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mba15-spacegray.jpg",
@@ -1362,6 +1364,7 @@
             },
             "daf55cd4-9aa1-4b7a-82a9-fbdb74aaa84b": {
                 "title": "Macbook Air 13inch",
+                "price": 1200,
                 "category": "Macbook",
                 "bought": 20,
                 "imageUrl": "https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mba15-spacegray.jpg",
@@ -1372,6 +1375,7 @@
             },
             "18bfdb21-333b-42bd-a32c-c114263f2569": {
                 "title": "Macbook Air 13inch",
+                "price": 1200,
                 "category": "Mac",
                 "bought": 1,
                 "imageUrl": "https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mba15-spacegray.jpg",
@@ -1382,6 +1386,7 @@
             },
             "11bfdb22-322b-42bd-a32c-c114263f3534": {
                 "title": "Macbook Air 13inch",
+                "price": 1200,
                 "category": "Mac Studio",
                 "bought": 1,
                 "imageUrl": "https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mba15-spacegray.jpg",
@@ -1392,6 +1397,7 @@
             },
             "11bfdb22-321b-42bd-a22c-c114223f3534": {
                 "title": "Macbook Air 13inch",
+                "price": 1200,
                 "category": "Mac Studio",
                 "bought": 1,
                 "imageUrl": "https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mba15-spacegray.jpg",
@@ -1402,6 +1408,7 @@
             },
             "11asdb22-321b-42bd-a22c-aaaa223f3534": {
                 "title": "Macbook Air 13inch",
+                "price": 1200,
                 "category": "Mac Studio",
                 "bought": 1,
                 "imageUrl": "https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mba15-spacegray.jpg",
@@ -1412,6 +1419,7 @@
             },
             "11asdb22-3333-2222-a22c-aaaa223f3534": {
                 "title": "Macbook Air 13inch",
+                "price": 1200,
                 "category": "Mac Studio",
                 "bought": 1,
                 "imageUrl": "https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mba15-spacegray.jpg",
@@ -1422,6 +1430,7 @@
             },
             "11a12b22-3333-2222-a22c-a22a223f3534": {
                 "title": "Macbook Air 13inch",
+                "price": 1200,
                 "category": "Mac Studio",
                 "bought": 1,
                 "imageUrl": "https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mba15-spacegray.jpg",
@@ -1432,6 +1441,7 @@
             },
             "11a11232-3333-2222-a22c-a22sd23f3534": {
                 "title": "Macbook Air 13inch",
+                "price": 1200,
                 "category": "Mac Studio",
                 "bought": 1,
                 "imageUrl": "https://istyle.hu/media/wysiwyg/HU/landing-pages/preselection/mba15-spacegray.jpg",

@@ -25,13 +25,38 @@ const ProductsProvider = ({ children }) => {
         const productToAdd = products.find((product) => product._id === productId);
 
         if (productToAdd) {
-            setCart((prevCart) => [...prevCart, productToAdd]);
+            const existingProductIndex = cart.findIndex((item) => item._id === productId);
+
+            if (existingProductIndex !== -1) {
+                const updatedCart = cart.map((item, index) =>
+                    index === existingProductIndex
+                        ? { ...item, quantity: item.quantity + 1 }
+                        : item
+                );
+
+                setCart(updatedCart);
+            } else {
+                productToAdd.quantity = 1;
+                setCart((prevCart) => [...prevCart, productToAdd]);
+            }
+
             setCartCount((prevCount) => prevCount + 1);
         }
     };
 
     const removeFromCart = (productId) => {
-        setCart((prevCart) => prevCart.filter((item) => item._id !== productId));
+        const productToRemove = cart.find((product) => product._id === productId);
+
+        if (productToRemove.quantity === 1) {
+            setCart((prevCart) => prevCart.filter((item) => item._id !== productId));
+        } else {
+            setCart((prevCart) => prevCart.map((item) =>
+                item._id === productId
+                    ? { ...item, quantity: item.quantity - 1 }
+                    : item
+            ));
+        }   
+
         setCartCount((prevCount) => prevCount - 1);
     };
 
