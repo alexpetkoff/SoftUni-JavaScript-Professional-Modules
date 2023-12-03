@@ -10,8 +10,7 @@ function Navbar() {
 
     const [clicked, setClicked] = useState('home');
     const { auth, logoutHandler } = useContext(AuthContext);
-    console.log(auth);
-
+    
     return (
         <div className={styles['navbar']}>
             <div className={styles['nav-logo']}>
