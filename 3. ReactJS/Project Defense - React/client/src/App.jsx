@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ProductsProvider } from './contexts/ProductsContext';
+import AuthContext, { AuthProvider } from './contexts/AuthContext';
 
 import './App.css';
 import Footer from "./components/footer/Footer";
@@ -15,23 +16,25 @@ function App() {
 
   return (
     <BrowserRouter>
-      <ProductsProvider>
-        <div className="app-container">
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/iphone" element={<ProductCategory category='iPhone' />} />
-            <Route path="/macbook" element={<ProductCategory category='Macbook' />} />
-            <Route path="/mac" element={<ProductCategory category='Mac'/>} />
-            <Route path="/macStudio" element={<ProductCategory category='Mac Studio' />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-        </div>
-        <Footer />
-      </ProductsProvider>
+      <AuthProvider>
+        <ProductsProvider>
+          <div className="app-container">
+            <Navbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/iphone" element={<ProductCategory category='iPhone' />} />
+              <Route path="/macbook" element={<ProductCategory category='Macbook' />} />
+              <Route path="/mac" element={<ProductCategory category='Mac' />} />
+              <Route path="/macStudio" element={<ProductCategory category='Mac Studio' />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+            </Routes>
+          </div>
+          <Footer />
+        </ProductsProvider>
+      </AuthProvider>
     </BrowserRouter>
   );
 }

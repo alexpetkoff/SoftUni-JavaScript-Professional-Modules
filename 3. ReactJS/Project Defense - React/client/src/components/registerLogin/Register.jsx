@@ -1,11 +1,12 @@
 import './Register.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { userRegister } from '../../services/userServices';
+import { useContext } from 'react';
+import AuthContext from '../../contexts/AuthContext';
 
 function Register() {
-
-    const navigate = useNavigate();
+    const {auth, registerSubmitHandler } = useContext(AuthContext);
+    console.log(auth)
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -14,16 +15,12 @@ function Register() {
 
     const onSubmitHandler = async (e) => {
         e.preventDefault();
-        
         const {name, email, password} = formData;
-        console.log(formData)
-        const response = await userRegister({email, password, name});
-        navigate(-1);
+        const response = await registerSubmitHandler({email, password, name});
     }
 
     const onChangeHandler = (e) => {
         const {name, value} = e.target;
-        
         setFormData({...formData, [name]: value});
     }
 
