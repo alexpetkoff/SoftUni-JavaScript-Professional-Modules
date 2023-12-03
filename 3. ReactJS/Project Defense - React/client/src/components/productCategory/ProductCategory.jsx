@@ -5,7 +5,7 @@ import Item from '../item/Item';
 import './ProductCategory.css';
 
 function ProductCategory(props) {
-    const products = useContext(ProductsContext);
+    const {products} = useContext(ProductsContext);
 
     return(
         <div className="shop-category">

@@ -5,12 +5,14 @@ import cart from '../../assets/cart-icon.png';
 
 import { useContext, useState } from 'react';
 import AuthContext from '../../contexts/AuthContext';
+import { ProductsContext } from '../../contexts/ProductsContext';
 
 function Navbar() {
 
     const [clicked, setClicked] = useState('home');
     const { auth, logoutHandler } = useContext(AuthContext);
-    
+    const { cartCount } = useContext(ProductsContext);
+
     return (
         <div className={styles['navbar']}>
             <div className={styles['nav-logo']}>
@@ -40,7 +42,7 @@ function Navbar() {
                             <Link to="/cart">
                                 <img src={cart} alt="shopping-cart" />
                             </Link>
-                            <div className={styles['cart-count']}>0</div>
+                            <div className={styles['cart-count']}>{cartCount}</div>
                             <Link to="">
                                 <button onClick={logoutHandler}>Logout</button>
                             </Link>
