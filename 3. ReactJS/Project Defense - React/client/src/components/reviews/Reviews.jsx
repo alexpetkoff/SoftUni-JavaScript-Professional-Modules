@@ -46,22 +46,23 @@ function Reviews() {
             <div className="reviews-nav">
                 <div className="reviews-nav-box">Reviews</div>
             </div>
-            {loading ? (
-                <p>Loading reviews...</p>
-            ) : (
-                <div className="reviewsbox-reviews">
-                    {
-                        reviews.length === 0
-                            ? (<h1>No reviews for this product</h1>)
-                            : reviews.map((review) => (
-                                <div key={review._id} className="reviewsbox-reviews-item">
-                                    <p className="username">{review.username} says:</p>
-                                    <p className="comment">{review.review}</p>
-                                </div>
-                            ))
-                    }
-                </div>
-            )}
+            {loading
+                ? (<p>Loading reviews...</p>)
+                : (
+                    <div className="reviewsbox-reviews">
+                        {
+                            reviews.length === 0
+                                ? (<h1>No reviews for this product</h1>)
+                                : reviews.map((review) => (
+                                    <div key={review._id} className="reviewsbox-reviews-item">
+                                        <p className="username">{review.username} says:</p>
+                                        <p className="comment">{review.review}</p>
+                                    </div>
+                                ))
+                        }
+                    </div>
+                )
+            }
             {auth && auth.accessToken && <AddReview onReviewSubmit={handleReviewSubmit} />}
         </div>
     );
