@@ -8,6 +8,9 @@ function Reviews() {
     const { auth } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [editingReviewId, setEditingReviewId] = useState(null);
+    const [editedReviewText, setEditedReviewText] = useState('');
+
     const { id } = useParams();
 
     const getAllReviews = async () => {
@@ -41,12 +44,47 @@ function Reviews() {
         await getAllReviews();
     };
 
-    const editReview = async () => {
-        
-    }
+    const startEdit = (reviewId) => {
+        const reviewToEdit = reviews.find((review) => review._id === reviewId);
+        setEditingReviewId(reviewId);
+        setEditedReviewText(reviewToEdit.review);
+    };
+
+    const saveEditedReview = async (reviewId) => {
+        try {
+            const response = await fetch(`http://localhost:3030/data/comments/${reviewId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Authorization': auth.accessToken,
+                },
+                body: JSON.stringify({
+                    username: auth.username,
+                    review: editedReviewText,
+                    productId: id,
+                }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to update review');
+            }
+
+            setEditingReviewId(null);
+            setEditedReviewText('');
+            await getAllReviews();
+        } catch (error) {
+            console.error('Error updating review:', error.message);
+        }
+    };
+
+    const cancelEdit = () => {
+        setEditingReviewId(null);
+        setEditedReviewText('');
+    };
+
 
     const deleteReview = async (id) => {
-        
+
         try {
             const response = await fetch(`http://localhost:3030/data/comments/${id}`, {
                 method: 'DELETE',
@@ -57,7 +95,7 @@ function Reviews() {
             })
 
             await getAllReviews();
-        } catch(error) {
+        } catch (error) {
             console.error('Error deleting review:', error.message)
         }
     }
@@ -77,14 +115,35 @@ function Reviews() {
                                 : reviews.map((review) => (
                                     <div key={review._id} className="reviewsbox-reviews-item">
                                         <p className="username">{review.username} says:</p>
-                                        <p className="comment">{review.review}</p>
-                                        {
-                                            auth._id === review._ownerId
-                                                ?(<><button className="editButton">EDIT</button><button className="deleteButton" onClick={() => deleteReview(review._id)}>DELETE</button></>)
-                                                : null
-                                        }
+                                        {editingReviewId === review._id ? (
+                                            <textarea
+                                                cols={50}
+                                                rows={8}
+                                                type="text"
+                                                value={editedReviewText}
+                                                onChange={(e) => setEditedReviewText(e.target.value)}
+                                            />
+                                        ) : (
+                                            <p className="comment">{review.review}</p>
+                                        )}
+                                        {auth._id === review._ownerId ? (
+                                            <>
+                                                {editingReviewId === review._id ? (
+                                                    <>
+                                                        <button onClick={() => saveEditedReview(review._id)}>SAVE</button>
+                                                        <button onClick={() => cancelEdit()}>CANCEL</button>
+                                                    </>
+                                                ) : (
+                                                    <button onClick={() => startEdit(review._id)}>EDIT</button>
+                                                )}
+                                                <button className="deleteButton" onClick={() => deleteReview(review._id)}>
+                                                    DELETE
+                                                </button>
+                                            </>
+                                        ) : null}
                                     </div>
                                 ))
+
                         }
                     </div>
                 )
