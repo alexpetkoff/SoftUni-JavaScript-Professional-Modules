@@ -5,7 +5,7 @@ import cart from '../../assets/cart-icon.png';
 
 import { useContext, useState } from 'react';
 import AuthContext from '../../contexts/AuthContext';
-import { ProductsContext } from '../../contexts/ProductsContext';
+import ProductsContext from '../../contexts/ProductsContext';
 
 function Navbar() {
 

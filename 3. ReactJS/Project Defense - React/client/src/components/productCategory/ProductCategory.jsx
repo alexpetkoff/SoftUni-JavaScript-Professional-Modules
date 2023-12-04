@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import dropdown_icon from '../../assets/dropdown.png';
-import { ProductsContext } from '../../contexts/ProductsContext';
+import ProductsContext from '../../contexts/ProductsContext';
 import Item from '../item/Item';
 import './ProductCategory.css';
 

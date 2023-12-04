@@ -1,11 +1,22 @@
 import './Cart.css';
-import { useContext } from "react";
-import { ProductsContext } from "../../contexts/ProductsContext";
+import { useContext, useState } from "react";
+import ProductsContext from "../../contexts/ProductsContext";
+import CheckoutModal from './CheckoutModal';
 
 export default function Cart() {
 
-    const { getTotalAmount, products, cart, removeFromCart } = useContext(ProductsContext);
+    const { getTotalAmount, products, cart, removeFromCart, setCart, setCartCount } = useContext(ProductsContext);
+    const [showModal, setShowModal] = useState(false);
 
+    const onClose = () => {
+        setShowModal(false);
+    }
+
+    const onCheckOut = () => {
+        setShowModal(true);
+        setCartCount(0);
+        setCart(prev => prev = []);
+    }
     return (
         <div className="cartitems">
             <div className="cart-items-format-main">
@@ -36,6 +47,7 @@ export default function Cart() {
                         }
                     })
             }
+            {showModal && <CheckoutModal onClose={onClose} />}
             <div className="cartitems-down">
                 <div className="cartitems-total">
                     <h1>Cart Totals:</h1>
@@ -55,7 +67,14 @@ export default function Cart() {
                             <h3>${getTotalAmount()}</h3>
                         </div>
                     </div>
-                    <button>CHECKOUT</button>
+                    {cart.length > 0 ? (
+                        <button onClick={onCheckOut}>CHECKOUT</button>
+                    ) : (
+                        <button disabled title="Your cart is empty. Add items to proceed to checkout.">
+                            CHECKOUT
+                        </button>
+                    )}
+
                 </div>
             </div>
         </div>

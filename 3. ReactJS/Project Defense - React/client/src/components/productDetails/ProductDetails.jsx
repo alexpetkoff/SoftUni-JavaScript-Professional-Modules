@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import './ProductDetails.css';
-import { ProductsContext } from '../../contexts/ProductsContext';
+import ProductsContext from '../../contexts/ProductsContext';
 import AuthContext from '../../contexts/AuthContext';
 import Reviews from '../reviews/reviews';
 

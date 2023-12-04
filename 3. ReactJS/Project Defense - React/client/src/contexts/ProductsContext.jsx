@@ -4,7 +4,7 @@ const ProductsContext = createContext(null);
 
 ProductsContext.displayName = 'ProductsContext';
 
-const ProductsProvider = ({ children }) => {
+export const ProductsProvider = ({ children }) => {
     const [products, setProducts] = useState([]);
     const [cartCount, setCartCount] = useState(0);
     const [cart, setCart] = useState([]);
@@ -71,10 +71,10 @@ const ProductsProvider = ({ children }) => {
     }
 
     return (
-        <ProductsContext.Provider value={{ products, cartCount, addToCart, removeFromCart, cart, getTotalAmount }}>
+        <ProductsContext.Provider value={{setCart, setCartCount, products, cartCount, addToCart, removeFromCart, cart, getTotalAmount }}>
             {children}
         </ProductsContext.Provider>
     );
 }
 
-export { ProductsContext, ProductsProvider };
+export default ProductsContext;
