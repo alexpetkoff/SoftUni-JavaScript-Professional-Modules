@@ -39,6 +39,10 @@ function Navbar() {
                         </>
                     ) : (
                         <>
+                            <div>
+                                <p>Welcome,</p>
+                                <p>{auth.username}</p>
+                            </div>
                             <Link to="/cart">
                                 <img src={cart} alt="shopping-cart" />
                             </Link>
