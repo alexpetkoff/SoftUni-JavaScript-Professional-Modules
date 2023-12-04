@@ -42,3 +42,28 @@
     font-size: 16px;
     color: rgb(63, 61, 61);
 }
+
+.reviewbox-addreview {
+    margin-top: 80px;
+}
+
+.reviewbox-addreview button {
+    padding: 20px 40px;
+    height: 60px;
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: #FF4141;
+    margin-bottom: 20px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    margin-top: 20px;
+}
+
+.reviewbox-addreview textarea {
+    width: 600px;
+    height: 100px;
+    max-lines: 5;
+}

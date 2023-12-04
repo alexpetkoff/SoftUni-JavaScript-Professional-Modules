@@ -8,15 +8,15 @@ function Register() {
     const { registerSubmitHandler } = useContext(AuthContext);
 
     const [formData, setFormData] = useState({
-        name: '',
+        username: '',
         email: '',
         password: '',
     });
 
     const onSubmitHandler = async (e) => {
         e.preventDefault();
-        const {name, email, password} = formData;
-        const response = await registerSubmitHandler({email, password, name});
+        const {username, email, password} = formData;
+        const response = await registerSubmitHandler({email, password, username});
     }
 
     const onChangeHandler = (e) => {
@@ -29,7 +29,7 @@ function Register() {
             <form className="loginsignup-container" onSubmit={onSubmitHandler}>
                 <h1>Register</h1>
                 <div className="loginsignup-fields">
-                    <input onChange={onChangeHandler} type="text" name="name" placeholder="Your Name..."/>
+                    <input onChange={onChangeHandler} type="text" name="username" placeholder="Your Name..."/>
                     <input onChange={onChangeHandler} type="email" name="email" placeholder="Your Email..."/>
                     <input onChange={onChangeHandler} type="password" name="password" placeholder="Your Password..."/>
                 </div>

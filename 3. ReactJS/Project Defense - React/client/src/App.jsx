@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ProductsProvider } from './contexts/ProductsContext';
-import AuthContext, { AuthProvider } from './contexts/AuthContext';
+import { AuthProvider } from './contexts/AuthContext';
 
 import './App.css';
 import Footer from "./components/footer/Footer";
