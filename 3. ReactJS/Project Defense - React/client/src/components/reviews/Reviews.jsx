@@ -57,6 +57,11 @@ function Reviews() {
                                     <div key={review._id} className="reviewsbox-reviews-item">
                                         <p className="username">{review.username} says:</p>
                                         <p className="comment">{review.review}</p>
+                                        {
+                                            auth._id === review._ownerId
+                                                ?(<><button>EDIT</button><button>DELETE</button></>)
+                                                : null
+                                        }
                                     </div>
                                 ))
                         }
