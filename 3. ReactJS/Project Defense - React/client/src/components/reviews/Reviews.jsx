@@ -41,6 +41,27 @@ function Reviews() {
         await getAllReviews();
     };
 
+    const editReview = async () => {
+        
+    }
+
+    const deleteReview = async (id) => {
+        
+        try {
+            const response = await fetch(`http://localhost:3030/data/comments/${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-Authorization': auth.accessToken
+                }
+            })
+
+            await getAllReviews();
+        } catch(error) {
+            console.error('Error deleting review:', error.message)
+        }
+    }
+
     return (
         <div className="reviewsbox">
             <div className="reviews-nav">
@@ -59,7 +80,7 @@ function Reviews() {
                                         <p className="comment">{review.review}</p>
                                         {
                                             auth._id === review._ownerId
-                                                ?(<><button>EDIT</button><button>DELETE</button></>)
+                                                ?(<><button className="editButton">EDIT</button><button className="deleteButton" onClick={() => deleteReview(review._id)}>DELETE</button></>)
                                                 : null
                                         }
                                     </div>

@@ -18,9 +18,13 @@ function AddReview({onReviewSubmit}) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-    
+
         try {
-                
+            if(reviewText === '') {
+                alert('You cannot submit an empty review!');
+                return;
+            }
+            
             const response = await fetch('http://localhost:3030/data/comments', {
                 method: 'POST',
                 headers: {
@@ -56,8 +60,8 @@ function AddReview({onReviewSubmit}) {
                     maxLength={255}
                     type='text'
                     name='review'
-                    value={reviewText}  // Make it a controlled component by setting the value
-                    onChange={handleChange}  // Handle changes to update the state
+                    value={reviewText}
+                    onChange={handleChange}
                 />
                 <div>
                     <p>Remaining characters: {255 - reviewText.length}</p>

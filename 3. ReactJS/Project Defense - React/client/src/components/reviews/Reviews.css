@@ -67,3 +67,14 @@
     height: 100px;
     max-lines: 5;
 }
+
+.editButton {
+    color:green;
+    margin-left: 2px;
+    margin-bottom: 2px;
+}
+.deleteButton {
+    color: red;
+    margin-left: 2px;
+    margin-bottom: 2px;
+}
