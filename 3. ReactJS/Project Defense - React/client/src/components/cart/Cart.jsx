@@ -17,6 +17,7 @@ export default function Cart() {
         setCartCount(0);
         setCart(prev => prev = []);
     }
+
     return (
         <div className="cartitems">
             <div className="cart-items-format-main">
