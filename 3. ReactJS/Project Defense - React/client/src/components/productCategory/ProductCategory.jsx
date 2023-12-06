@@ -10,14 +10,6 @@ function ProductCategory(props) {
     return (
         <div className="shop-category">
             <h1>Shop the newest {props.category}s!</h1>
-            <div className="shopcategory-indexSort">
-                <p>
-                    <span>Showing 1-12</span> out of 36 products
-                </p>
-                <div className="shopcategory-sort">
-                    Sort by <img src={dropdown_icon} alt='' />
-                </div>
-            </div>
             <div className="shopcategory-products">
                 {products.map((item) => {
                     if (props.category === item.category) {
