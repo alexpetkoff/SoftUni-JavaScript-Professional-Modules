@@ -11,7 +11,7 @@ export default function Cart() {
     const onClose = () => {
         setShowModal(false);
     }
-
+    console.log(cart)
     const onCheckOut = () => {
         setShowModal(true);
         setCartCount(0);
@@ -29,11 +29,11 @@ export default function Cart() {
             </div>
             <hr />
             {
-                cart.length == 0
+                cart.length === 0
                     ? <h1 className="no-content">No Items added in your cart!</h1>
-                    : cart.map((e, index) => {
+                    : cart.map((e) => {
                         {
-                            return (<div key={index}>
+                            return (<div key={e._id}>
                                 <div className="cartitems-format cart-items-format-main">
                                     <img src={e.imageUrl} alt="" className="carticon-product-icon" />
                                     <p>{e.title}</p>
