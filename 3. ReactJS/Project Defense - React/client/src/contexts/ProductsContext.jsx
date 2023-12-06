@@ -55,14 +55,14 @@ export const ProductsProvider = ({ children }) => {
                     ? { ...item, quantity: item.quantity - 1 }
                     : item
             ));
-        }   
+        }
 
         setCartCount((prevCount) => prevCount - 1);
     };
 
     const getTotalAmount = () => {
         let totalAmount = 0;
-        for(let item of cart) {
+        for (let item of cart) {
             let currentAmount = item.price * item.quantity;
             totalAmount += currentAmount;
         }
@@ -71,7 +71,18 @@ export const ProductsProvider = ({ children }) => {
     }
 
     return (
-        <ProductsContext.Provider value={{setCart, setCartCount, products, cartCount, addToCart, removeFromCart, cart, getTotalAmount }}>
+        <ProductsContext.Provider value={
+            {
+                setCart,
+                setCartCount,
+                products, 
+                cartCount,
+                addToCart,
+                removeFromCart,
+                cart,
+                getTotalAmount
+            }
+        }>
             {children}
         </ProductsContext.Provider>
     );

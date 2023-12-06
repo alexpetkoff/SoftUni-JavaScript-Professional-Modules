@@ -24,7 +24,7 @@ function ProductDetails(props) {
                 <div className="productdisplay-right">
                     <h1>{product.title}</h1>
                     <div className="productdisplay-right-price">
-                        Price: ${1200}
+                        Price: ${product.price}
                     </div>
                     <div className="productdisplay-right-desc">
                         <p>Description:</p>
