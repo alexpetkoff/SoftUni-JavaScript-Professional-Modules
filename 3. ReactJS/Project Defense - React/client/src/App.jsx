@@ -18,7 +18,6 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <ProductsProvider>
-          <div className="app-container">
             <Navbar />
             <Routes>
               <Route path="/" element={<Home />} />
@@ -31,7 +30,6 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
             </Routes>
-          </div>
           <Footer />
         </ProductsProvider>
       </AuthProvider>
