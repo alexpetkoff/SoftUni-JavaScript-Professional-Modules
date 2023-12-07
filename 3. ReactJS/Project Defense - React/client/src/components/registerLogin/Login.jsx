@@ -5,7 +5,13 @@ import { Link } from "react-router-dom";
 
 function Login() {
   const { loginSubmitHandler } = useContext(AuthContext);
+
   const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const [errors, setErrors] = useState({
     email: "",
     password: "",
   });
@@ -13,12 +19,33 @@ function Login() {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     const { email, password } = formData;
+
+    let clientErrors = {};
+    if (!email.trim()) {
+      clientErrors.email = "Please enter your email.";
+    }
+    if (!password.trim()) {
+      clientErrors.password = "Please enter your password.";
+    }
+
+    if (Object.keys(clientErrors).length > 0) {
+      setErrors({ ...clientErrors });
+      return;
+    }
+
+    setErrors({ email: "", password: "" });
+
     const response = await loginSubmitHandler({ email, password });
   };
 
   const onChangeHandler = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    setErrors({
+      ...errors,
+      [name]: "",
+    });
   };
 
   return (
@@ -32,14 +59,17 @@ function Login() {
             type="email"
             placeholder="Your Email..."
           />
+          <div className="error">{errors.email}</div>
           <input
             onChange={onChangeHandler}
             name="password"
             type="password"
             placeholder="Your Password..."
           />
+          <div className="error">{errors.password}</div>
         </div>
         <button>Login</button>
+        <div className="error">{errors.server}</div>
         <p className="loginsignup-login">
           Don't have an account?{" "}
           <Link to="/register">
