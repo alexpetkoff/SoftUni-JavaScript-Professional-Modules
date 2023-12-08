@@ -1,6 +1,7 @@
 # Apple Store
 
 NOTE: Since I wrote my HTML and CSS and I still haven't taken the last module HTML/CSS and thus have no experience, make sure you adjust the zoom levels until the page fits perfectly in your browser. :D :D :D
+It works fine on my macbook air 13 inch with zoom at ~70% but it really depends on your device resolution and screen size.
 
 This repository contains the source code for an Apple Store app build with React.
 
