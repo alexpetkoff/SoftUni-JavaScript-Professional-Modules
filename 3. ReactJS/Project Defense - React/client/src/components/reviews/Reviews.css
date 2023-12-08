@@ -1,87 +1,87 @@
 .reviewsbox {
-    margin: 120px 500px;
+  margin: 120px 400px;
 }
 
 .reviews-nav {
-    display: flex;
+  display: flex;
 }
 
 .reviews-nav-box {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    font-weight: 600;
-    width: 171px;
-    height: 70px;
-    border: 1px solid black;
-    border-bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  width: 171px;
+  height: 70px;
+  border: 1px solid black;
+  border-bottom: 0;
 }
 
 .reviewsbox-reviews {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-    border: 1px solid black;
-    padding: 48px;
-    padding-bottom: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  border: 1px solid black;
+  padding: 48px;
+  padding-bottom: 70px;
 }
 
 .reviewsbox-reviews-item {
-    border: 1px solid grey;
+  border: 1px solid grey;
 }
 
 .username {
-    padding: 5px;
-    font-style: italic;
-    font-size: 18px;
+  padding: 5px;
+  font-style: italic;
+  font-size: 18px;
 }
 
 .comment {
-    padding: 10px;
-    font-size: 16px;
-    color: rgb(63, 61, 61);
+  padding: 10px;
+  font-size: 16px;
+  color: rgb(63, 61, 61);
 }
 
 .reviewbox-addreview {
-    margin-top: 80px;
+  margin-top: 80px;
 }
 
 .reviewbox-addreview button {
-    padding: 20px 40px;
-    height: 60px;
-    width: 200px;
-    font-size: 16px;
-    font-weight: 600;
-    color: white;
-    background: #FF4141;
-    margin-bottom: 20px;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    margin-top: 20px;
+  padding: 20px 40px;
+  height: 60px;
+  width: 200px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: #ff4141;
+  margin-bottom: 20px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  margin-top: 20px;
 }
 
 .reviewbox-addreview textarea {
-    width: 600px;
-    height: 100px;
-    max-lines: 5;
+  width: 600px;
+  height: 100px;
+  max-lines: 5;
 }
 
 .editButton {
-    color:black;
-    background: green;
-    margin-left: 5px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    border: none;
+  color: black;
+  background: green;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border: none;
 }
 
 .deleteButton {
-    color: black;
-    background: #FF4141;
-    margin-left: 5px;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    border: none;
+  color: black;
+  background: #ff4141;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  border: none;
 }
