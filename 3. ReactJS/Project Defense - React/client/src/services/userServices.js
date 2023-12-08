@@ -1,30 +1,47 @@
 const URL = "http://localhost:3030/";
 
 export const userRegister = async (data) => {
-  const request = await fetch(URL + "users/register", {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
+  try {
+    const request = await fetch(URL + "users/register", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
 
-  const response = await request.json();
+    if (!request.ok) {
+      throw new Error("A user with the same Email already exists!");
+    }
 
-  return response;
+    const response = await request.json();
+    return response;
+  } catch (error) {
+    alert(error.message);
+    throw error;
+  }
 };
 
 export const userLogin = async (data) => {
-  const request = await fetch(URL + "users/login", {
-    method: "POST",
-    headers: {
-      "Content-type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
+  try {
+    const request = await fetch(URL + "users/login", {
+      method: "POST",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
 
-  const response = await request.json();
-  return response;
+    if (!request.ok) {
+      throw new Error("Wrong username or password");
+    }
+
+    const response = await request.json();
+    return response;
+  } catch (error) {
+    alert(error.message);
+    throw error;
+  }
 };
 
 export const userLogout = async (token) => {
@@ -34,6 +51,4 @@ export const userLogout = async (token) => {
       "X-Authorization": token,
     },
   });
-
-  return;
 };
