@@ -7,7 +7,7 @@ export default function Footer() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
+      if (window.scrollY > 80) {
         setShowButton(true);
       } else {
         setShowButton(false);

@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
     const result = await userRegister(values);
 
     setAuth(result);
-    localStorage.setItem("token", result.accessToken);
+    // localStorage.setItem("token", result.accessToken);
     localStorage.setItem("user", JSON.stringify(result));
     navigate("/");
   };
@@ -31,14 +31,14 @@ export const AuthProvider = ({ children }) => {
     const result = await userLogin(values);
 
     setAuth(result);
-    localStorage.setItem("token", result.accessToken);
+    // localStorage.setItem("token", result.accessToken);
     localStorage.setItem("user", JSON.stringify(result));
     navigate("/");
   };
 
   const logoutHandler = async () => {
     await userLogout(auth.accessToken);
-    localStorage.removeItem("token");
+    // localStorage.removeItem("token");
     localStorage.removeItem("user");
     setAuth({});
     navigate("/");

@@ -4,14 +4,8 @@ import ProductsContext from "../../contexts/ProductsContext";
 import CheckoutModal from "./CheckoutModal";
 
 export default function Cart() {
-  const {
-    getTotalAmount,
-    products,
-    cart,
-    removeFromCart,
-    setCart,
-    setCartCount,
-  } = useContext(ProductsContext);
+  const { getTotalAmount, cart, removeFromCart, setCart, setCartCount } =
+    useContext(ProductsContext);
 
   const [showModal, setShowModal] = useState(false);
 
