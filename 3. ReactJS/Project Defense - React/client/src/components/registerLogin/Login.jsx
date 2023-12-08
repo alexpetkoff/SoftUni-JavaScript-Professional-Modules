@@ -21,6 +21,7 @@ function Login() {
     const { email, password } = formData;
 
     let clientErrors = {};
+
     if (!email.trim()) {
       clientErrors.email = "Please enter your email.";
     }
@@ -36,6 +37,8 @@ function Login() {
     setErrors({ email: "", password: "" });
 
     const response = await loginSubmitHandler({ email, password });
+
+    return response;
   };
 
   const onChangeHandler = (e) => {

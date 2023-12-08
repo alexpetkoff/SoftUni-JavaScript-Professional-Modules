@@ -7,7 +7,7 @@ function Item({ props }) {
       <img src={props.imageUrl} alt="" />
       <p>{props.title}</p>
       <div className="item-prices">
-        <div className="item-price">$1200</div>
+        <div className="item-price">${props.price}</div>
       </div>
       <Link to={`/product/${props._id}`}>
         <button className="detail-btn">DETAILS</button>

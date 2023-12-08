@@ -19,19 +19,37 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const registerSubmitHandler = async (values) => {
-    const result = await userRegister(values);
-    setAuth(result);
-    localStorage.setItem("token", result.accessToken);
-    localStorage.setItem("user", JSON.stringify(result));
-    navigate("/");
+    try {
+      const result = await userRegister(values);
+
+      if (!result.ok) {
+        throw new Error(result.message);
+      }
+
+      setAuth(result);
+      localStorage.setItem("token", result.accessToken);
+      localStorage.setItem("user", JSON.stringify(result));
+      navigate("/");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   const loginSubmitHandler = async (values) => {
-    const result = await userLogin(values);
-    setAuth(result);
-    localStorage.setItem("token", result.accessToken);
-    localStorage.setItem("user", JSON.stringify(result));
-    navigate("/");
+    try {
+      const result = await userLogin(values);
+
+      if (!result.ok) {
+        throw new Error(result.message);
+      }
+
+      setAuth(result);
+      localStorage.setItem("token", result.accessToken);
+      localStorage.setItem("user", JSON.stringify(result));
+      navigate("/");
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   const logoutHandler = async () => {

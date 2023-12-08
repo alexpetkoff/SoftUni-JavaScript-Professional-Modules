@@ -24,7 +24,6 @@ export const userLogin = async (data) => {
   });
 
   const response = await request.json();
-
   return response;
 };
 
