@@ -20,3 +20,35 @@ This repository contains the source code for an Apple Store app build with React
         node server
 ## Project Structure: 
     
+-1. Project Defense - React
+    -1.1. client
+       -1.1.1. src
+           -assets (contains all images/ logos)
+           -components/
+               -cart/
+                   -Cart.css
+                   -Cart.jsx
+                   -CheckoutModal.css
+                   -CheckoutModal.jsx
+               -footer/
+                   -Footer.jsx
+                   -Footer.module.css
+               -home/
+                   -Home.jsx
+                   -Home.module.css
+               -item/
+                   -Item.jsx
+                   -Item.css
+               -navbar
+               -popular
+               -productCategory
+               -productDetails
+               -registerLogin
+               -reviews
+       -1.1.2. README.md
+       -1.1.3. index.html
+       -1.1.4. package-lock.json
+       -1.1.5. package.json
+       -1.1.6. vite.config.js
+    -1.2. server
+    -1.3. README.md
