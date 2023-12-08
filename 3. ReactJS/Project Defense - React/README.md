@@ -24,27 +24,47 @@ This repository contains the source code for an Apple Store app build with React
     - client
        - src
            - assets (contains all images/ logos)
-           - components/
-               - cart/
+           - components
+               - cart
                    - Cart.css
                    - Cart.jsx
                    - CheckoutModal.css
                    - CheckoutModal.jsx
-               - footer/
+               - footer
                    - Footer.jsx
                    - Footer.module.css
-               - home/
+               - home
                    - Home.jsx
                    - Home.module.css
-               - item/
+               - item
                    - Item.jsx
                    - Item.css
                - navbar
+                   - Navbar.jsx
+                   - Navbar.module.css
                - popular
+                   - Popular.css
+                   - Popular.jsx
                - productCategory
+                   - ProductCategory.jsx
+                   - ProductCategory.css
                - productDetails
+                   - ProductDetails.css
+                   - ProductDetails.jsx
                - registerLogin
+                   - Login.css
+                   - Login.jsx
+                   - Register.css
+                   - Register.jsx
                - reviews
+                   - AddReview.jsx
+                   - Reviews.css
+                   - Reviews.jsx
+            - contexts
+               - AuthContext.jsx
+               - ProductsContext.jsx
+            - services
+               - userServices.js
        - README.md
        - index.html
        - package-lock.json
