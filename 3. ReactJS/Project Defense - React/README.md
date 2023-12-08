@@ -18,3 +18,5 @@ This repository contains the source code for an Apple Store app build with React
         npm run dev
     -Open server folder in new terminal and type:
         node server
+## Project Structure: 
+    
