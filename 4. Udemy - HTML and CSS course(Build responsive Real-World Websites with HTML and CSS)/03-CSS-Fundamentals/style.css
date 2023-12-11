@@ -78,3 +78,11 @@ aside {
   border-top: 5px solid #00b8d8;
   border-bottom: 5px solid #00b8d8;
 }
+/* 
+li:first-child {
+  font-weight: bold;
+}
+
+li:last-child {
+  font-style: italic;
+} */
