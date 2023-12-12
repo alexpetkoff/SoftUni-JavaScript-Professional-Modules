@@ -10,6 +10,11 @@ body {
   border-top: 10px solid #00b8d8;
 }
 
+.container {
+  width: 80%;
+  margin: 0 auto; /* this means the margin on left and right should always be the same */
+}
+
 .main-header {
   background-color: #f7f7f7;
   padding: 20px 40px;
