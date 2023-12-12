@@ -24,6 +24,10 @@ nav {
   margin-bottom: 20px;
 }
 
+.post-image {
+  width: 50%;
+}
+
 article {
   margin-bottom: 60px;
 }
