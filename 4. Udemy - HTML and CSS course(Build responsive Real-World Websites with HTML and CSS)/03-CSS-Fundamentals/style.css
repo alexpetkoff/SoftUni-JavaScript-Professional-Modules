@@ -19,14 +19,28 @@ body {
   background-color: #f7f7f7;
   padding: 20px 40px;
   margin-bottom: 50px;
+  display: block;
+}
+
+.main-header h1 {
+  display: inline-block;
+  margin-right: 20px;
 }
 
 nav {
   font-size: 18px;
+  display: inline-block;
+  margin-top: 20px;
 }
 
 .post-header {
   margin-bottom: 20px;
+}
+
+.author-image {
+  height: 40px;
+  width: 40px;
+  display: block;
 }
 
 .post-image {
@@ -51,6 +65,11 @@ h3 {
   color: #00b8d8;
 }
 
+h1::first-letter {
+  font-style: normal;
+  margin-right: 10px;
+}
+
 h1 {
   font-size: 26px;
   text-transform: uppercase;
@@ -60,6 +79,20 @@ h1 {
 h2 {
   font-size: 40px;
   margin-bottom: 30px;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: "TOP";
+  position: absolute;
+  right: -50px;
+  top: -5px;
+  font-size: 16px;
+  background-color: #ffe70e;
+  display: inline-block;
+  padding: 5px 10px;
+  color: #444;
 }
 
 h3 {
