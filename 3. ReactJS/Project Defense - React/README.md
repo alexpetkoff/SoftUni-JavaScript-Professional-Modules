@@ -7,7 +7,7 @@ This repository contains the source code for an Apple Store app build with React
 
 ## Features
 
-- Home: Browse a catalog of furniture products.
+- Home: Browse a catalog of Аpple products.
 - Product Pages:
   - Iphone, Macbook, Mac, Mac Studio ( contains all the products from the respective category )
 - Cart Page: Cart page containing all selected products from the user ( only for logged in users )
