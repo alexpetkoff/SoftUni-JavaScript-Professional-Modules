@@ -286,3 +286,15 @@ h1 {
 nav {
   float: right;
 }
+
+/* .clear {
+  clear: both;   This is bad technique to clear Floats;
+} */
+
+.clearfix::after {
+  /* This adds brand new element in the very end of the
+ container, so we dont have to add it manually! */
+  clear: both;
+  content: "";
+  display: block;
+}
