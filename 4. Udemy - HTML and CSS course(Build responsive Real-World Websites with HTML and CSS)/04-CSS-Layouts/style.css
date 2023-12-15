@@ -345,7 +345,7 @@ nav {
 
 .article-container {
   display: flex;
-  gap: 30px;
+  gap: 75px;
   flex: 0 0 825px;
 }
 
