@@ -49,7 +49,7 @@ aside {
   background-color: #f7f7f7;
   border-top: 5px solid #1098ad;
   border-bottom: 5px solid #1098ad;
-  padding: 50px 40px;
+  padding: 30px 30px;
 }
 
 /* SMALLER ELEMENTS */
@@ -135,10 +135,6 @@ li:last-child {
   margin-left: 0;
 }
 
-body {
-  /* background-color: orangered; */
-}
-
 /* .first-li {
   font-weight: bold;
 } */
@@ -149,10 +145,6 @@ li:first-child {
 
 li:last-child {
   font-style: italic;
-}
-
-li:nth-child(even) {
-  /* color: red; */
 }
 
 /* Misconception: this won't work! */
@@ -195,8 +187,6 @@ nav a:link {
 
   display: block; */
 
-  margin-right: 30px;
-  margin-top: 10px;
   display: inline-block;
 }
 
@@ -219,10 +209,6 @@ button {
 h1::first-letter {
   font-style: normal;
   margin-right: 5px;
-}
-
-h3 + p::first-line {
-  /* color: red; */
 }
 
 h2 {
@@ -266,6 +252,7 @@ nav p {
 } */
 
 /* !!!!!!!!!!!!!!!!! CSS FLOATS: !!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*
 
 .author-img {
   float: left;
@@ -286,13 +273,9 @@ nav {
   float: right;
 }
 
-/* .clear {
-  clear: both;   This is bad technique to clear Floats;
-} */
-
 .clearfix::after {
   /* This adds brand new element in the very end of the
- container, so we dont have to add it manually! */
+ container, so we dont have to add it manually!
   clear: both;
   content: "";
   display: block;
@@ -310,4 +293,67 @@ aside {
 
 footer {
   clear: both;
+}
+
+
+---------------FLOATS END  */
+
+/* ------------CSS FLEXBOX---------------  */
+
+.main-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+}
+
+.author-box {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.author {
+  margin-bottom: 0px;
+}
+
+.related-post {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.related-link {
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.related-author {
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.article-container {
+  display: flex;
+  gap: 30px;
+  flex: 0 0 825px;
+}
+
+.related-posts {
+  align-self: flex-start;
+  flex: 0 0 300px;
+}
+
+.related-posts h4 {
+  margin-bottom: 20px;
 }
