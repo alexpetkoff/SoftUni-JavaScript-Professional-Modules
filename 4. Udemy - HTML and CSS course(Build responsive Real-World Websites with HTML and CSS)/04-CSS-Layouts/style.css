@@ -27,17 +27,13 @@ body {
   padding-left: 40px;
   padding-right: 40px; */
     padding: 20px 40px;
-    margin-bottom: 60px;
+
     /* height: 80px; */
 }
 
 nav {
     font-size: 18px;
     /* text-align: center; */
-}
-
-article {
-    margin-bottom: 60px;
 }
 
 .post-header {
@@ -350,10 +346,37 @@ nav {
 }
 
 .related-posts {
-    align-self: flex-start;
+    /* align-self: flex-start; */
     flex: 0 0 300px;
 }
 
 .related-posts h4 {
     margin-bottom: 20px;
+}
+
+/* CSS GRID LAYOUT */
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    column-gap: 75px;
+    row-gap: 60px;
+    align-items: start;
+}
+
+.main-header {
+    /* grid-column: 1 / span 2;  does the same as the below code*/
+    grid-column: 1 / -1;
+}
+
+footer {
+    background-color: #1098ad;
+    grid-column: 1 / -1;
+    padding: 20px 20px;
+}
+
+footer p {
+    padding-top: 20px;
+    text-align: center;
+    font-weight: 600;
 }
