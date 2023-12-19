@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Poppins:wght@600&display=swap"
+            rel="stylesheet"
+        />
+        <title>Pagination challenge</title>
+
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "Inter", sans-serif;
+                color: #343a40;
+                line-height: 1;
+                display: flex;
+                justify-content: center;
+            }
+
+            .pagination {
+                margin-top: 100px;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 14px;
+            }
+
+            .page {
+                cursor: pointer;
+            }
+
+            .icon {
+                width: 18px;
+                height: 18px;
+                color: #087f5b;
+            }
+
+            .btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                width: 40px;
+                height: 40px;
+                border: 1px solid #087f5b;
+                background-color: #fff;
+                border-radius: 50%;
+                cursor: pointer;
+            }
+
+            .btn:hover {
+                background-color: #087f5b;
+                .icon {
+                    stroke: #fff;
+                }
+            }
+
+            .page {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 30px;
+                width: 30px;
+            }
+
+            .active {
+                height: 30px;
+                width: 30px;
+                border: 1px solid #087f5b;
+                background-color: #087f5b;
+                color: #fff;
+                border-radius: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="pagination">
+            <button class="btn">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="icon"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75"
+                    />
+                </svg>
+            </button>
+            <div class="page">1</div>
+            <div class="page">2</div>
+            <div class="page active">3</div>
+            <div class="page">4</div>
+            <div class="page">5</div>
+            <div class="page">6</div>
+            <div class="page">...</div>
+            <div class="page">23</div>
+            <button class="btn">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="icon"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
+                    />
+                </svg>
+            </button>
+        </div>
+    </body>
+</html>
