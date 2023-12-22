@@ -1,75 +1,80 @@
-/* 
---- 01. TYPOGRAPHY SYSTEM -----
+/**********************/
+/* HEADER STYLES */
+/**********************/
 
--Font sizes (px):
-10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fdf2e9;
 
--Font weights:
-
--Line heights:
-Default: 1
-
-
---- 02. COLORS: -------
-
-Primary: #e67e22
-
-Tints: #fdf2e9
-Shades: #cf711f
-Accents:
-Greys: #555 , #333, 
-
---- 03. SHADOWS: -----
-
---- 06 BORDER-RADIUS: ---
-
---- 07. WHITESPACES: ---
-
-- SPACING SYSTEM --- (px)
-2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
-
-*/
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    /* Because we want it to be sticky later */
+    height: 9.6rem;
+    padding: 0 4.8rem;
 }
 
-html {
-    /* 10px / 16px = 0.625 = 62.5% <-- this resets the default value to 10px */
-    font-size: 62.5%;
+.logo {
+    height: 2rem;
 }
 
-body {
-    font-family: "Rubik", sans-serif;
-    line-height: 1;
-    font-weight: 400;
-    color: #555;
+/**********************/
+/* NAVIGATION STYLES */
+/**********************/
+
+.main-nav-list {
+    display: flex;
+    align-items: center;
+    gap: 3.2rem;
+
+    list-style: none;
 }
+
+.main-nav-link:link,
+.main-nav-link:visited {
+    display: inline-block;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 1.8rem;
+    transition: all 0.3s;
+}
+
+.main-nav-link:hover,
+.main-nav-link:active {
+    color: #cf711f;
+}
+
+.main-nav-link.nav-cta:link,
+.main-nav-link.nav-cta:visited {
+    padding: 1.2rem 2.4rem;
+    border-radius: 9px;
+    color: #fff;
+    background-color: #e67e22;
+}
+
+.main-nav-link.nav-cta:hover,
+.main-nav-link.nav-cta:active {
+    background-color: #cf711f;
+}
+
+/**********************/
+/* HERO STYLES */
+/**********************/
 
 .section-hero {
     background-color: #fdf2e9;
-    padding: 9.6rem 0;
+    padding: 4.8rem 0 9.6rem 0;
 }
 
 .hero {
     max-width: 130rem;
+    /* max-width: 80%; */
     margin: 0 auto;
-
+    padding: 0 3.2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 9.6rem;
-}
-
-.heading-primary {
-    font-size: 5.2rem;
-    line-height: 1.05;
-    letter-spacing: -0.5px;
-    font-weight: 700;
-    color: #333;
-    margin-bottom: 3.2rem;
 }
 
 .hero-description {
@@ -78,49 +83,8 @@ body {
     margin-bottom: 4.8rem;
 }
 
-.btn:link,
-.btn:visited {
-    display: inline-block;
-    font-size: 2rem;
-    text-decoration: none;
-    padding: 1.6rem 3.2rem;
-    border-radius: 9px;
-    font-weight: 600;
-    /* always put transition on the original state */
-    transition: background-color 0.5s;
-}
-
-.btn--cta:link,
-.btn--cta:visited {
-    color: #fff;
-    background-color: #e67e22;
-    text-decoration: none;
-}
-
-.btn--cta:hover,
-.btn--cta:active {
-    background-color: #cf711f;
-    color: #fff;
-}
-
-.btn--secondary:link,
-.btn--secondary:visited {
-    background-color: #fff;
-    color: #555;
-}
-
-.btn--secondary:hover,
-.btn--secondary:active {
-    background-color: #fdf2e9;
-    box-shadow: inset 0 0 0 3px #fff;
-}
-
 .hero-img {
     width: 100%;
-}
-
-.margin-right-sm {
-    margin-right: 1.6rem;
 }
 
 .delivered-meals {
@@ -154,4 +118,53 @@ body {
 .delivered-text span {
     color: #cf711f;
     font-weight: 700;
+}
+
+/**********************/
+/* HOW IT WORKS SECTION */
+/**********************/
+
+.section-how {
+    padding: 9.6rem 0;
+}
+
+.step-number {
+    font-size: 9.8rem;
+    font-weight: 600;
+    color: #ddd;
+    margin-bottom: 1.2rem;
+}
+
+.step-description {
+    font-size: 1.8rem;
+    line-height: 1.8;
+}
+
+.step-img-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+}
+
+.step-img-box::before,
+.step-img-box::after {
+    content: "";
+    width: 60%;
+    padding-bottom: 60%;
+    background-color: #fdf2e9;
+    border-radius: 50%;
+    z-index: -1;
+    position: absolute;
+}
+
+.step-img-box::after {
+    width: 45%;
+    padding-bottom: 45%;
+    background-color: #fae5d3;
+}
+
+.step-img {
+    width: 35%;
 }
