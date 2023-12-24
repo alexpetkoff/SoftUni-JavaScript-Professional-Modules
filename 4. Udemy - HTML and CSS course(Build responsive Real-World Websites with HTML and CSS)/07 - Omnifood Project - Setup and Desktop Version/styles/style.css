@@ -338,9 +338,6 @@
     grid-template-columns: repeat(3, 1fr);
     padding: 1.6rem;
     gap: 1.6rem;
-    overflow: hidden;
-    overflow-wrap: normal;
-    height: fit-content;
 }
 
 .gallery-item {
@@ -350,12 +347,11 @@
 .gallery-item img {
     display: block;
     width: 100%;
-    object-fit: cover;
-    transition: all 0.4s;
+    transition: all 0.5s;
 }
 
 .gallery-item img:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
 }
 
 /**********************/
