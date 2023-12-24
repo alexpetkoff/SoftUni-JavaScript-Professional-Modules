@@ -394,6 +394,8 @@
     background-color: #ffd43b;
     padding: 1rem 8rem;
 
+    border: thick double #6f6f6f;
+
     position: absolute;
     top: 5%;
     right: -21%;
