@@ -138,6 +138,7 @@ body {
     margin-bottom: 1.6rem;
 }
 
+.btn,
 .btn:link,
 .btn:visited {
     display: inline-block;
@@ -145,6 +146,9 @@ body {
     text-decoration: none;
     padding: 1.6rem 3.2rem;
     border-radius: 9px;
+
+    border: none;
+    cursor: pointer;
     font-weight: 600;
     /* always put transition on the original state */
     transition: all 0.5s;
@@ -173,6 +177,18 @@ body {
 .btn--secondary:active {
     background-color: #fdf2e9;
     box-shadow: inset 0 0 0 3px #fff;
+}
+
+.btn--form {
+    background-color: #45260a;
+    color: #fdf2e9;
+    align-self: end;
+    padding: 1.2rem;
+}
+
+.btn--form:hover {
+    background-color: #fff;
+    color: #555;
 }
 
 .link:link,
@@ -213,6 +229,14 @@ body {
 .list-icon-none {
     width: 3rem;
     color: #e4311a;
+}
+
+*:focus {
+    outline: none;
+    /* outline: 4px dotted #e67e22; */
+    /* outline-offset: 8px; */
+
+    box-shadow: 0 0 0 0.8rem hsla(28, 80%, 52%, 0.5);
 }
 
 /* HELPER CLASSES */
