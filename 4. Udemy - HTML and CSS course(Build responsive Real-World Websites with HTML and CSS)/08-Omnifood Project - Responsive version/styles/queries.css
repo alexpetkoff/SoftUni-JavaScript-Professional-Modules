@@ -67,6 +67,7 @@
 }
 
 /* Below 944px (Tablets) */
+
 @media (max-width: 59em) {
     html {
         font-size: 50%;
