@@ -1,2 +1,67 @@
 /* rem and em do not depend on HTML font-size in media queries!!! */
 /* Instead 1rem = 1em = 16px */
+
+/* Below 1344px (smaller desktops) */
+
+@media (max-width: 84em) {
+    .hero {
+        max-width: 120rem;
+    }
+
+    .heading-primary {
+        font-size: 4.4rem;
+    }
+
+    .delivered-text {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .testimonials {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Below 1200px (tablets- LANDSCAPE) */
+
+/* 
+    NOTES: 
+    IF we want to make everything small,
+    we can change the font-size!
+*/
+
+@media (max-width: 75em) {
+    html {
+        /* 9px / 16px */
+        font-size: 56.25%;
+    }
+
+    .grid {
+        column-gap: 4.8rem;
+        row-gap: 6.4rem;
+    }
+
+    .heading-secondary {
+        font-size: 3.6rem;
+    }
+
+    .heading-tertiary {
+        font-size: 2.4rem;
+    }
+
+    .header {
+        padding: 0 3.2rem;
+    }
+
+    .main-nav-list {
+        gap: 3.2rem;
+    }
+
+    .hero {
+        gap: 4.8rem;
+    }
+}
