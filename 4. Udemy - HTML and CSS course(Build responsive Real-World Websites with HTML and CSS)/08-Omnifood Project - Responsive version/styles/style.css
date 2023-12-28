@@ -7,6 +7,7 @@
     justify-content: space-between;
     align-items: center;
     background-color: #fdf2e9;
+    position: relative;
 
     /* Because we want it to be sticky later */
     height: 9.6rem;
@@ -55,6 +56,26 @@
 .main-nav-link.nav-cta:hover,
 .main-nav-link.nav-cta:active {
     background-color: #cf711f;
+}
+
+/* mobile navgation */
+
+.btn-mobile-nav {
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    display: none;
+}
+
+.icon-mobile-nav {
+    height: 4.8rem;
+    width: 4.8rem;
+    color: #333;
+}
+
+.icon-mobile-nav[name="close-outline"] {
+    display: none;
 }
 
 /**********************/
