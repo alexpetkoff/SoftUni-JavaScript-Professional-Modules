@@ -51,7 +51,7 @@ allLinks.forEach((link) => {
         if (href === "#") {
             window.scrollTo({
                 top: 0,
-                behavior: smooth,
+                behavior: "smooth",
             });
         }
 
@@ -65,6 +65,28 @@ allLinks.forEach((link) => {
         }
     });
 });
+
+// /////////////////////
+// making the nav sticky
+// /////////////////////
+
+const sectionHeroElement = document.querySelector(".section-hero");
+const obs = new IntersectionObserver(
+    (entries) => {
+        const ent = entries[0];
+        if (ent.isIntersecting === false) {
+            document.body.classList.add("sticky");
+        } else {
+            document.body.classList.remove("sticky");
+        }
+    },
+    {
+        root: null,
+        threshold: 0,
+    }
+);
+
+obs.observe(sectionHeroElement);
 
 // https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js
 
