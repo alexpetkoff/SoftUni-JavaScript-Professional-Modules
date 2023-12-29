@@ -13,6 +13,10 @@
             src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.js"
         ></script>
 
+        <script
+            defer
+            src="https://unpkg.com/smoothscroll-polyfill@0.4.4/dist/smoothscroll.min.js"
+        ></script>
         <script defer src="js/script.js"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -30,7 +34,7 @@
     </head>
     <body>
         <header class="header">
-            <!-- nav-open - put class above -->
+            <!-- nav-open - put class above to open mobile navigation-->
             <a href="#">
                 <img
                     src="/img/omnifood-logo.png"
@@ -41,12 +45,20 @@
 
             <nav class="main-nav">
                 <ul class="main-nav-list">
-                    <li><a class="main-nav-link" href="#">How it works</a></li>
-                    <li><a class="main-nav-link" href="#">Meals</a></li>
-                    <li><a class="main-nav-link" href="#">Testimonials</a></li>
-                    <li><a class="main-nav-link" href="#">Pricing</a></li>
                     <li>
-                        <a class="main-nav-link nav-cta" href="#"
+                        <a class="main-nav-link" href="#how">How it works</a>
+                    </li>
+                    <li><a class="main-nav-link" href="#meals">Meals</a></li>
+                    <li>
+                        <a class="main-nav-link" href="#testimonials"
+                            >Testimonials</a
+                        >
+                    </li>
+                    <li>
+                        <a class="main-nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li>
+                        <a class="main-nav-link nav-cta" href="#cta"
                             >Try for free</a
                         >
                     </li>
@@ -79,10 +91,10 @@
                             will make you eat healthy again. Tailored to your
                             personal tastes and nutritional needs.
                         </p>
-                        <a href="#" class="btn btn--cta margin-right-sm"
+                        <a href="#cta" class="btn btn--cta margin-right-sm"
                             >Start eating well</a
                         >
-                        <a href="#" class="btn btn--secondary"
+                        <a href="#how" class="btn btn--secondary"
                             >Learn more &rarr;</a
                         >
                         <div class="delivered-meals">
@@ -152,7 +164,7 @@
                 </div>
             </section>
 
-            <section class="section-how">
+            <section class="section-how" id="how">
                 <div class="container">
                     <span class="subheading">How it works?</span>
                     <h2 class="heading-secondary">
@@ -228,7 +240,7 @@
                 </div>
             </section>
 
-            <section class="section-meals">
+            <section class="section-meals" id="meals">
                 <div class="container center-text">
                     <span class="subheading">Meals</span>
                     <h2 class="heading-secondary">
@@ -396,7 +408,7 @@
                 </div>
             </section>
 
-            <section class="section-testimonials">
+            <section class="section-testimonials" id="testimonials">
                 <div class="testimonials-container">
                     <span class="subheading">Testimonials</span>
                     <h2 class="heading-secondary">
@@ -537,7 +549,7 @@
                 </div>
             </section>
 
-            <section class="section-pricing">
+            <section class="section-pricing" id="pricing">
                 <div class="container">
                     <span class="subheading">Pricing</span>
                     <h2 class="heading-secondary">
@@ -777,7 +789,7 @@
                 </div>
             </section>
 
-            <section class="section-cta">
+            <section class="section-cta" id="cta">
                 <div class="container">
                     <div class="cta">
                         <div class="cta-text-box">
