@@ -14,7 +14,7 @@ body {
 
 .container {
     width: 120rem;
-    margin: 1rem auto;
+    margin: 6rem auto;
 }
 
 h1 {
@@ -23,15 +23,15 @@ h1 {
 }
 
 h1::first-letter {
-    color: rgba(255, 61, 61, 0.973);
-    font-weight: 800;
+    color: rgba(255, 61, 61, 0.9);
+    font-weight: 900;
 }
 
 .page-header {
     width: 100%;
     position: fixed;
     font-size: 5rem;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.9);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     color: rgb(248, 248, 248);
@@ -59,7 +59,7 @@ h1::first-letter {
 
 .user-area a {
     display: inline-block;
-    padding: 1rem 2rem;
+    margin-right: 2rem;
     color: rgb(248, 248, 248);
     text-decoration: none;
 }
