@@ -71,7 +71,7 @@ h1::first-letter {
         rgba(0, 94, 12, 0.897),
         rgba(0, 116, 29, 0.856) 70.71%
     );
-
+    z-index: -10;
     display: flex;
     justify-content: center;
 }
