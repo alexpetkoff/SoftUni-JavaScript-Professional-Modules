@@ -49,7 +49,7 @@ function Header() {
                         </li>
                         <li className="menu-list-item">
                             <a href="#" className="right-menu-guest">
-                                Cart
+                                <ion-icon name="cart-outline"></ion-icon>
                             </a>
                         </li>
                     </ul>
