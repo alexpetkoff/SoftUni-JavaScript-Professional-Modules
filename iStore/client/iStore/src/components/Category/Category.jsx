@@ -15,22 +15,43 @@ function Category() {
                     <div className="aside-title">Filters</div>
                     <div className="filters-container">
                         <div className="filter-option">
-                            <div className="filter-option-title">Sizes</div>
-                            <div className="filter-option-check">13inch</div>
-                            <div className="filter-option-check">14inch</div>
-                            <div className="filter-option-check">15inch</div>
+                            <div className="filter-option-title">
+                                Screen size:
+                            </div>
+                            <div className="filter-option-check">
+                                <input type="checkbox" className="checkbox" />
+                                <span className="filter-type">13inch</span>
+                            </div>
+                            <div className="filter-option-check">
+                                <input type="checkbox" className="checkbox" />
+                                <span className="filter-type">13inch</span>
+                            </div>
+                            <div className="filter-option-check">
+                                <input type="checkbox" className="checkbox" />
+                                <span className="filter-type">13inch</span>
+                            </div>
                         </div>
                         <div className="filter-option">
-                            <div className="filter-option-title">Sizes</div>
-                            <div className="filter-option-check">13inch</div>
-                            <div className="filter-option-check">14inch</div>
-                            <div className="filter-option-check">15inch</div>
+                            <div className="filter-option-title">SSD:</div>
+                            <div className="filter-option-check">
+                                <input type="checkbox" className="checkbox" />
+                                <span className="filter-type">13inch</span>
+                            </div>
+                            <div className="filter-option-check">
+                                <input type="checkbox" className="checkbox" />
+                                <span className="filter-type">13inch</span>
+                            </div>
                         </div>
                         <div className="filter-option">
-                            <div className="filter-option-title">Sizes</div>
-                            <div className="filter-option-check">13inch</div>
-                            <div className="filter-option-check">14inch</div>
-                            <div className="filter-option-check">15inch</div>
+                            <div className="filter-option-title">Producer:</div>
+                            <div className="filter-option-check">
+                                <input type="checkbox" className="checkbox" />
+                                <span className="filter-type">13inch</span>
+                            </div>
+                            <div className="filter-option-check">
+                                <input type="checkbox" className="checkbox" />
+                                <span className="filter-type">13inch</span>
+                            </div>
                         </div>
                     </div>
                 </aside>
@@ -138,7 +159,6 @@ function Category() {
                                 </a>
                             </div>
                         </div>
-
                         <div className="item-cell">
                             <img
                                 className="item-img"
