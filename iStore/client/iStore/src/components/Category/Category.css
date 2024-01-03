@@ -85,12 +85,9 @@
 
     width: auto;
     height: auto;
-    border: 1px solid rgba(153, 153, 153, 0.25);
+    border: none;
+    box-shadow: inset 0 0 0 1px rgba(153, 153, 153, 0.25);
     transition: all 0.3s ease-in-out;
-}
-
-.item-cell:not(:last-child) {
-    border-right: none;
 }
 
 .item-cell:hover {
@@ -99,7 +96,6 @@
 
 .item-img {
     max-width: 100%;
-    /* padding: 1px; */
 }
 
 .item-title {
@@ -111,14 +107,14 @@
 
 .item-price {
     align-self: flex-start;
-    padding-top: 2rem;
+    padding-top: 3rem;
 
     font-size: 1.6rem;
     font-weight: 600;
 }
 
 .item-text {
-    padding-top: 2rem;
+    padding-top: 3rem;
     font-size: 1.2rem;
     font-weight: 600;
     align-self: flex-start;
@@ -133,7 +129,7 @@
 }
 
 .btns {
-    padding-top: 2rem;
+    padding: 2rem 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -146,9 +142,9 @@
 .btn-more:visited {
     color: rgb(0, 89, 255);
     text-decoration: none;
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 500;
-    padding: 0.5rem 2rem;
+    padding: 1rem 2rem;
     margin-right: 1rem;
     box-shadow: inset 0 0 0 1px #1481ff;
     border-radius: 5px;
@@ -173,9 +169,9 @@
 
     color: rgb(255, 255, 255);
     background-color: #3290fc;
-    padding: 0.5rem 0.5rem;
+    padding: 0.8rem 0.8rem;
     border-radius: 5px;
-    font-size: 2rem;
+    font-size: 3rem;
     transition: all 0.3s ease-in-out;
 }
 
@@ -212,6 +208,6 @@
 
 .filter-type {
     font-size: 1.4rem;
-    color: #9b9b9b;
+    color: #696969;
     padding-left: 1rem;
 }

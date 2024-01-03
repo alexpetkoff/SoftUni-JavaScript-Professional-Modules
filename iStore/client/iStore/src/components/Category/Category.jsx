@@ -234,33 +234,6 @@ function Category() {
                                 </a>
                             </div>
                         </div>
-                        <div className="item-cell">
-                            <img
-                                className="item-img"
-                                src={picture}
-                                alt="Apple product"
-                            />
-                            <p className="item-title">
-                                Apple Macbook Pro 16in | M2 Pro chip | 16GB RAM
-                            </p>
-                            <p className="item-price">2199.00 лв.</p>
-                            <p className="item-text notavailable">
-                                Не е наличен
-                            </p>
-                            <div className="btns">
-                                <a className="btn-more" href="#">
-                                    <span className="btn-more-text">
-                                        Виж повече
-                                    </span>
-                                </a>
-                                <a href="#" className="btn-add">
-                                    <ion-icon
-                                        className="btn-add-icon"
-                                        name="cart-outline"
-                                    ></ion-icon>
-                                </a>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
