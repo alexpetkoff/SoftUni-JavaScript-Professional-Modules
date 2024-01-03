@@ -1,0 +1,67 @@
+.page-header {
+    width: 100%;
+    /* position: fixed; */
+    font-size: 6rem;
+    background-color: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    color: rgb(248, 248, 248);
+
+    display: flex;
+    justify-content: center;
+}
+
+.menu-container {
+    width: 120rem;
+    height: 5rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.logo::first-letter {
+    color: rgba(255, 61, 61, 0.9);
+    font-weight: 900;
+}
+
+.menu-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: inherit;
+
+    gap: 5rem;
+
+    list-style: none;
+}
+
+.menu-list-item a:link,
+.menu-list-item a:visited {
+    position: relative;
+    color: rgb(248, 248, 248);
+    text-decoration: none;
+    padding: 0.5rem 0.5rem;
+    font-size: inherit;
+}
+
+.menu-list-item a::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #007aff;
+    transition: width 0.5s ease-in-out;
+}
+
+.menu-list-item a:hover::before,
+.menu-list-item a:visited::before {
+    width: 100%;
+}
