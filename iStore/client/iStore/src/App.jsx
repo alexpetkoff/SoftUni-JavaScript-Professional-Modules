@@ -5,6 +5,7 @@ import Footer from "./components/Footer/Footer";
 import Hero from "./components/Hero/Hero";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
+import Category from "./components/Category/Category";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                     <Route path="/" element={<Hero />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
+                    <Route path="/mac" element={<Category />} />
                 </Routes>
             </div>
             <Footer />
