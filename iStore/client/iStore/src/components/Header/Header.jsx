@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Header.css";
 
 function Header() {
@@ -37,13 +38,18 @@ function Header() {
                 <div className="user-area">
                     <ul className="menu-list">
                         <li className="menu-list-item">
-                            <a href="#" className="right-menu-guest">
+                            <Link to="/login" className="right-menu-guest">
                                 Login
-                            </a>
+                            </Link>
+                        </li>
+                        <li className="menu-list-item">
+                            <Link to="/register" className="right-menu-guest">
+                                Register
+                            </Link>
                         </li>
                         <li className="menu-list-item">
                             <a href="#" className="right-menu-guest">
-                                Register
+                                Cart
                             </a>
                         </li>
                     </ul>
