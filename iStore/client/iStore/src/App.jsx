@@ -8,6 +8,7 @@ import Hero from "./components/Hero/Hero";
 import Login from "./components/Login/Login";
 import Register from "./components/Register/Register";
 import Category from "./components/Category/Category";
+import Cart from "./components/Cart/Cart";
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
                     <Route path="/mac" element={<Category category="MAC" />} />
+                    <Route path="/cart" element={<Cart />} />
                 </Routes>
             </div>
             <Footer />
