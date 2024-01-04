@@ -1,7 +1,8 @@
 import "./Category.css";
 import picture from "./picture.jpg";
 
-function Category() {
+function Category({ category }) {
+    console.log(category);
     return (
         <div className="container">
             <div className="grid-container">

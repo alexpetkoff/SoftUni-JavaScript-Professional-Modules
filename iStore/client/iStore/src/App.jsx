@@ -16,7 +16,7 @@ function App() {
                     <Route path="/" element={<Hero />} />
                     <Route path="/login" element={<Login />} />
                     <Route path="/register" element={<Register />} />
-                    <Route path="/mac" element={<Category />} />
+                    <Route path="/mac" element={<Category category="MAC" />} />
                 </Routes>
             </div>
             <Footer />
