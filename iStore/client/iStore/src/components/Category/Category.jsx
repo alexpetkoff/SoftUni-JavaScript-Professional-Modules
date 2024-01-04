@@ -13,7 +13,7 @@ function Category({ category }) {
                     </p>
                 </div>
                 <aside className="category-filters">
-                    <div className="aside-title">Filters</div>
+                    {/* <div className="aside-title">Filters</div> */}
                     <div className="filters-container">
                         <div className="filter-option">
                             <div className="filter-option-title">

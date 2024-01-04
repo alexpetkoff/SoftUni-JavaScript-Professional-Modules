@@ -74,6 +74,7 @@
 
     box-shadow: 0 0 1px 1px rgba(124, 124, 124, 0.212);
     border-radius: 10px;
+    border: none;
     transition: all 0.5s ease;
     font-family: "Roboto", sans-serif;
 }
@@ -81,4 +82,9 @@
 .submit-btn:hover {
     box-shadow: 0px 5px 0px 1px #007aff;
     transform: translateY(-5%);
+}
+
+.display-error {
+    color: red;
+    padding-left: 2px;
 }

@@ -65,3 +65,18 @@
 .menu-list-item a:visited::before {
     width: 100%;
 }
+
+.cart-icon {
+    position: relative;
+    font-size: 1.6rem;
+}
+
+.cart-count {
+    padding: 2px 2px;
+    top: -5px;
+    right: -5px;
+    background-color: rgb(184, 0, 0);
+
+    border-radius: 50%;
+    position: absolute;
+}
