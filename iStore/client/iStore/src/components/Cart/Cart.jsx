@@ -20,7 +20,11 @@ function Cart() {
                         <div className="item-count">3</div>
                         <button className="item-plus">+</button>
                     </div>
-                    <button className="item-remove">
+                    <button
+                        className="item-remove"
+                        alt="Remove product"
+                        title="Remove product"
+                    >
                         <span>X</span>
                     </button>
                 </div>

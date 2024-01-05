@@ -18,8 +18,7 @@
     justify-content: left;
     align-items: center;
     gap: 4rem;
-
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     overflow: hidden;
 }
@@ -77,7 +76,7 @@
 
     background-color: white;
     border-radius: 50%;
-    color: rgb(255, 73, 73);
+    color: rgb(255, 81, 81);
     border: 2px solid rgb(255, 81, 81);
     font-weight: 900;
     cursor: pointer;
@@ -85,4 +84,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.5s ease;
+}
+
+.item-remove:hover {
+    color: rgb(255, 81, 81, 0.5);
+    border: 2px solid rgb(255, 81, 81, 0.5);
 }
