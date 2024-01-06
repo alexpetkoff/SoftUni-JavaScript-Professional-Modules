@@ -6,7 +6,6 @@ import AuthContext from "../../contexts/AuthContext";
 function Header() {
     const { logoutHandler, auth } = useContext(AuthContext);
     const isLoggedIn = auth.accessToken ? true : false;
-    console.log(isLoggedIn);
 
     return (
         <div className="page-header">
