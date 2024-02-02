@@ -13,36 +13,42 @@ import Login from "./components/registerLogin/Login";
 import ProductDetails from "./components/productDetails/ProductDetails";
 
 function App() {
-  return (
-    <BrowserRouter>
-      <AuthProvider>
-        <ProductsProvider>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route
-              path="/iphone"
-              element={<ProductCategory category="iPhone" />}
-            />
-            <Route
-              path="/macbook"
-              element={<ProductCategory category="Macbook" />}
-            />
-            <Route path="/mac" element={<ProductCategory category="Mac" />} />
-            <Route
-              path="/macStudio"
-              element={<ProductCategory category="Mac Studio" />}
-            />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-          </Routes>
-          <Footer />
-        </ProductsProvider>
-      </AuthProvider>
-    </BrowserRouter>
-  );
+    return (
+        <BrowserRouter>
+            <AuthProvider>
+                <ProductsProvider>
+                    <Navbar />
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route
+                            path="/iphone"
+                            element={<ProductCategory category="iPhone" />}
+                        />
+                        <Route
+                            path="/macbook"
+                            element={<ProductCategory category="Macbook" />}
+                        />
+                        <Route
+                            path="/mac"
+                            element={<ProductCategory category="Mac" />}
+                        />
+                        <Route
+                            path="/macStudio"
+                            element={<ProductCategory category="Mac Studio" />}
+                        />
+                        <Route
+                            path="/product/:id"
+                            element={<ProductDetails />}
+                        />
+                        <Route path="/cart" element={<Cart />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/login" element={<Login />} />
+                    </Routes>
+                    <Footer />
+                </ProductsProvider>
+            </AuthProvider>
+        </BrowserRouter>
+    );
 }
 
 export default App;
