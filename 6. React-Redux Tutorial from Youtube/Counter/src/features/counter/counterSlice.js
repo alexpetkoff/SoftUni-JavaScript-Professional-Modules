@@ -21,7 +21,7 @@ export const counterSlice = createSlice({
             state.count += action.payload;
         }
     }
-})
+});
 
 export const { increment, decrement, reset, incrementByAmount } = counterSlice.actions;
 

@@ -4,6 +4,7 @@ import { useState } from "react";
 
 const Counter = () => {
     const [incrementAmount, setIncrementAmount] = useState(0);
+
     const count = useSelector((state) => state.counter.count);
     const dispatch = useDispatch();
     const addValue = Number(incrementAmount) || 0;
