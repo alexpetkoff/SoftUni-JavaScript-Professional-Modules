@@ -1,3 +1,4 @@
+module.exports = `
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,9 +15,9 @@
     <header>
         <nav>
             <ul class="navigation">
-                <li><a href="">Home Page</a></li>
-                <li><a href="">Add Breed</a></li>
-                <li><a href="">Add Cat</a></li>
+                <li><a href="/">Home Page</a></li>
+                <li><a href="/cats/add-breed">Add Breed</a></li>
+                <li><a href="/cats/add-cat">Add Cat</a></li>
             </ul>
         </nav>
         <h1>Cat Shelter</h1>
@@ -32,3 +33,4 @@
 </body>
 
 </html>
+`

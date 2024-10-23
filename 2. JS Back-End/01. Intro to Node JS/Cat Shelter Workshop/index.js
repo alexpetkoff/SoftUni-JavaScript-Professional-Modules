@@ -1,7 +1,11 @@
 const http = require("http");
-const homeTemplate = require("./views/home/index")
-const catCardTemplate = require("./views/templates/catCardTemplate.js")
-const siteCSS = require("./content/styles/site.js")
+
+const homeTemplate = require("./views/home/index");
+const addCatTemplate = require("./views/addCat.js");
+const addBreedTemplate = require("./views/addBreed.js");
+const catCardTemplate = require("./views/templates/catCardTemplate.js");
+
+const siteCSS = require("./content/styles/site.js");
 const port = 5555;
 
 const catsArray = [
@@ -38,17 +42,28 @@ const catsArray = [
     }
 ]
 
-const catsArrayTemplate = catsArray.map(cat => catCardTemplate
-    .replace("{{imageUrl}}", cat.imageUrl)
-    .replaceAll("{{name}}", cat.name)
-    .replace("{{breed}}", cat.breed)
-    .replace("{{description}}", cat.description)
-)
+const breedsArray = ['Bombay Cat', 'Test Cat']
+
+const createCatsArrayTemplate = () => {
+    return catsArray.map(cat => catCardTemplate
+        .replace("{{imageUrl}}", cat.imageUrl)
+        .replaceAll("{{name}}", cat.name)
+        .replace("{{breed}}", cat.breed)
+        .replace("{{description}}", cat.description)
+    ).join('');
+};
+
+const breedOptionsArray = breedsArray.map(breed =>
+    `<option value="${breed}">${breed}</option>`
+);
 
 const server = http.createServer((req, res) => {
     const { url } = req;
 
     if (url === '/' && req.method === "GET") {
+
+        const catsArrayTemplate = createCatsArrayTemplate()
+
         res.writeHead(200, {
             "Content-Type": "text/html"
         })
@@ -58,10 +73,56 @@ const server = http.createServer((req, res) => {
             "Content-Type": "text/css"
         })
         res.write(siteCSS);
-    } else {
-        res.write("Hello to: " + url);
+    } else if (url === "/cats/add-cat" && req.method === "GET") {
+        res.writeHead(200, {
+            "Content-Type": "text/html"
+        })
+        res.write(addCatTemplate.replace('{{breedOptions}}', breedOptionsArray.join('')))
+
+    } else if (url === "/" && req.method === "POST") {
+        let body = '';
+
+        req.on('data', chunk => {
+            body += chunk.toString()
+        })
+
+        req.on('end', () => {
+            const formData = new URLSearchParams(body)
+            const name = formData.get("name")
+            const description = formData.get("description")
+            const upload = formData.get("upload")
+            const breed = formData.get("breed")
+
+            catsArray.push(
+                {
+                    imageUrl: upload,
+                    name,
+                    breed,
+                    description
+                },
+            )
+
+            res.end();
+
+        })
+        const updatedCatsArrayTemplate = createCatsArrayTemplate();
+
+        res.writeHead(200, {
+            "Content-Type": "text/html"
+        })
+        res.write(homeTemplate.replace("{{catsArrayTemplate}}", updatedCatsArrayTemplate));
+        res.end();
+
+    } else if (url === "/cats/add-breed" && req.method === "GET") {
+        res.writeHead(200, {
+            "Content-Type": "text/html"
+        })
+        res.write(addBreedTemplate);
+        res.end();
     }
+
+
     res.end();
 });
 
-server.listen(port, () => console.log(`Server is listening on port: ${port}`))
+server.listen(port, () => console.log(`Server is listening on port: ${port}`));
