@@ -2,7 +2,6 @@ const http = require('http');
 const fs = require('fs').promises;
 const PORT = 5555;
 
-const catsArray = require('./cats.json')
 const breedsArray = ['Bombay Cat', 'Test Cat'];
 
 async function generateCatCards() {
