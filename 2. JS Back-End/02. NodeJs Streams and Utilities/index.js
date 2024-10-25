@@ -37,8 +37,6 @@ const catsArray = [
 ];
 const breedsArray = ['Bombay Cat', 'Test Cat'];
 
-
-
 const server = http.createServer(async (req, res) => {
 
     const { url, method } = req;
