@@ -37,6 +37,25 @@ const catsArray = [
 ];
 const breedsArray = ['Bombay Cat', 'Test Cat'];
 
+async function generateCatCards() {
+    const catCardTemplate = await fs.readFile("./views/home/catCardTemplate.html", "utf-8");
+    return catsArray.map(cat => {
+        return catCardTemplate
+            .replace("{{imageUrl}}", cat.imageUrl)
+            .replaceAll("{{name}}", cat.name)
+            .replace("{{breed}}", cat.breed)
+            .replace("{{description}}", cat.description);
+    }).join('');
+}
+
+async function generateBreedOptions() {
+    const optionsTemplate = await fs.readFile("./views/optionsTemplate.html", "utf-8")
+
+    return breedsArray.map(breed => {
+        return optionsTemplate.replaceAll("{{breed}}", breed)
+    }).join('');
+}
+
 const server = http.createServer(async (req, res) => {
 
     const { url, method } = req;
@@ -44,8 +63,10 @@ const server = http.createServer(async (req, res) => {
     if (url === "/" && method === 'GET') {
         try {
             const homeHtml = await fs.readFile("./views/home/index.html", "utf-8");
+            const catCardArray = await generateCatCards();
+
             res.writeHead(200, { "Content-Type": "text/html" });
-            res.write(homeHtml);
+            res.write(homeHtml.replace("{{template}}", catCardArray));
         } catch (error) {
             res.writeHead(500, { "Content-Type": "text/plain" });
             res.write("Internal Server Error: Could not load the page.");
@@ -70,9 +91,11 @@ const server = http.createServer(async (req, res) => {
         }
     } else if (url === "/cats/add-cat" && method === "GET") {
         try {
-            const catBreedHtml = await fs.readFile("./views/addCat.html", "utf-8");
+            const breedOptions = await generateBreedOptions();
+            const addCatTemplate = await fs.readFile("./views/addCat.html", "utf-8");
+
             res.writeHead(200, { "Content-Type": "text/html" });
-            res.write(catBreedHtml);
+            res.write(addCatTemplate.replace("{{optionsTemplate}}", breedOptions));
         } catch (error) {
             res.writeHead(500, { "Content-Type": "text/plain" });
             res.write("Internal Server Error: Could not load the page.");
