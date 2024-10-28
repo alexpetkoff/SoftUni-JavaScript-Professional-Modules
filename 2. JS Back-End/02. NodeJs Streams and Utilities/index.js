@@ -89,7 +89,6 @@ const server = http.createServer(async (req, res) => {
                 const parsedData = JSON.parse(data)
                 parsedData.push({ name, description, imageUrl: upload, breed })
                 await fs.writeFile('./cats.json', JSON.stringify(parsedData, null, 2), 'utf-8');
-
             });
 
             const homeHtml = await fs.readFile("./views/home/index.html", "utf-8");
