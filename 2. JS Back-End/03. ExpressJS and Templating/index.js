@@ -10,7 +10,7 @@ app.use(bodyParser)
 // View Engine
 
 app.engine('hbs', handlebars.engine({ extname: 'hbs' }));
-app.set('view engine', 'hbs')
+app.set('view engine', 'hbs');
 // #region Routing
 app.get("/", (req, res) => {
     // res.status(200);
