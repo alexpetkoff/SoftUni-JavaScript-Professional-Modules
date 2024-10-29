@@ -1,4 +1,5 @@
 const express = require("express");
+const handlebars = require('express-handlebars');
 const app = express();
 
 const port = 3000;
@@ -6,12 +7,16 @@ const port = 3000;
 const bodyParser = express.urlencoded({ extended: false })
 app.use(bodyParser)
 
+// View Engine
+
+app.engine('hbs', handlebars.engine({ extname: 'hbs' }));
+app.set('view engine', 'hbs')
 // #region Routing
 app.get("/", (req, res) => {
-    res.status(200);
-    res.send("Welcome to ExpressJS");
+    // res.status(200);
+    // res.send("Welcome to ExpressJS");
+    res.render("home.hbs")
 });
-
 
 app.post("/kittens", (req, res) => {
     console.log(req.body.name) // now we can read the json because of the bodyParser middleware
@@ -41,9 +46,7 @@ app.get("/kittens", (req, res) => {
 </html>`)
 });
 
-
 app.get("/kittens/:kittenId", (req, res) => {
-
     res.send(`This is kitten with id: ${req.params.kittenId}`)
 });
 
