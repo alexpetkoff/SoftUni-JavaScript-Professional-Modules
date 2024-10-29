@@ -9,6 +9,11 @@ app.engine("hbs", handlebars.engine({ extname: "hbs" }));
 app.set("view engine", "hbs");
 app.set("views", "views");
 
+//Setup static files
+const staticFiles = express.static('static')
+app.use(staticFiles)
+
+
 app.get("/", (req, res) => {
     res.render("index", {});
 });
