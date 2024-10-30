@@ -1,5 +1,6 @@
-const express = require("express")
+const express = require("express");
 const handlebars = require("express-handlebars");
+const path = require("path")
 
 const app = express();
 const PORT = 3000;
@@ -10,12 +11,11 @@ app.set("view engine", "hbs");
 app.set("views", "views");
 
 //Setup static files
-const staticFiles = express.static('static')
-app.use(staticFiles)
-
+const staticFiles = express.static(path.resolve(__dirname, 'static'));
+app.use(staticFiles);
 
 app.get("/", (req, res) => {
-    res.render("index", {});
+    res.render("partials/index", {});
 });
 
 app.listen(PORT, () => console.log(`Server is running on port: ${PORT}...`));
