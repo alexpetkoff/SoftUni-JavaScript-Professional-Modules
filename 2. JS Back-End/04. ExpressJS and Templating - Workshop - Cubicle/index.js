@@ -11,7 +11,6 @@ const PORT = 3000;
 handlebarsConfig(app);
 expressConfig(app);
 
-
 // Routing
 app.get("/", (req, res) => {
     res.render("partials/index", {});
