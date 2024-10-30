@@ -1,14 +1,13 @@
 const express = require("express");
 const handlebars = require("express-handlebars");
 const path = require("path")
+const handlebarsConfig = require('./config/handlebarsConfig')
 
 const app = express();
 const PORT = 3000;
 
 //handlebars config
-app.engine("hbs", handlebars.engine({ extname: "hbs" }));
-app.set("view engine", "hbs");
-app.set("views", "views");
+handlebarsConfig(app);
 
 //Setup static files
 const staticFiles = express.static(path.resolve(__dirname, 'static'));
