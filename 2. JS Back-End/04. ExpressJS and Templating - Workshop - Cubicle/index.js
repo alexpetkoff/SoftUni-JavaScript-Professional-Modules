@@ -1,18 +1,18 @@
+// Imports
 const express = require("express");
-const handlebars = require("express-handlebars");
-const path = require("path")
 const handlebarsConfig = require('./config/handlebarsConfig')
+const expressConfig = require('./config/expressConfig');
 
+// Local variables
 const app = express();
 const PORT = 3000;
 
-//handlebars config
+// Configs
 handlebarsConfig(app);
+expressConfig(app);
 
-//Setup static files
-const staticFiles = express.static(path.resolve(__dirname, 'static'));
-app.use(staticFiles);
 
+// Routing
 app.get("/", (req, res) => {
     res.render("partials/index", {});
 });
